@@ -120,6 +120,21 @@ module.exports.values = function (obj) {
 // String utilities
 // 
 
+//Generate the camelCase varsion of a string
+module.exports.camelCase = function (str) {
+    if (typeof str !== "string") {
+        return str; 
+    }
+    return str.replace(/^([A-Z])|[\s-_](\w)/g, function (match, reg1, reg2) { 
+        if (typeof reg2 !== 'undefined' && reg2) {
+            return reg2.toUpperCase();
+        } else {
+            return reg1.toLowerCase();
+        }
+    });
+};
+
+
 //Return a string in snake case format
 module.exports.snakeCase = function (str) {
     return str.replace(/([a-z])([A-Z])/g, '$1_$2').replace(/\s+/g, '_').toLowerCase();
