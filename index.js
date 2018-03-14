@@ -116,4 +116,17 @@ module.exports.values = function (obj) {
 
 
 
+//
+// String utilities
+// 
+
+//Return a string in snake case format
+module.exports.snakeCase = function (str) {
+    return str.replace(/([a-z])([A-Z])/g, '$1_$2').replace(/\s+/g, '_').toLowerCase();
+};
+
+//Generate a unique string
+module.exports.uniqueStr = function () {
+    return Math.random().toString(36).slice(2, 9) + Date.now().toString(36);
+};
 
