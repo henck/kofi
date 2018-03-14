@@ -17,6 +17,20 @@ module.exports.timer = function (time, fn) {
 // Array utils 
 // =============================
 
+//Array concat 
+module.exports.concat = function() {
+    let output = [];
+    for (let i = 0; i < arguments.length; i++) {
+        let item = arguments[i];
+        if (Array.isArray(item) === true) {
+            output = output.concat(item);
+        } else {
+            output.push(item); 
+        }
+    }
+    return output;
+};
+
 //Array each method
 module.exports.each = function (array, fn) {
     if (typeof array !== 'object' || array === null || Array.isArray(array) === false) {
@@ -85,6 +99,20 @@ module.exports.zeros = function (num) {
 };
 
 
+// Object methods 
+// ========================
+
+//Get a list with all the keys of an object
+module.exports.keys = function (obj) {
+    return Object.keys(obj);
+};
+
+//Get a list with the values of an object
+module.exports.values = function (obj) {
+    return Object.keys(obj).map(function (key) { 
+        return obj[key]; 
+    });
+};
 
 
 
