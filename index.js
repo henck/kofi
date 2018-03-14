@@ -4,17 +4,12 @@
 
 //Time out wrapper
 module.exports.delay = function (delay, fn) {
-    if (typeof delay !== "number") { 
-        throw new Error("No delay time provided"); 
-    }
-    if (typeof fn !== "function") { 
-        throw new Error("No function to execute provided"); 
-    }
-    //Check for negative delay times
-    if (delay < 0) {
-        delay = 0; 
-    }
     return setTimeout(fn, delay);
+};
+
+//Set interval wrapper 
+module.exports.timer = function (time, fn) {
+    return setInterval(fn, time);
 };
 
 
