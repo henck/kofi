@@ -212,7 +212,7 @@ module.exports.repeat = function (str, n) {
 };
 
 //Generate a unique string
-module.exports.uniqueStr = function () {
+module.exports.uniqueId = function () {
     return Math.random().toString(36).slice(2, 9) + Date.now().toString(36);
 };
 
