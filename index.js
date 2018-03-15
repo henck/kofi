@@ -139,6 +139,11 @@ module.exports.snakeCase = function (str) {
     return str.replace(/([a-z])([A-Z])/g, '$1_$2').replace(/\s+/g, '_').toLowerCase();
 };
 
+//Repeat a string n times
+module.exports.repeat = function (str, n) {
+    return new Array(n).join(str);
+};
+
 //Generate a unique string
 module.exports.uniqueStr = function () {
     return Math.random().toString(36).slice(2, 9) + Date.now().toString(36);
