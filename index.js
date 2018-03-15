@@ -99,8 +99,26 @@ module.exports.zeros = function (num) {
 };
 
 
-// Object methods 
-// ========================
+//
+// Comparison utilities
+//
+
+//Check if 'value' is an empty object, array or string
+module.exports.isEmpty = function (value) {
+    if (typeof value === "string") {
+        return value.trim().length === 0;
+    } else if (Array.isArray(value) === true && value !== null) {
+        return value.length === 0;
+    } else if (typeof value === "object" && value !== null) {
+        return Object.keys(value).length === 0;
+    }
+    //Default, return false 
+    return false;
+};
+
+//
+// Object utilities 
+// 
 
 //Get a list with all the keys of an object
 module.exports.keys = function (obj) {
