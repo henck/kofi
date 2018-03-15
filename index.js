@@ -33,19 +33,15 @@ module.exports.concat = function() {
 
 //Array each method
 module.exports.each = function (array, fn) {
-    if (typeof array !== 'object' || array === null || Array.isArray(array) === false) {
-        throw new Error('No array provided');
+    if (typeof array !== "object" || array === null || Array.isArray(array) === false) {
+        throw new Error("No array provided");
     }
-    if (typeof fn !== 'function') {
-        throw new Error('No iterator function provided');
+    if (typeof fn !== "function") {
+        throw new Error("No iterator function provided");
     }
     //Iterate over each item in the array
     for (let i = 0; i < array.length; i++) {
-        let result = fn.call(null, i, array[i]);
-        if (typeof result === 'undefined') {
-            continue;
-        }
-        if (result === false) {
+        if (fn.call(null, i, array[i]) === false) {
             break;
         }
     }
