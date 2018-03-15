@@ -120,6 +120,22 @@ module.exports.isEmpty = function (value) {
     return false;
 };
 
+//Check if a string is in lower-case format
+module.exports.isLowerCase = function (str) {
+    if (typeof str === "string") {
+        return str.toLowerCase() === str;
+    }
+    return false;
+};
+
+//Check if a string is in upper-case format
+module.exports.isUpperCase = function (str) {
+    if (typeof str === "string") {
+        return str.toUpperCase() === str;
+    }
+    return false;
+};
+
 
 
 //
