@@ -134,6 +134,12 @@ module.exports.camelCase = function (str) {
     });
 };
 
+//Return a string in kebab-case format
+//https://en.wikipedia.org/wiki/Letter_case#Special_case_styles
+module.exports.kebabCase = function (str) {
+    return str.replace(/([a-z])([A-Z])/g, '$1-$2').replace(/\s+/g, '-').toLowerCase();
+};
+
 //Return a string in snake case format
 module.exports.snakeCase = function (str) {
     return str.replace(/([a-z])([A-Z])/g, '$1_$2').replace(/\s+/g, '_').toLowerCase();
