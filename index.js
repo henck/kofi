@@ -1,6 +1,12 @@
+//
+// Kofi - A tasty JavaScript utility library
+// Released under the MIT LICENSE.
+//
 
+
+//
 // Global utilities
-// ===========================
+// 
 
 //Time out wrapper
 module.exports.delay = function (delay, fn) {
@@ -14,8 +20,9 @@ module.exports.timer = function (time, fn) {
 
 
 
-// Array utils 
-// =============================
+//
+// Array utilities 
+//
 
 //Array concat 
 module.exports.concat = function() {
@@ -95,6 +102,7 @@ module.exports.zeros = function (num) {
 };
 
 
+
 //
 // Comparison utilities
 //
@@ -111,6 +119,8 @@ module.exports.isEmpty = function (value) {
     //Default, return false 
     return false;
 };
+
+
 
 //
 // Object utilities 
