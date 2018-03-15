@@ -134,6 +134,27 @@ module.exports.camelCase = function (str) {
     });
 };
 
+//Format a template string
+module.exports.format = function (str, obj, opt) {
+    if (typeof obj === "undefined") { 
+        return str; 
+    }
+    if (typeof opt !== "object") { 
+        opt = {}; 
+    }
+    opt.prefix = (typeof opt.prefix === "string") ? opt.prefix.trim() : "{{"; 
+    opt.suffix = (typeof opt.suffix === "string") ? opt.suffix.trim() : "}}";
+    let reg = new RegExp(opt.prefix + "([^{}]+)" + opt.suffix, "g");
+    return str.replace(reg, function (match, found) {
+        found = found.trim();
+        if (typeof obj[found] !== "undefined") {
+            return obj[found].toString();
+        } else {
+            return match;
+        }
+    });
+};
+
 //Return a string in kebab-case format
 //https://en.wikipedia.org/wiki/Letter_case#Special_case_styles
 module.exports.kebabCase = function (str) {
