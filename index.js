@@ -110,7 +110,7 @@ module.exports.zeros = function (num) {
 //Check if 'value' is an empty object, array or string
 module.exports.isEmpty = function (value) {
     if (typeof value === "string") {
-        return value.trim().length === 0;
+        return value.length === 0;
     } else if (Array.isArray(value) === true && value !== null) {
         return value.length === 0;
     } else if (typeof value === "object" && value !== null) {
