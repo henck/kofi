@@ -25,6 +25,39 @@ let kofi = require("kofi");
 
 ## API
 
+#### 
+
+
+### Array utilities
+
+#### kofi.has(array, item)
+
+Returns `true` if `item` exists in `array`, `false` if not.
+
+```javascript
+kofi.has([1, 2, 3, 4], 2); // -> true
+kofi.has([1, 2, 3, 4], 5); // -> false
+```
+
+#### kofi.max(array)
+
+Returns the maximum value in `array`. 
+
+```javascript
+kofi.max([1, 2, 3, 4, 5]); // -> 5
+```
+
+#### kofi.min(array)
+
+Returns the minimum value in `array`.
+
+```javascript
+kofi.min([1, 2, 3, 4, 5]); // -> 1
+```
+
+
+### Function utilities
+
 #### kofi.delay(time, fn)
 
 This is just [`setTimeout`](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout) but with the arguments reverted (first the delay `time` in ms, then the callback `fn` function).
@@ -34,7 +67,6 @@ kofi.delay(1000, function () {
     console.log("Hello after 1 second!!");
 });
 ```
-
 
 #### kofi.timer(time, fn)
 
@@ -47,6 +79,22 @@ kofi.timer(1000, function () {
     console.log(counter);
 });
 ```
+
+### Maths utilities
+
+#### kofi.range(start, end\[, step\])
+
+Returns a new array with values starting in `start` to `end` (included). You can specify the distance between each number in the sequence by providing a `step` value. Default `step` value is `1`.
+
+```javascript
+kofi.range(0, 5); // -> [0, 1, 2, 3, 4, 5]
+kofi.range(0, 4, 2); // -> [0, 2, 4] 
+```
+
+
+
+
+
 
 
 
