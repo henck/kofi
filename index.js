@@ -232,6 +232,20 @@ module.exports.timer = function (time, fn) {
 
 
 //
+// Math utilities
+//
+
+//Count the digits of a number
+module.exports.digits = function (num) {
+    if (typeof num === "number") {
+        return num.toString().replace(".", "").length;
+    }
+    return 0;
+};
+
+
+
+//
 // Object utilities 
 // 
 
