@@ -38,7 +38,7 @@ module.exports.dispatch = function () {
                 args.push(arguments[i]);
             }
             for (let i = 0; i < listeners[name].length; i++) {
-                listeners[name].apply(null, args);
+                listeners[name][i].apply(null, args);
             }
         }
         return null;
