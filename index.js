@@ -8,11 +8,6 @@
 // Global utilities
 // 
 
-//Time out wrapper
-module.exports.delay = function (delay, fn) {
-    return setTimeout(fn, delay);
-};
-
 //Manage events
 module.exports.dispatch = function () {
     let listeners = {};
@@ -100,12 +95,6 @@ module.exports.queue = function (fn) {
     };
     return q;
 };
-
-//Set interval wrapper 
-module.exports.timer = function (time, fn) {
-    return setInterval(fn, time);
-};
-
 
 
 //
@@ -222,6 +211,22 @@ module.exports.isUpperCase = function (str) {
         return str.toUpperCase() === str;
     }
     return false;
+};
+
+
+
+//
+// Fuctions utilities
+//
+
+//Time out wrapper
+module.exports.delay = function (delay, fn) {
+    return setTimeout(fn, delay);
+};
+
+//Set interval wrapper 
+module.exports.timer = function (time, fn) {
+    return setInterval(fn, time);
 };
 
 
