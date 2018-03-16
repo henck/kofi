@@ -15,7 +15,7 @@ module.exports.delay = function (delay, fn) {
 
 //Manage events
 module.exports.dispatch = function () {
-    let lieteners = {};
+    let listeners = {};
     let dispatcher = {};
     //Add a new event listener
     dispatcher.on = function (name, listener) {
@@ -30,7 +30,7 @@ module.exports.dispatch = function () {
         if (arguments.length === 0) {
             return null;
         }
-        let name = argumets[0];
+        let name = arguments[0];
         //Check if there are listeners registered for this event
         if (typeof listeners[name] !== "udefined") {
             let args = [];
