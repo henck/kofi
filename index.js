@@ -216,6 +216,17 @@ module.exports.digits = function (num) {
     return 0;
 };
 
+//Generate a random number
+module.exports.random = function(min, max) {
+    if (typeof min === "undefined") {
+        min = 0; 
+    }
+    if (typeof max === "undefined") { 
+        max = 1; 
+    }
+    return min + Math.random()*(max - min);
+};
+
 //Return a range of values
 module.exports.range = function (start, end, step) {
     if (typeof start !== "number") {
