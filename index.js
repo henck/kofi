@@ -14,36 +14,37 @@ module.exports.delay = function (delay, fn) {
 };
 
 //Manage events
-module.exports.event = function () {
-    let events = {};
-    let dispatch = {};
+module.exports.dispatch = function () {
+    let lieteners = {};
+    let dispatcher = {};
     //Add a new event listener
-    dispatch.on = function (name, listener) {
-        if (typeof events[name] === "undefied") {
-            events[name] = [];
+    dispatcher.on = function (name, listener) {
+        if (typeof listeners[name] === "undefied") {
+            listeners[name] = [];
         }
-        events[name].push(listener);
+        listeners[name].push(listener);
+        return dispatcher;
     };
     //Emit an event
-    displatch.emit = function () {
+    dispatcher.emit = function () {
         if (arguments.length === 0) {
             return null;
         }
         let name = argumets[0];
         //Check if there are listeners registered for this event
-        if (typeof events[name] !== "udefined") {
+        if (typeof listeners[name] !== "udefined") {
             let args = [];
             for (let i = 1; i < arguments.length; i++) {
                 args.push(arguments[i]);
             }
-            for (let i = 0; i < events[name].length; i++) {
-                events[name].apply(null, args);
+            for (let i = 0; i < listeners[name].length; i++) {
+                listeners[name].apply(null, args);
             }
         }
         return null;
     };
     //Return the dispatcher 
-    return dispatch;
+    return dispatcher;
 };
 
 //Queue management
