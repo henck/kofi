@@ -146,33 +146,6 @@ module.exports.min = function (array) {
     return Math.min.apply(Math, array);
 };
 
-//Return a range of values
-module.exports.range = function (start, end, step) {
-    if (typeof start !== "number") {
-        return [];
-    }
-    if (typeof end !== "number") {
-        end = start;
-        start = 0;
-    }
-    //Check if start < end and if start is not negative
-    if (0 <= start && start < end) {
-        if (typeof step !== "number") {
-            step = 1;
-        }
-        if (step <= 0) {
-            throw new Error("Step value must not be zero or negative");
-        }
-        let len = Math.floor((end - start) / step);
-        return Array(len).fill().map(function (el, idx) {
-            return start + (idx * step);
-        });
-    } else {
-        //Start or end values not valid, return an empty array
-        return [];
-    }
-};
-
 //Create an array with zeros
 module.exports.zeros = function (num) {
     return Array.apply(null, Array(num)).map(Number.prototype.valueOf, 0);
@@ -241,6 +214,33 @@ module.exports.digits = function (num) {
         return num.toString().replace(".", "").length;
     }
     return 0;
+};
+
+//Return a range of values
+module.exports.range = function (start, end, step) {
+    if (typeof start !== "number") {
+        return [];
+    }
+    if (typeof end !== "number") {
+        end = start;
+        start = 0;
+    }
+    //Check if start < end and if start is not negative
+    if (0 <= start && start < end) {
+        if (typeof step !== "number") {
+            step = 1;
+        }
+        if (step <= 0) {
+            throw new Error("Step value must not be zero or negative");
+        }
+        let len = Math.floor((end - start) / step);
+        return Array(len).fill().map(function (el, idx) {
+            return start + (idx * step);
+        });
+    } else {
+        //Start or end values not valid, return an empty array
+        return [];
+    }
 };
 
 
