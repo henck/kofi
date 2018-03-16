@@ -136,7 +136,7 @@ module.exports.each = function (array, fn) {
     }
     //Iterate over each item in the array
     for (let i = 0; i < array.length; i++) {
-        if (fn.call(null, i, array[i]) === false) {
+        if (fn.call(null, array[i], i) === false) {
             break;
         }
     }
