@@ -29,3 +29,26 @@ describe("concat", function () {
     });
 });
 
+describe("each", function () {
+    it("calls a function with each value in the array", function (done) {
+        let list = [0, 1, 2, 3];
+        kofi.each(list, function (value, index) {
+            assert.equal(value, list[index]);
+        });
+        return done();
+    });
+
+    it("stops the loop when a false value is returned", function (done) {
+        let list = [0, 1, 2, 3];
+        let executed = 0;
+        kofi.each(list, function (value, index) {
+            executed = executed + 1;
+            if (index === 2) {
+                return false;
+            }
+        });
+        assert.equal(executed, 3);
+        return done();
+    });
+});
+
