@@ -17,3 +17,12 @@ describe("keys", function () {
     });
 });
 
+describe("values", function () {
+    it("returns all values of an object", function (done) {
+        let values = kofi.values(obj);
+        assert.equal(values.length, 3);
+        assert.equal(values[1], 30);
+        return done();
+    });
+});
+
