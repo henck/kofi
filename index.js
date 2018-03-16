@@ -52,9 +52,11 @@ module.exports.queue = function (fn) {
     let taskError = function() {
         return null;
     };
+    //Check the initial function
     if (typeof fn === "function") {
         taskList.push(fn);
     }
+    //Queue management
     let q = {
         then: function (fn) {
             if (typeof fn === "function") {
@@ -71,6 +73,7 @@ module.exports.queue = function (fn) {
         finish: function (fn) {
             let numTasks = taskList.length;
             let taskRun = function (index) {
+                //Check for no more tasks to execute
                 if (index >= numTasks) {
                     if (typeof fn === "function") {
                         return fn.call(null);
