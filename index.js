@@ -19,7 +19,7 @@ module.exports.dispatch = function () {
     let dispatcher = {};
     //Add a new event listener
     dispatcher.on = function (name, listener) {
-        if (typeof listeners[name] === "undefied") {
+        if (typeof listeners[name] === "undefined") {
             listeners[name] = [];
         }
         listeners[name].push(listener);
@@ -32,7 +32,7 @@ module.exports.dispatch = function () {
         }
         let name = arguments[0];
         //Check if there are listeners registered for this event
-        if (typeof listeners[name] !== "udefined") {
+        if (typeof listeners[name] !== "undefined") {
             let args = [];
             for (let i = 1; i < arguments.length; i++) {
                 args.push(arguments[i]);
