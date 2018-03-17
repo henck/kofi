@@ -126,7 +126,7 @@ module.exports.each = function (array, fn) {
     //Iterate over each item in the array
     for (let i = 0; i < array.length; i++) {
         if (fn.call(null, array[i], i) === false) {
-            break;
+            return;
         }
     }
 };
@@ -259,6 +259,18 @@ module.exports.range = function (start, end, step) {
 //
 // Object utilities 
 // 
+
+//Execute a function for each pair key-value in the object
+module.exports.eachObj = function (obj, fn) {
+    let keys = Object.keys(obj);
+    for (let i = 0; i < keys.length; i++) {
+        let key = keys[i];
+        let value = obj[key];
+        if (fn.call(null, key, value) === false) {
+            return;
+        }
+    }
+};
 
 //Get a list with all the keys of an object
 module.exports.keys = function (obj) {
