@@ -304,6 +304,11 @@ module.exports.camelCase = function (str) {
     });
 };
 
+//Capitalize a string
+module.exports.capitalize = function (str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+};
+
 //Format a template string
 module.exports.format = function (str, obj, opt) {
     if (typeof obj === "undefined") { 
@@ -329,6 +334,19 @@ module.exports.format = function (str, obj, opt) {
 //https://en.wikipedia.org/wiki/Letter_case#Special_case_styles
 module.exports.kebabCase = function (str) {
     return str.replace(/([a-z])([A-Z])/g, '$1-$2').replace(/\s+/g, '-').toLowerCase();
+};
+
+//Pad a sring on the left side if it is shorter than length
+module.exports.padLeft = function (str, length, chars) { 
+    if (length <= str.length) {
+        return str;
+    }
+    if (typeof chars !== "string" || chars === "") {
+        chars = " ";
+    }
+    let padTimes = Math.floor((length - str.length) / chars.length);
+    let left = repeat(chars, padTimes + 1);
+    return (left + str).slice(-length);
 };
 
 //Return a string in snake case format
