@@ -127,6 +127,29 @@ let obj = {
 let keys = kofi.keys(obj); // --> keys = ["a", "b", "c"]
 ```
 
+#### kofi.values(obj)
+
+Returns an array of a given object's own enumerable property values. It's a ponyfill of the [ `Object.values`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/values) method.
+
+```javascript
+let obj = {
+    a: 1,
+    b: 2,
+    c: "hello"
+};
+let values = kofi.values(obj); // -> values = [1, 2, "hello"]
+```
+
+
+### String utilities
+
+#### kofi.format(str, obj)
+
+Replace all handlebars expressions from `str` with values of `obj`.
+
+```javascript
+kofi.format('My car is {{ color }}!', { color: 'blue' }); // --> "My car is blue!"
+```
 
 
 
