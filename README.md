@@ -151,6 +151,14 @@ Replace all handlebars expressions from `str` with values of `obj`.
 kofi.format('My car is {{ color }}!', { color: 'blue' }); // --> "My car is blue!"
 ```
 
+#### kofi.camelCase(str)
+
+Return the camel-case format of `str`.
+
+```javascript
+kofi.camelCase("hello world");  // -> "helloWorld"
+```
+
 
 
 
