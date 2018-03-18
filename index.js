@@ -218,11 +218,9 @@ module.exports.digits = function (num) {
 
 //Generate a random number
 module.exports.random = function(min, max) {
-    if (typeof min === "undefined") {
+    if (typeof max !== "number") {
+        max = min;
         min = 0; 
-    }
-    if (typeof max === "undefined") { 
-        max = 1; 
     }
     return min + Math.random()*(max - min);
 };
