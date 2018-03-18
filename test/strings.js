@@ -6,7 +6,7 @@ describe("uniqueId", function () {
         let ids = [];
         let j = 0;
         while (j < 100) {
-            let id = kofi.iniqueId();
+            let id = kofi.uniqueId();
             assert.equal(ids.indexOf(id), -1);
             ids.push(id);
             j++
