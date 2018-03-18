@@ -145,7 +145,7 @@ let values = kofi.values(obj); // -> values = [1, 2, "hello"]
 
 #### kofi.camelCase(str)
 
-Return the camel-case format of `str`.
+Returns the camel-case format of `str`.
 
 ```javascript
 kofi.camelCase("hello world");  // -> "helloWorld"
@@ -154,7 +154,7 @@ kofi.camelCase("hello world");  // -> "helloWorld"
 
 #### kofi.capitalize(str)
 
-Return the capitalized format of `str`.
+Returns the capitalized format of `str`.
 
 ```javascript
 kofi.capitalize("hello world");  // -> "Hello world"
@@ -172,10 +172,19 @@ kofi.format('My car is {{ color }}!', { color: 'blue' }); // --> "My car is blue
 
 #### kofi.kebabCase(str)
 
-Return the kebab-case form of the string `str`.
+Returns the kebab-case form of the string `str`.
 
 ```javascript
 kofi.kebabCase("hello world");  // -> "hello-world"
+```
+
+
+#### kofi.repeat(str, n)
+
+Repeats a string `n` times.
+
+```javascript
+let rep = kofi.repeat("x", 5);  // -> "xxxxx"
 ```
 
 
@@ -190,7 +199,7 @@ kofi.snakeCase("hello world");  // -> "hello_world"
 
 #### kofi.uniqueId()
 
-Generate a unique random string of 15 characters.
+Generates a unique random string of 15 characters.
 
 ```javascript
 let str = kofi.uniqueId();  // -> str = "wv1ufiqj5e6xd3k"
