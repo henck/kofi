@@ -92,7 +92,40 @@ kofi.range(0, 4, 2); // -> [0, 2, 4]
 ```
 
 
+### Object utilities 
 
+#### kofi.eachObj(obj, fn)
+
+Execute a function `fn` with each pair `key` - `value` in the object `obj`. 
+
+```javascript
+let obj = { 
+    key1: "value1", 
+    key2: "value2", 
+    key3: "value3" 
+};
+kofi.eachObj(obj, function (key, value) {
+    console.log(key + " -> " + value);
+});
+
+//Output in console:
+// key1 -> value1
+// key2 -> value2
+// key3 -> value3
+```
+
+#### kofi.keys(obj)
+
+This is just [`Object.keys`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys).
+
+```javascript
+let obj = {
+    a: 1,
+    b: 2,
+    c: "hello"
+};
+let keys = kofi.keys(obj); // --> keys = ["a", "b", "c"]
+```
 
 
 
