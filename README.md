@@ -143,14 +143,6 @@ let values = kofi.values(obj); // -> values = [1, 2, "hello"]
 
 ### String utilities
 
-#### kofi.format(str, obj)
-
-Replace all handlebars expressions from `str` with values of `obj`.
-
-```javascript
-kofi.format('My car is {{ color }}!', { color: 'blue' }); // --> "My car is blue!"
-```
-
 #### kofi.camelCase(str)
 
 Return the camel-case format of `str`.
@@ -166,6 +158,33 @@ Return the capitalized format of `str`.
 
 ```javascript
 kofi.capitalize("hello world");  // -> "Hello world"
+```
+
+
+#### kofi.format(str, obj)
+
+Replace all handlebars expressions from `str` with values of `obj`.
+
+```javascript
+kofi.format('My car is {{ color }}!', { color: 'blue' }); // --> "My car is blue!"
+```
+
+
+#### kofi.kebabCase(str)
+
+Return the kebab-case form of the string `str`.
+
+```javascript
+kofi.kebabCase("hello world");  // -> "hello-world"
+```
+
+
+#### kofi.snakeCase(str)
+
+Returns the snake-case form of the string `str`.
+
+```javascript
+kofi.snakeCase("hello world");  // -> "hello_world"
 ```
 
 
