@@ -160,6 +160,23 @@ kofi.camelCase("hello world");  // -> "helloWorld"
 ```
 
 
+#### kofi.capitalize(str)
+
+Return the capitalized format of `str`.
+
+```javascript
+kofi.capitalize("hello world");  // -> "Hello world"
+```
+
+
+#### kofi.uniqueId()
+
+Generate a unique random string of 15 characters.
+
+```javascript
+let str = kofi.uniqueId();  // -> str = "wv1ufiqj5e6xd3k"
+```
+
 
 
 
