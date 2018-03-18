@@ -80,7 +80,7 @@ kofi.timer(1000, function () {
 });
 ```
 
-### Maths utilities
+### Math utilities
 
 #### kofi.range(start, end\[, step\])
 
