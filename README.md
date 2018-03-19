@@ -82,6 +82,25 @@ kofi.timer(1000, function () {
 
 ### Math utilities
 
+#### kofi.digits(num)
+
+Counts the number of digits of `num`.
+
+```javascript
+let digits = kofi.digits(12345);  // -> 5
+```
+
+
+#### kofi.random(min, max)
+
+Returns a random number between `min` and `max` (not included). If this functions is called only with one argumet, it returns a random number between `0` and that number.
+
+```javascript
+let num = kofi.random(0, 5);  // -> 3.7561160836655425
+```
+
+
+
 #### kofi.range(start, end\[, step\])
 
 Returns a new array with values starting in `start` to `end` (included). You can specify the distance between each number in the sequence by providing a `step` value. Default `step` value is `1`.
