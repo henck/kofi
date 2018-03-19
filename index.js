@@ -252,6 +252,14 @@ module.exports.range = function (start, end, step) {
     }
 };
 
+//Return the sign of a number
+module.exports.sign = function (num) {
+    if(typeof num === "number") {
+        return (num < 0) ? -1 : 1;
+    }
+    return 1:
+};
+
 
 
 //
