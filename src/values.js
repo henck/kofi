@@ -9,7 +9,7 @@
  *     "age": 24
  * };
  * values(obj); 
- * // -> values = ["name", "city", "age"]
+ * // -> values = ["Bob", "Tokio", 24]
  */
 
 export default function values (obj) {
