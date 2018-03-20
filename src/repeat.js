@@ -2,7 +2,7 @@
  * @function repeat(str, n)
  * @description Repeat a string `n` times.
  * @example
- * let rep = repeat("x", 5); 
+ * repeat("x", 5); 
  * // -> "xxxxx"
  */
 
