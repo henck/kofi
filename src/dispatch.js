@@ -18,33 +18,36 @@
  */
 
 export default function dispatch () {
-    let listeners = {};
     let dispatcher = {};
+    //Event listeners
+    dispatcher._listeners = {};
     //Add a new event listener
     dispatcher.on = function (name, listener) {
-        if (typeof listeners[name] === "undefined") {
-            listeners[name] = [];
+        if (typeof dispatcher._listeners[name] === "undefined") {
+            dispatcher._listeners[name] = [];
         }
-        listeners[name].push(listener);
+        dispatcher._listeners[name].push(listener);
         return dispatcher;
     };
     //Emit an event
     dispatcher.emit = function () {
         if (arguments.length === 0) {
-            return null;
+            return;
         }
+        //Get the event name 
         let name = arguments[0];
         //Check if there are listeners registered for this event
-        if (typeof listeners[name] !== "undefined") {
+        if (typeof dispatcher._listeners[name] !== "undefined") {
             let args = [];
             for (let i = 1; i < arguments.length; i++) {
                 args.push(arguments[i]);
             }
-            for (let i = 0; i < listeners[name].length; i++) {
-                listeners[name][i].apply(null, args);
+            let listeners = dispatcher._listeners[name];
+            for (let i = 0; i < listeners.length; i++) {
+                listeners[i].apply(null, args);
             }
         }
-        return null;
+        return;
     };
     //Return the dispatcher 
     return dispatcher;
