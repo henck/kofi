@@ -36,28 +36,30 @@
  */
 
 export default function queue (fn) {
-    let taskList = [];
-    let taskError = function() {
-        return null;
+    //Queue management
+    let q = {
+        _list: [], 
+        _error: null
     };
     //Check the initial function
     if (typeof fn === "function") {
-        taskList.push(fn);
+        q._list.push(fn);
     }
-    //Queue management
-    let q = {};
+    //Add a new function to the list
     q.then = function (fn) {
         if (typeof fn === "function") {
-            taskList.push(fn);
+            q._list.push(fn);
         }
         return q;
     };
+    //Add an error listener
     q.catch = function (fn) {
         if (typeof fn === "function") {
-            taskError = fn;
+            q._error = fn;
         }
         return q;
     };
+    //Finish the tasks to run
     q.finish = function (fn) {
         let numTasks = taskList.length;
         let taskRun = function (index) {
@@ -69,13 +71,16 @@ export default function queue (fn) {
                 return;
             }
             //Execute the next function
-            return taskList[index].call(null, function (error) {
+            return taskList[index].call(null, function (error) { 
                 if (error) {
-                    //Call the task error 
-                    return taskError.call(null, error);
+                    //Call the error listener
+                    if (typeof q._error === "function") {
+                        return q._error.call(null, error);
+                    }
+                } else {
+                    //Continue with the next function in the list
+                    return taskRun(index + 1);
                 }
-                //Continue with the next function in the list
-                return taskRun(index + 1);
             });
         };
         //Terrible hack to run this task in async mode
