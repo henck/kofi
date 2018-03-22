@@ -7,7 +7,7 @@
  */
 
 export default function digits (num) {
-    if (typeof num === "number") {
+    if (typeof num === "number" && isNaN(num) === false) {
         return num.toString().replace(".", "").length;
     }
     return 0;
