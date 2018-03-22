@@ -9,7 +9,8 @@
  */
 
 export default function sign (num) {
-    if(typeof num === "number") {
+    //Check if the provided value is a number
+    if(typeof num === "number" && isNaN(num) === false) {
         return (num < 0) ? -1 : 1;
     }
     return 1:
