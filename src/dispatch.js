@@ -6,12 +6,12 @@
  * @example
  * let dispatcher = dispatch();
  *
- * //Register a event listener 
+ * //Register an event listener 
  * dispatcher.on("warning", function (value) {
  *     console.log("WARNING MESSAGE: " + value);
  * });
  *
- * //Trigger a event
+ * //Trigger an event
  * dispatcher.emit("warning", "A warning message generated");
  * // -> "WARNING MESSAGE: A warning message generated"
  *
