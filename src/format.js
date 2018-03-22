@@ -2,7 +2,7 @@
  * @function format(str, obj)
  * @description Replace all handlebars expressions from `str` with values of `obj`.
  * @example 
- * format('My car is {{ color }}!', { color: 'blue' }); 
+ * format("My car is {{ color }}!", { color: 'blue' }); 
  * // --> "My car is blue!"
  */
 
