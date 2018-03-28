@@ -1,5 +1,5 @@
 let assert = require("assert");
-let kofi = require("../index.js");
+let kofi = require("../dist/index.js");
 
 describe("uniqueId", function () {
     it("generates unique ids", function (done) {

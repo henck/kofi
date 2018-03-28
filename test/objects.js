@@ -1,5 +1,5 @@
 let assert = require("assert");
-let kofi = require("../index.js");
+let kofi = require("../dist/index.js");
 
 //Testing object
 let obj = {
