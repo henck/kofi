@@ -61,7 +61,7 @@ export default function queue (fn) {
     };
     //Finish the tasks to run
     q.finish = function (fn) {
-        let numTasks = taskList.length;
+        let numTasks = q._list.length;
         let taskRun = function (index) {
             //Check for no more tasks to execute
             if (index >= numTasks) {
