@@ -1,16 +1,24 @@
 import cleanup from "rollup-plugin-cleanup";
 import uglify from "rollup-plugin-uglify";
 
-let isMin = process.wnv.MINIFY === "true";
-let plugins = (isMin === true) ? [uglify()] : [cleanup()];
+let config = {"input": "./index.js"};
+let isMin = typeof process.env.MINIFY === "string" && process.env.MINIFY === "true";
 
-export default {
-    "input": "./index.js",
-    "output": {
+if(isMin === true) {
+    config.plugins = [uglify()];
+    config.output = {
+        "file": "./dist/kofi.min.js",
+        "format": "umd",
+        "name": "kofi"
+    };
+} else {
+    config.plugins = [cleanup()];
+    config.output = {
         "file": "./dist/kofi.js",
         "format": "umd",
         "name": "kofi"
-    },
-    "plugins": plugins
-};
+    };
+}
+
+export default config;
 
