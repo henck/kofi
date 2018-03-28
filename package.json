@@ -4,7 +4,9 @@
     "description": "A tasty Javascript utility library",
     "main": "index.js",
     "scripts": {
-        "build": "./node_modules/.bin/rollup --config rollup.config.js",
+        "build": "npm run build:compile && npm run build:minify",
+        "build:compile": "./node_modules/.bin/rollup --config rollup.config.js",
+        "build:minify": "./node_modules/.bin/rollup --config rollup.config.js --environment MINIFY",
         "deploy": "npm run build && cp README.md ./dist/ && cp package.json ./dist/ && cd ./dist && npm publish",
         "test": "./node_modules/.bin/mocha --reporter spec"
     },
