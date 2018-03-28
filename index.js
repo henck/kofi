@@ -15,6 +15,7 @@ export {default as min} from "./src/min.js";
 export {default as pad} from "./src/pad.js";
 export {default as queue} from "./src/queue.js";
 export {default as random} from "./src/random.js";
+export {default as range} from "./src/range.js";
 export {default as repeat} from "./src/repeat.js";
 export {default as sign} from "./src/sign.js";
 export {default as snakeCase} from "./src/snake-case.js";
