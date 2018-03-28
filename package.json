@@ -4,11 +4,8 @@
     "description": "A tasty Javascript utility library",
     "main": "index.js",
     "scripts": {
-        "build": "mkdir -p dist && npm run compile",
-        "compile": "./node_modules/.bin/rollup --config rollup.config.js",
-        "deploy": "npm run build && npm run deploy:copy",
-        "deploy:copy": "cp README.md ./dist/ && cp package.json ./dist/",
-        "deploy:publish": "",
+        "build": "./node_modules/.bin/rollup --config rollup.config.js",
+        "deploy": "npm run build && cp README.md ./dist/ && cp package.json ./dist/ && cd ./dist && npm publish",
         "test": "./node_modules/.bin/mocha --reporter spec"
     },
     "repository": {
