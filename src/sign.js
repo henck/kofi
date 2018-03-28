@@ -13,6 +13,6 @@ export default function sign (num) {
     if(typeof num === "number" && isNaN(num) === false) {
         return (num < 0) ? -1 : 1;
     }
-    return 1:
+    return 1;
 }
 
