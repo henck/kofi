@@ -8,12 +8,12 @@ let obj = {
     city: "Tokio"
 };
 
-describe("eachObj", function () {
+describe("each", function () {
     it("executes a function for ach pair key-value", function (done) {
         let keys = ["name", "age", "city"];
         let values = ["Bob", 30, "Tokio"];
         let j = 0;
-        kofi.eachObj(obj, function (key, value) {
+        kofi.each(obj, function (key, value) {
             assert.equal(keys[j], key);
             assert.equal(values[j], value);
             j = j + 1;;
@@ -24,7 +24,7 @@ describe("eachObj", function () {
 
     it("stops when a false boolean is returned", function (done) {
         let j = 0;
-        kofi.eachObj(obj, function () {
+        kofi.each(obj, function () {
             j = j + 1;
             if (j === 2) {
                 return false;
