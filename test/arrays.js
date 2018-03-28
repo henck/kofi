@@ -52,19 +52,6 @@ describe("each", function () {
     });
 });
 
-describe("has", function () {
-    it("returns true if item exists in the array", function (done) {
-        let list = [0, 1, 2, 3];
-        assert.equal(kofi.has(list, 3), true);
-        return done();
-    });
-    it("returns false if item does not exists in the array", function (done) {
-        let list = [0, 1, 2, 3];
-        assert.equal(kofi.has(list, 4), false);
-        return done();
-    });
-});
-
 describe("range", function () {
     it("generates a correct array range", function (done) {
         let range = kofi.range(0, 5);
