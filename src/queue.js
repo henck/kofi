@@ -71,7 +71,7 @@ export default function queue (fn) {
                 return;
             }
             //Execute the next function
-            return taskList[index].call(null, function (error) { 
+            return q._list[index].call(null, function (error) { 
                 if (error) {
                     //Call the error listener
                     if (typeof q._error === "function") {
