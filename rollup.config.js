@@ -1,4 +1,8 @@
 import cleanup from "rollup-plugin-cleanup";
+import uglify from "rollup-plugin-uglify";
+
+let isMin = process.wnv.MINIFY === "true";
+let plugins = (isMin === true) ? [uglify()] : [cleanup()];
 
 export default {
     "input": "./index.js",
@@ -7,7 +11,6 @@ export default {
         "format": "umd",
         "name": "kofi"
     },
-    "plugins": [
-        cleanup()
-    ]
-}
+    "plugins": plugins
+};
+
