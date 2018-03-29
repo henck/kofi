@@ -16,30 +16,32 @@ Use [npm](https://npmjs.com) to install this module:
 npm install --save kofi
 ```
 
-Now you can import it into your project:
+Use it in a Node.js project
 
 ```javascript
+//Load the full build
 let kofi = require("kofi");
 ```
 
+Use it in your browser: 
 
+```html
+<script type="text/javascript" src="./node_modules/kofi/kofi.js"></script>
+```
+
+Use it with your ES6 modules: 
+
+```javascript
+//Load the full library
+import * as kofi from "kofi";
+
+//Load single methods 
+import {max, min} from "kofi";
+```
 
 
 ## API
 
-#### 
-
-
-### Array utilities
-
-#### kofi.has(array, item)
-
-Returns `true` if `item` exists in `array`, `false` if not.
-
-```javascript
-kofi.has([1, 2, 3, 4], 2); // -> true
-kofi.has([1, 2, 3, 4], 5); // -> false
-```
 
 #### kofi.average(array)
 
@@ -235,5 +237,6 @@ let str = kofi.uniqueId();  // -> str = "wv1ufiqj5e6xd3k"
 ```
 
 
+## License 
 
-
+Under the [MIT LICENSE](./LICENSE).
