@@ -53,7 +53,7 @@ describe("each", function () {
 });
 
 describe("fill", function () {
-    it("fills an array", function (done) {
+    it("fills an array with a number", function (done) {
         let filled = kofi.fill(5, 0);
         assert.equal(filled.length, 5);
         filled.forEach(function (value) {
@@ -61,5 +61,14 @@ describe("fill", function () {
         });
         return done();
     });
+    it("fills an array with a number", function (done) {
+        let filled = kofi.fill(5, "abc");
+        assert.equal(filled.length, 5);
+        filled.forEach(function (value) {
+            assert.equal(value, "abc");
+        });
+        return done();
+    });
+
 });
 
