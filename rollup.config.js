@@ -26,7 +26,11 @@ let config = {
 let isMin = typeof process.env.MINIFY === "string" && process.env.MINIFY === "true";
 
 if(isMin === true) {
-    config.plugins = [uglify()];
+    config.plugins = [uglify({
+        "output": {
+            "preamble": banner.join("\n")
+        }
+    })];
     config.output.file = "./dist/kofi.min.js";
 } else {
     config.output.file = "./dist/kofi.js";
