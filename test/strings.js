@@ -20,6 +20,15 @@ describe("capitalize", function () {
     });
 });
 
+describe("format", function () {
+    it("replaces all handlebars values", function (done) {
+        let str = kofi.format("my car is {{ color }}", {color: "blue"});
+        assert.equal(str.indexOf("color"), -1);
+        assert.notEqual(str.indexOf("blue"), -1);
+        return done();
+    });
+});
+
 describe("kebabCase", function () {
     it("converts a string to kebab-case format", function (done) {
         assert.equal(kofi.kebabCase("hello world"), "hello-world");
