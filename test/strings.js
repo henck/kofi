@@ -51,6 +51,14 @@ describe("snakeCase", function () {
     });
 });
 
+describe("timestamp", function () {
+    it("returns a formatted timestamp", function (done) {
+        let d = new Date();
+        assert.equal(kofi.timestamp("YYYY"), d.getFullYear().toString());
+        return done();
+    });
+});
+
 describe("uniqueId", function () {
     it("generates unique ids", function (done) {
         let ids = [];
