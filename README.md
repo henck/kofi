@@ -41,6 +41,14 @@ kofi.has([1, 2, 3, 4], 2); // -> true
 kofi.has([1, 2, 3, 4], 5); // -> false
 ```
 
+#### kofi.average(array)
+
+Returns the average of the values in `array`. 
+
+```javascript
+kofi.average([1, 2, 3, 4, 5]); // -> 3
+```
+
 #### kofi.max(array)
 
 Returns the maximum value in `array`. 
