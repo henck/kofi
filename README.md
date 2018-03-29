@@ -26,7 +26,11 @@ let kofi = require("kofi");
 Use it in your browser: 
 
 ```html
+<!-- Develop version (not minified) -->
 <script type="text/javascript" src="./node_modules/kofi/kofi.js"></script>
+
+<!-- Minified version -->
+<script type="text/javascript" src="./node_modules/kofi/kofi.min.js"></script>
 ```
 
 Use it with your ES6 modules: 
