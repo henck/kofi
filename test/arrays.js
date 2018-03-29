@@ -54,10 +54,10 @@ describe("each", function () {
 
 describe("fill", function () {
     it("fills an array", function (done) {
-        let filled = kofi.fill(5, "abc");
+        let filled = kofi.fill(5, 0);
         assert.equal(filled.length, 5);
         filled.forEach(function (value) {
-            assert.equal(value, "abc");
+            assert.equal(value, 0);
         });
         return done();
     });
