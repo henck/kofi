@@ -9,6 +9,13 @@ describe("average", function() {
     });
 });
 
+describe("digits", function () {
+    it("counts the digits of a number", function (done) {
+        assert.equal(kofi.digits(12345), 5);
+        return done();
+    });
+});
+
 describe("max", function () {
     it("returns the max value in an array", function (done) {
         let array = [0, -10, 5, 2, 4, 0];
