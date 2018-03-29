@@ -1,6 +1,6 @@
 /**
  * @function pad(num, length[, chars])
- * @description Pad a number adding zeros on the left side if it has less digits than length. 
+ * @description Pad a number `num` adding zeros on the left side if it has less digits than `length`
  * You can also specify the characters used for padding.
  * @example
  * pad(1234, 5); 
