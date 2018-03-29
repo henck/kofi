@@ -6,6 +6,11 @@ describe("camelCase", function () {
         assert.equal(kofi.camelCase("hello world"), "helloWorld");
         return done();
     });
+
+    it("keeps a string in camel-case format intact", function (done) {
+        assert.equal(kofi.camelCase("helloWorld"), "helloWorld");
+        return done();
+    });
 });
 
 describe("capitalize", function () {
