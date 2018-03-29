@@ -55,6 +55,155 @@ Returns the average of the values in `array`.
 kofi.average([1, 2, 3, 4, 5]); // -> 3
 ```
 
+#### kofi.camelCase(str)
+
+Returns the camel-case format of `str`.
+
+```javascript
+kofi.camelCase("hello world");  // -> "helloWorld"
+```
+
+#### kofi.capitalize(str)
+
+Returns the capitalized format of `str`.
+
+```javascript
+kofi.capitalize("hello world");  // -> "Hello world"
+```
+
+#### kofi.concat(array[, *values])
+
+Returns a new array concatenating `array` with other arrays or values passed.
+
+```javascript
+kofi.concat([1, 2, 3, 4], [5, 6], [7]); // -> [1, 2, 3, 4, 5, 6, 7]
+
+kofi.concat([1], 2, [3, 4], null); // -> [1, 2, 3, 4, null]
+```
+
+#### kofi.delay(time, fn)
+
+This is just [`setTimeout`](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout) but with the arguments reverted (first the delay `time` in ms, then the callback `fn` function).
+
+```javascript
+kofi.delay(1000, function () {
+    console.log("Hello after 1 second!!");
+});
+```
+
+#### kofi.digits(num)
+
+Counts the number of digits of `num`.
+
+```javascript
+kofi.digits(12345);  // -> 5
+```
+
+#### kofi.dispatch()
+
+The `dispatch` function allows you to bind and trigger custom named events. Calling `dispatch` without arguments returns a new object with the following functions:
+- `on(event, listener)`: register a new `listener` function to `event`. The `listener` function will be called when the `event` is fired.
+- `emit(event[, args])`: trigger all listeners of `event`. All listeners will be called with the arguments passed to this method.
+
+```javascript
+let dispatcher = kofi.dispatch();
+
+//Register an event listener 
+dispatcher.on("warning", function (value) {
+    console.log("WARNING MESSAGE: " + value);
+});
+
+//Trigger an event
+dispatcher.emit("warning", "A warning message generated");
+// -> "WARNING MESSAGE: A warning message generated"
+```
+
+#### kofi.each(array, fn)
+
+Iterates over an `array` or an `object`.
+
+- `items`: `array` or `object` you want to iterate.
+- `fn`: function that will be called with each item of the `items` array or object with the following arguments: 
+  - First argument: the property name if `items` is an object, or the index if `items` is an array.
+  - Second argument: the property value if `items` is an object, or the value if `items` is an array.
+
+You can stop the iteration by returning `false` in the iterator function
+
+```javascript
+//Iterate over an array 
+kofi.each([1, 2, 3], function (index, value) {
+    console.log(index + " -> " + value);
+});
+// 0 -> 1
+// 1 -> 2
+// 2 -> 3
+
+//Iterate over an object 
+kofi.each({"key1": "value1", "key2": "value2"}, function (key, value) {
+    console.log(key + " -> " + value);
+});
+// key1 -> value1
+// key2 -> value2
+```
+
+#### kofi.fill(length, value)
+Returns a new array with size `length` filled with `value`. Only `string` or `number` values are allowed. 
+
+```javascript
+//Fill an array with a number
+kofi.fill(5, 0); // -> [0, 0, 0, 0, 0]
+
+//Fill an array with a string
+kofi.fill(3, "abc"); // -> ["abc", "abc", "abc"]
+```
+
+#### kofi.format(str, obj)
+
+Replace all handlebars expressions from `str` with values of `obj`.
+
+```javascript
+kofi.format('My car is {{ color }}!', { color: 'blue' }); // --> "My car is blue!"
+```
+
+#### kofi.isEmpty(value)
+
+Check if `value` is an empty object, array or string.
+
+```javascript
+//Empty array
+kofi.isEmpty([]); // -> true
+kofi.isEmpty([null]); // -> false
+
+//Empty string
+kofi.isEmpty(""); // -> true
+kofi.isEmpty(" "); // -> false
+
+//Empty object
+kofi.isEmpty({}); // -> true
+kofi.isEmpty({"key": null}); // -> false
+```
+
+#### kofi.kebabCase(str)
+
+Returns the kebab-case form of the string `str`.
+
+```javascript
+kofi.kebabCase("hello world");  // -> "hello-world"
+```
+
+#### kofi.keys(obj)
+
+This is just [`Object.keys`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys).
+
+```javascript
+let obj = {
+    a: 1,
+    b: 2,
+    c: "hello"
+};
+let keys = kofi.keys(obj); // --> keys = ["a", "b", "c"]
+```
+
 #### kofi.max(array)
 
 Returns the maximum value in `array`. 
@@ -71,17 +220,93 @@ Returns the minimum value in `array`.
 kofi.min([1, 2, 3, 4, 5]); // -> 1
 ```
 
+#### kofi.pad(num, length[, chars])
 
-### Function utilities
-
-#### kofi.delay(time, fn)
-
-This is just [`setTimeout`](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout) but with the arguments reverted (first the delay `time` in ms, then the callback `fn` function).
+Pad a number `num` adding zeros on the left side if it has less digits than `length`. You can also specify the characters used for padding.
 
 ```javascript
-kofi.delay(1000, function () {
-    console.log("Hello after 1 second!!");
+kofi.pad(1234, 5);  // -> "01234"
+kofi.pad(1234, 3);  // -> "1234"
+kofi.pad(1234, 6, "-");  // -> "--1234"
+```
+
+#### kofi.queue()
+
+Queue management.
+
+```javascript
+let q = koki.queue();
+
+//Register tasks to run
+q.then(function (next) {
+    console.log("Task 1 completed");
+    return next();
 });
+q.then(function (next) {
+    console.log("Task 2 completed");
+    return next();
+});
+q.then(function (next) {
+    console.log("Running an async task");
+    return asyncMethod(args, function (error) {
+        // If error is not null, passing the error to the next method will stop the queue 
+        // and the catch method will be triggered.
+        return next(error);
+    });
+});
+
+//Finish the queue
+q.finish(function () {
+    console.log("Tasks finished");
+});
+
+//Error listener 
+q.catch(function (error) {
+    console.log("Something went wrong running your tasks...");
+    console.log(error.message);
+});
+```
+
+#### kofi.random(min, max)
+
+Returns a random number between `min` and `max` (not included). If this functions is called only with one argumet, it returns a random number between `0` and that number.
+
+```javascript
+kofi.random(0, 5);  // -> 3.7561160836655425
+```
+
+#### kofi.range(start, end\[, step\])
+
+Returns a new array with values starting in `start` to `end` (included). You can specify the distance between each number in the sequence by providing a `step` value. Default `step` value is `1`.
+
+```javascript
+kofi.range(0, 5); // -> [0, 1, 2, 3, 4, 5]
+kofi.range(0, 4, 2); // -> [0, 2, 4] 
+```
+
+#### kofi.repeat(str, n)
+
+Repeats a string `n` times.
+
+```javascript
+kofi.repeat("x", 5);  // -> "xxxxx"
+```
+
+#### kofi.sign(num)
+
+Returns the sign of `num`.
+
+```javascript
+kofi.sign(-45);  // -> -1
+kofi.sign(62);  // -> 1
+```
+
+#### kofi.snakeCase(str)
+
+Returns the snake-case form of the string `str`.
+
+```javascript
+kofi.snakeCase("hello world");  // -> "hello_world"
 ```
 
 #### kofi.timer(time, fn)
@@ -96,70 +321,12 @@ kofi.timer(1000, function () {
 });
 ```
 
-### Math utilities
+#### kofi.uniqueId()
 
-#### kofi.digits(num)
-
-Counts the number of digits of `num`.
+Generates a unique random string of 15 characters.
 
 ```javascript
-let digits = kofi.digits(12345);  // -> 5
-```
-
-
-#### kofi.random(min, max)
-
-Returns a random number between `min` and `max` (not included). If this functions is called only with one argumet, it returns a random number between `0` and that number.
-
-```javascript
-let num = kofi.random(0, 5);  // -> 3.7561160836655425
-```
-
-
-
-#### kofi.range(start, end\[, step\])
-
-Returns a new array with values starting in `start` to `end` (included). You can specify the distance between each number in the sequence by providing a `step` value. Default `step` value is `1`.
-
-```javascript
-kofi.range(0, 5); // -> [0, 1, 2, 3, 4, 5]
-kofi.range(0, 4, 2); // -> [0, 2, 4] 
-```
-
-
-### Object utilities 
-
-#### kofi.eachObj(obj, fn)
-
-Execute a function `fn` with each pair `key` - `value` in the object `obj`. 
-
-```javascript
-let obj = { 
-    key1: "value1", 
-    key2: "value2", 
-    key3: "value3" 
-};
-kofi.eachObj(obj, function (key, value) {
-    console.log(key + " -> " + value);
-});
-
-//Output in console:
-// key1 -> value1
-// key2 -> value2
-// key3 -> value3
-```
-
-#### kofi.keys(obj)
-
-This is just [`Object.keys`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys).
-
-```javascript
-let obj = {
-    a: 1,
-    b: 2,
-    c: "hello"
-};
-let keys = kofi.keys(obj); // --> keys = ["a", "b", "c"]
+let str = kofi.uniqueId();  // -> str = "wv1ufiqj5e6xd3k"
 ```
 
 #### kofi.values(obj)
@@ -173,71 +340,6 @@ let obj = {
     c: "hello"
 };
 let values = kofi.values(obj); // -> values = [1, 2, "hello"]
-```
-
-
-### String utilities
-
-#### kofi.camelCase(str)
-
-Returns the camel-case format of `str`.
-
-```javascript
-kofi.camelCase("hello world");  // -> "helloWorld"
-```
-
-
-#### kofi.capitalize(str)
-
-Returns the capitalized format of `str`.
-
-```javascript
-kofi.capitalize("hello world");  // -> "Hello world"
-```
-
-
-#### kofi.format(str, obj)
-
-Replace all handlebars expressions from `str` with values of `obj`.
-
-```javascript
-kofi.format('My car is {{ color }}!', { color: 'blue' }); // --> "My car is blue!"
-```
-
-
-#### kofi.kebabCase(str)
-
-Returns the kebab-case form of the string `str`.
-
-```javascript
-kofi.kebabCase("hello world");  // -> "hello-world"
-```
-
-
-#### kofi.repeat(str, n)
-
-Repeats a string `n` times.
-
-```javascript
-let rep = kofi.repeat("x", 5);  // -> "xxxxx"
-```
-
-
-#### kofi.snakeCase(str)
-
-Returns the snake-case form of the string `str`.
-
-```javascript
-kofi.snakeCase("hello world");  // -> "hello_world"
-```
-
-
-#### kofi.uniqueId()
-
-Generates a unique random string of 15 characters.
-
-```javascript
-let str = kofi.uniqueId();  // -> str = "wv1ufiqj5e6xd3k"
 ```
 
 
