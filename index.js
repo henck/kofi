@@ -21,5 +21,6 @@ export {default as repeat} from "./src/repeat.js";
 export {default as sign} from "./src/sign.js";
 export {default as snakeCase} from "./src/snake-case.js";
 export {default as timer} from "./src/timer.js";
+export {default as timestamp} from "./src/timestamp.js";
 export {default as uniqueId} from "./src/unique-id.js";
 export {default as values} from "./src/values.js";
