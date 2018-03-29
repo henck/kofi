@@ -1,6 +1,14 @@
 let assert = require("assert");
 let kofi = require("../dist/index.js");
 
+describe("average", function() { 
+    it("returns the average of the values in an array", function(done) {
+        let array = [8, 2, 16, 40];
+        assert.equal(kofi.average(array), 16.5);
+        return done();
+    });
+});
+
 describe("max", function () {
     it("returns the max value in an array", function (done) {
         let array = [0, -10, 5, 2, 4, 0];

@@ -1,3 +1,4 @@
+export {default as average} from "./src/average.js";
 export {default as camelCase} from "./src/camel-case.js";
 export {default as capitalize} from "./src/capitalize.js";
 export {default as concat} from "./src/concat.js";
