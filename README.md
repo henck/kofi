@@ -326,7 +326,7 @@ kofi.timer(1000, function () {
 Generates a unique random string of 15 characters.
 
 ```javascript
-let str = kofi.uniqueId();  // -> str = "wv1ufiqj5e6xd3k"
+kofi.uniqueId();  // -> str = "wv1ufiqj5e6xd3k"
 ```
 
 #### kofi.values(obj)
