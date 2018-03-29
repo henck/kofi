@@ -32,6 +32,13 @@ describe("min", function () {
     });
 });
 
+describe("pad", function () {
+    it("adds zeros to the left side of the number", function (done) {
+        assert.equal(kofi.pad(123, 4), "0123");
+        return done();
+    });
+});
+
 describe("range", function () {
     it("generates a correct array range", function (done) {
         let range = kofi.range(0, 5);
