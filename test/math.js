@@ -35,3 +35,15 @@ describe("range", function () {
     });
 });
 
+describe("sign", function () {
+    it("returns the correct sign of a positive number", function (done) {
+        assert.equal(kofi.sign(10), 1);
+        return done();
+    });
+
+    it("returns the correct sign of a negative number", function (done) {
+        assert.equal(kofi.sign(-29), -1);
+        return done();
+    });
+});
+
