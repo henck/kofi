@@ -1,6 +1,6 @@
 {
     "name": "kofi",
-    "version": "0.0.5",
+    "version": "0.1.0",
     "description": "A tasty Javascript utility library",
     "main": "index.js",
     "scripts": {
