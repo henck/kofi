@@ -321,6 +321,21 @@ kofi.timer(1000, function () {
 });
 ```
 
+#### kofi.timestamp(pattern)
+
+Returns a formatted timestamp. The `pattern` argument is a string where the following matches will be replaced:
+- `YYYY`: replaced with the current full year.
+- `MM`: replaced with the current month.
+- `DD`: replaced with the current day.
+- `hh`: replaced with the current hours.
+- `mm`: replaced with the current minutes.
+- `ss`: replaced with the current seconds.
+
+```javascript
+kofi.timestamp("Current year: YYYY")
+// -> "Current year: 2018"
+```
+
 #### kofi.uniqueId()
 
 Generates a unique random string of 15 characters.
