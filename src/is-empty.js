@@ -1,5 +1,5 @@
 /**
- * @function isEmpty(value);
+ * @function isEmpty(value)
  * @description Check if `value` is an empty object, array or string.
  * @example
  * isEmpty([]);
