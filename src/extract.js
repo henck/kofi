@@ -3,7 +3,8 @@
  * @description Creates a new object with only the provided keys of `obj`.
  * @since 0.1.1
  * @example
- * extract({a: 1, b: 2, c: 3}, ["b"]) // --> {b: 2}
+ * extract({a: 1, b: 2, c: 3}, ["b"]) 
+ * // -> {b: 2}
  */
 
 export default function extract (obj, keys) {
