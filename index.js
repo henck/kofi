@@ -13,6 +13,7 @@ export {default as kebabCase} from "./src/kebab-case.js";
 export {default as keys} from "./src/keys.js";
 export {default as max} from "./src/max.js";
 export {default as min} from "./src/min.js";
+export {default as omit} from "./src/omit.js";
 export {default as pad} from "./src/pad.js";
 export {default as queue} from "./src/queue.js";
 export {default as random} from "./src/random.js";
