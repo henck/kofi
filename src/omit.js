@@ -1,6 +1,6 @@
 /**
  * @function omit(obj, keys)
- * @description Created an object with all the keys of `obj` that are not in `keys`.
+ * @description Creates an object with all the keys of `obj` that are not in `keys`.
  * @since 0.1.1
  * @example 
  * omit({a: 1, b: 2, c: 3}, ["b"]) 
