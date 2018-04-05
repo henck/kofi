@@ -3,7 +3,8 @@
  * @description Created an object with all the keys of `obj` that are not in `keys`.
  * @since 0.1.1
  * @example 
- * omit({a: 1, b: 2, c: 3}, ["b"]) // --> {a: 1, c: 3}
+ * omit({a: 1, b: 2, c: 3}, ["b"]) 
+ * // -> {a: 1, c: 3}
  */
 
 export default function omit (obj, keys) {
