@@ -12,13 +12,12 @@ export default function omit (obj, keys) {
     if (typeof obj !== "object" || obj === null) {
         return {};
     }
-    //Clone the object 
-    let newObj = Object.assign({}, obj);
-    //Remove selected keys 
-    keys.forEach(function (key) {
-        if (typeof newObj[key] !== "undefined") {
-            delete newObj[key];
-        } 
+    //Clone the object
+    let newObj = {};
+    Object.keys(obj).forEach(function (key) {
+        if (keys.indexOf(key) === -1) {
+            newObj[key] = obj[key];
+        }
     });
     return newObj;
 }
