@@ -146,6 +146,16 @@ kofi.each({"key1": "value1", "key2": "value2"}, function (key, value) {
 // key2 -> value2
 ```
 
+#### kofi.extract(obj, keys)
+
+> Added in v0.1.1
+
+Creates a new object with only the provided keys of `obj`.
+
+```javascript
+kofi.extract({a: 1, b: 2, c: 3}, ["a", "b"]) // -> {a: 1, c: 3}
+```
+
 #### kofi.fill(length, value)
 Returns a new array with size `length` filled with `value`. Only `string` or `number` values are allowed. 
 
