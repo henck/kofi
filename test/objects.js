@@ -35,6 +35,17 @@ describe("each", function () {
     });
 });
 
+describe("extract", function () {
+    it("generated a new object with only the provided keys", function (done) {
+        let obj = {a: 1, b: 2, c: 3};
+        let newObj = kofi.extract(obj, ["a", "c"]);
+        assert.equal(newObj["a"], obj["a"]);
+        assert.equal(typeof newObj["b"], "undefined");
+        assert.equal(newObj["c"], obj["c"]);
+        return done();
+    });
+});
+
 describe("keys", function () {
     it("returns all keys of an object", function (done) {
         let keys = kofi.keys(obj);
