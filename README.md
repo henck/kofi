@@ -238,8 +238,7 @@ Creates an object with all the keys of `obj` that are not in `keys`.
 
 ```javascript
 kofi.omit({a: 1, b: 2, c: 3}, ["b"]); // -> {a: 1, c: 3}
-
-
+```
 
 #### kofi.pad(num, length[, chars])
 
