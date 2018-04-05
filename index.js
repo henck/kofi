@@ -6,6 +6,7 @@ export {default as delay} from "./src/delay.js";
 export {default as digits} from "./src/digits.js";
 export {default as dispatch} from "./src/dispatch.js";
 export {default as each} from "./src/each.js";
+export {default as extract} from "./src/extract.js";
 export {default as fill} from "./src/fill.js";
 export {default as format} from "./src/format.js";
 export {default as isEmpty} from "./src/is-empty.js";
