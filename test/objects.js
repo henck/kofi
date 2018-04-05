@@ -44,6 +44,17 @@ describe("keys", function () {
     });
 });
 
+describe("omit", function () {
+    it("omits the provided keys from the object", function (done) {
+        let obj = {a: 1, b: 2, c: 3};
+        let newObj = kofi.omit(obj, ["b"]);
+        assert.equal(obj["a"], newObj["a"]);
+        assert.equal(typeof newObj["b"], "undefined");
+        assert.equal(obj["c"], newObj["c"]);
+        return done();
+    });
+});
+
 describe("values", function () {
     it("returns all values of an object", function (done) {
         let values = kofi.values(obj);
