@@ -230,6 +230,17 @@ Returns the minimum value in `array`.
 kofi.min([1, 2, 3, 4, 5]); // -> 1
 ```
 
+#### kofi.omit(obj, keys)
+
+> Added in v0.1.1
+
+Creates an object with all the keys of `obj` that are not in `keys`.
+
+```javascript
+kofi.omit({a: 1, b: 2, c: 3}, ["b"]); // -> {a: 1, c: 3}
+
+
+
 #### kofi.pad(num, length[, chars])
 
 Pad a number `num` adding zeros on the left side if it has less digits than `length`. You can also specify the characters used for padding.
