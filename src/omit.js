@@ -14,7 +14,7 @@ export default function omit (obj, list) {
     }
     //Clone the object
     let newObj = {};
-    //Generate an object with only the keys that will be omitten
+    //Generate an object with only the keys that will be omitted
     let keys = {};
     list.forEach(function (key) {
         keys[key] = true;
