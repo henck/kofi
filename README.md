@@ -153,7 +153,7 @@ kofi.each({"key1": "value1", "key2": "value2"}, function (key, value) {
 Creates a new object with only the provided keys of `obj`.
 
 ```javascript
-kofi.extract({a: 1, b: 2, c: 3}, ["a", "b"]) // -> {a: 1, c: 3}
+kofi.extract({a: 1, b: 2, c: 3}, ["a", "c"]) // -> {a: 1, c: 3}
 ```
 
 #### kofi.fill(length, value)
