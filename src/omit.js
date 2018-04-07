@@ -7,15 +7,22 @@
  * // -> {a: 1, c: 3}
  */
 
-export default function omit (obj, keys) {
+export default function omit (obj, list) {
     //Check for no object or null
     if (typeof obj !== "object" || obj === null) {
         return {};
     }
     //Clone the object
     let newObj = {};
+    //Generate an object with only the keys that will be omitten
+    let keys = {};
+    list.forEach(function (key) {
+        keys[key] = true;
+    });
+    //Filter the object
     Object.keys(obj).forEach(function (key) {
-        if (keys.indexOf(key) === -1) {
+        //Add only the keys that are not in `keys`
+        if (!keys[key]) {
             newObj[key] = obj[key];
         }
     });
