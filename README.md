@@ -356,6 +356,24 @@ kofi.timestamp("Current year: YYYY")
 // -> "Current year: 2018"
 ```
 
+#### kofi.truncate(str, opt)
+
+> Added in v0.1.3 
+
+Truncates the provided `str` text if is longer than a provided `length`. The `opt` argument is an `object` with the following entries:
+- `length`: (**mandatory**) a `number` with the maximum length of `str`.
+- `separator`: a `string` used to truncate the string `str`.
+- `omission`: the `string` to be used to represent clipped text. Default is `"..."`. This text is added to the returned string, so the ammount of text displayed from `str` will be decreased.
+
+```javascript
+truncate("Lorem ipsum dolor sit amet", {length: 11}) 
+// -> "Lorem ip..."
+truncate("Lorem ipsum dolor sit amet", {length: 11, omission: ""})
+// -> "Lorem ipsum"
+truncate("Lorem ipsum dolor sit amet", {length: 15, separator: " "});
+// -> "Lorem ipsum..."
+```
+
 #### kofi.uniqueId()
 
 Generates a unique random string of 15 characters.
