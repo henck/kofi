@@ -59,6 +59,22 @@ describe("timestamp", function () {
     });
 });
 
+describe("truncate", function () {
+    it("truncates the string at the length provided", function (done) {
+        let str = "Lorem ipsum dolor sit amet, consectetur adipiscing elit";
+        let truncated = kofi.truncate(str, {length: 10});
+        assert.equal(truncated.length, 10);
+        return done();
+    });
+
+    it("truncates the string by separator", function (done) {
+        let str = "Lorem ipsum dolor sit amet, consectetur adipiscing elit";
+        let truncated = kofi.truncate(str, {length: 15, separator: " "});
+        assert.equal(truncated.length, 14);
+        return done();
+    });
+});
+
 describe("uniqueId", function () {
     it("generates unique ids", function (done) {
         let ids = [];
