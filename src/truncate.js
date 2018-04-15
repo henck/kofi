@@ -6,7 +6,12 @@
  * - `separator`: a `string` used to truncate the string `str`.
  * - `omission`: the `string` to be used to represent clipped text. Default is `"..."`. This text is added to the returned string, so the ammount of text displayed from `str` will be decreased.
  * @example
- *
+ * truncate("Lorem ipsum dolor sit amet", {length: 11}) 
+ * // -> "Lorem ip..."
+ * truncate("Lorem ipsum dolor sit amet", {length: 11, omission: ""})
+ * // -> "Lorem ipsum"
+ * truncate("Lorem ipsum dolor sit amet", {length: 15, separator: " "});
+ * // -> "Lorem ipsum..."
  */
 
 export default function truncate (str, opt) {
