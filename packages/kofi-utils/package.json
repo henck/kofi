@@ -1,0 +1,20 @@
+{
+    "name": "kofi-utils",
+    "version": "0.0.0",
+    "description": "Takeaway tasty browser micro utilities",
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/jmjuanes/kofi.git"
+    },
+    "keywords": [
+        "utility",
+        "utils",
+        "browser"
+    ],
+    "author": "Josemi Juanes <josemijuanes@gmail.com>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/jmjuanes/kofi/issues"
+    }
+}
