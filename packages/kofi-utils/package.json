@@ -1,7 +1,7 @@
 {
     "name": "kofi-utils",
     "version": "0.0.0",
-    "description": "Takeaway tasty browser micro utilities",
+    "description": "A tasty micro utilities library",
     "main": "index.js",
     "repository": {
         "type": "git",
