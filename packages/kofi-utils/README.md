@@ -1,6 +1,6 @@
-# kofi
+# kofi-utils
 
-> A tasty Javascript utility library
+> A tasty micro utilities library
 
 [![npm](https://img.shields.io/npm/v/kofi.svg?style=flat-square)](https://www.npmjs.com/package/kofi)
 [![npm](https://img.shields.io/npm/dt/kofi.svg?style=flat-square)](https://www.npmjs.com/package/kofi)
