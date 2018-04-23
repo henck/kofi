@@ -13,34 +13,27 @@
 Use [npm](https://npmjs.com) to install this module:
 
 ```
-npm install --save kofi
-```
-
-Use it in a Node.js project
-
-```javascript
-//Load the full build
-let kofi = require("kofi");
+npm install --save kofi-utils
 ```
 
 Use it in your browser: 
 
 ```html
 <!-- Develop version (not minified) -->
-<script type="text/javascript" src="./node_modules/kofi/kofi.js"></script>
+<script type="text/javascript" src="./node_modules/kofi-utils/kofi-utils.js"></script>
 
 <!-- Minified version -->
-<script type="text/javascript" src="./node_modules/kofi/kofi.min.js"></script>
+<script type="text/javascript" src="./node_modules/kofi-utils/kofi-utils.min.js"></script>
 ```
 
 Use it with your ES6 modules: 
 
 ```javascript
 //Load the full library
-import * as kofi from "kofi";
+import * as kofi from "kofi-utils";
 
 //Load single methods 
-import {max, min} from "kofi";
+import {max, min} from "kofi-utils";
 ```
 
 
