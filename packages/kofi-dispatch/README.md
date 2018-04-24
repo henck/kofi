@@ -2,6 +2,11 @@
 
 > 
 
+[![npm](https://img.shields.io/npm/v/kofi-dispatch.svg?style=flat-square)](https://www.npmjs.com/package/kofi-dispatch)
+[![npm](https://img.shields.io/npm/dt/kofi-dispatch.svg?style=flat-square)](https://www.npmjs.com/package/kofi-dispatch)
+[![npm](https://img.shields.io/npm/l/kofi-dispatch.svg?style=flat-square)](https://github.com/jmjuanes/kofi)
+[![pr](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)]()
+
 
 ## Installation 
 
