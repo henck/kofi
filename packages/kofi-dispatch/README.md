@@ -50,7 +50,11 @@ dispatcher.addListener("error", function (message) {
 
 #### dispatcher.removeListener(name, listener)
 
-Remove the specific `listener` function from the event called `name`.
+Removes the specific `listener` function from the event called `name`.
+
+#### dispatcher.removeAllListeners(name)
+
+Removes all listeners of the event called `name`.
 
 #### dispatcher.emit(name[, args...])
 
