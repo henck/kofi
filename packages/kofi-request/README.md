@@ -61,6 +61,9 @@ The first argument of `kofi.request` is an object with all the options to perfor
 
 - `url` **mandatory**: a string with the url. This is the only mandatory field of the options object.
 - `method`: a string with the http method. Default is `"get"`.
+- `headers`: an object with the HTTP headers. Default is `{}`.
+- `body`: a string data to be sent with the request (not working with GET requests). If the `json` option is set to `true`, `body` must be a valid JSON object that will be converted to string using `JSON.stringify`.
+- ``
 
 #### `callback` 
 
@@ -74,7 +77,7 @@ The callback function. This function will get three arguments:
   - `url`: a string with the request url.
   - `headers`: a parsed object with the response headers.
   - `rawHeaders`: an array with the raw response headers.
-- `body`: the response body string or object (if the `json:true` option is provided).
+- `body`: the response body string or object (if the `json` option is provided).
 
 ## License
 
