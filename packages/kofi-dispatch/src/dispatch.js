@@ -25,18 +25,19 @@ export default function dispatch () {
         }
     };
     //Emit an event
-    dispatcher.emit = function () {
-        if (arguments.length === 0) {
+    dispatcher.emit = function (name) {
+        //Check for no name provided
+        if (typeof name !== "string") {
             return;
         }
-        //Get the event name 
-        let name = arguments[0];
         //Check if there are listeners registered for this event
         if (typeof dispatcher._listeners[name] !== "undefined") {
+            //Generate the arguments to be passed to the listeners
             let args = [];
             for (let i = 1; i < arguments.length; i++) {
                 args.push(arguments[i]);
             }
+            //Call each listener
             let listeners = dispatcher._listeners[name];
             for (let i = 0; i < listeners.length; i++) {
                 listeners[i].apply(null, args);
