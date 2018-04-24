@@ -1,6 +1,6 @@
 # kofi-dispatch
 
-> 
+> A delightful library to register and trigger custom named events. 
 
 [![npm](https://img.shields.io/npm/v/kofi-dispatch.svg?style=flat-square)](https://www.npmjs.com/package/kofi-dispatch)
 [![npm](https://img.shields.io/npm/dt/kofi-dispatch.svg?style=flat-square)](https://www.npmjs.com/package/kofi-dispatch)
