@@ -1,6 +1,5 @@
 /**
  * @function truncate(str, opt)
- * @since 0.1.3 
  * @description Truncates the provided `str` text if is longer than a provided `length`. The `opt` argument is an `object` with the following entries:
  * - `length`: (**mandatory**) a `number` with the maximum length of `str`.
  * - `separator`: a `string` used to truncate the string `str`.
