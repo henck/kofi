@@ -24,6 +24,12 @@ export default function dispatch () {
             // }
         }
     };
+    //Remove all listeners of an event 
+    dispatcher.removeAllListeners = function (name) {
+        if (typeof dispatcher._listeners[name] !== "undefined") {
+            dispatcher._listeners[name] = [];
+        }
+    };
     //Emit an event
     dispatcher.emit = function (name) {
         //Check for no name provided
