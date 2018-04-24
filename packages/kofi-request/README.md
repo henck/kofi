@@ -64,7 +64,7 @@ The first argument of `kofi.request` is an object with all the options to perfor
 - `headers`: an object with the HTTP headers. Default is `{}`.
 - `body`: a string data to be sent with the request (not working with GET requests). If the `json` option is set to `true`, `body` must be a valid JSON object that will be converted to string using `JSON.stringify`.
 - `json`: if set to `true`, the request body is serialized as a JSON and adds the `Content-type: application/json` header to the request. It also evaluates the response body as a JSON and returns a JSON object instead of a string. Default is `false`.
-- `form`: if an object is passed on this option, the request body is set to it's query-string representation. It also adds the `Content-type: application/z-www-form-urlencoded` header to the request.
+- `form`: if an object is passed on this option, the request body is set to it's query-string representation. It also adds the `Content-type: application/x-www-form-urlencoded` header to the request.
 - `formData`: an instance of [`FormData`](https://developer.mozilla.org/en-US/docs/Web/API/FormData) with the data to pass to perform a `multipart/form-data`request. 
 - `processData`: set to `false` to send non-process data with the request (data passed with the `form` option won't be serialized as a query-string, and the body won't be serialized as a JSON when the `json` option is set to `true`). Default is `true`.
 - `auth`: an object with the credentials to authenticate users. Only `basic` or `bearer` authentication shcemes are supported. Default is `{}`. 
