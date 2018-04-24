@@ -22,12 +22,25 @@ export default function dispatch () {
     //Event listeners
     dispatcher._listeners = {};
     //Add a new event listener
-    dispatcher.on = function (name, listener) {
+    dispatcher.addListener = function (name, listener) {
         if (typeof dispatcher._listeners[name] === "undefined") {
             dispatcher._listeners[name] = [];
         }
+        //Register the listener
         dispatcher._listeners[name].push(listener);
-        return dispatcher;
+    };
+    //Remove a listener
+    dispatcher.removeListener = function (name, listener) {
+        if (typeof dispatcher._listeners[name] !== "undefined") {
+            //Find the listener 
+            dispatcher._listeners[name].filter(function (value) {
+                return value !== listener;
+            });
+            //Check the number of dispatchers
+            //if (dispatcher._listeners[name].length === 0) {
+            //    delete dispatcher._listeners[name];
+            // }
+        }
     };
     //Emit an event
     dispatcher.emit = function () {
