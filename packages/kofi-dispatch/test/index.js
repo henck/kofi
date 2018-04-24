@@ -22,5 +22,23 @@ describe("dispatch", function () {
         e.emit("undef-event", null);
         return done();
     });
+
+    it("removes a listener", function (done) {
+        let e = kofi.dispatch();
+        let call1 = false, call2 = false;
+        let listener1 = function () {
+            call1 = true;
+        };
+        let listener2 = function () {
+            call2 = true;
+        };
+        e.addListener("foo", listener1);
+        e.addListener("foo", listener2);
+        e.removeListener("foo", listener1);
+        e.emit("foo");
+        assert.equal(call1, false);
+        assert.equal(call2, true);
+        return done();
+    });
 });
 
