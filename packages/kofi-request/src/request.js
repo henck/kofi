@@ -1,4 +1,4 @@
-import * as queryString from "./commons/query-string.js";
+import * as queryString from "../../shared/query-string.js";
 
 //Request method
 export default function request(opt, callback) {
