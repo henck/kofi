@@ -83,6 +83,28 @@ The callback function. This function will get three arguments:
   - `rawHeaders`: an array with the raw response headers.
 - `body`: the response body string or object (if the `json` option is provided).
 
+
+## Examples
+
+### Forms
+
+#### application/x-www-form-urlencoded 
+
+Use the `form` option to send URL-encoded forms: 
+
+```javascript
+let form = {
+    "name": "Bob",
+    "age": 30,
+    "city": "New York"
+};
+kofi.request({url: "/my/service", form: form}, function (error, response, body) {
+    /* ... */
+});
+```
+
+
+
 ## License
 
 Under the **MIT License**.
