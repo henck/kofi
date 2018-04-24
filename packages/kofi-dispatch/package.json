@@ -1,0 +1,21 @@
+{
+    "name": "kofi-dispatch",
+    "version": "0.0.0",
+    "description": "A tasty micro utilities library",
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/jmjuanes/kofi.git"
+    },
+    "keywords": [
+        "dispatch",
+        "event",
+        "emit",
+        "listener"
+    ],
+    "author": "Josemi Juanes <josemijuanes@gmail.com>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/jmjuanes/kofi/issues"
+    }
+}
