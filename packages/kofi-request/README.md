@@ -103,6 +103,24 @@ kofi.request({url: "/my/service", form: form}, function (error, response, body) 
 });
 ```
 
+#### multipart/form-data
+
+Use the `formData` option to send `multipart/form-data` forms. Check the [`FormData`](https://developer.mozilla.org/en-US/docs/Web/API/FormData) interface documentation for more information.
+
+```javascript 
+let formData = new FormData();
+
+//Append key/value pains
+formData.append("username", "Bob");
+
+//Append files
+formData.append("userpic", fileInput.files[0], "avatar.jpg");
+
+//Send to the server
+kofi.request({url: "/process/uploads", formData: formData}, function (error, response, body) {
+    /* do your magic with the response */
+});
+```
 
 
 ## License
