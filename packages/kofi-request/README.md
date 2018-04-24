@@ -86,6 +86,21 @@ The callback function. This function will get three arguments:
 
 ## Examples
 
+### Sending data
+
+#### Sending JSON object
+
+```javascript
+let obj = {
+    "name": "Bob",
+    "registered": false,
+    "password": null
+};
+kofi.request({url: "/register", method: "put", json: true}, function (error, response, body) {
+    /* ... */
+}); 
+```
+
 ### Forms
 
 #### application/x-www-form-urlencoded 
