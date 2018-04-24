@@ -95,7 +95,7 @@ Use the `form` option to send URL-encoded forms:
 ```javascript
 let form = {
     "name": "Bob",
-    "age": 30,
+    "age": "30",
     "city": "New York"
 };
 kofi.request({url: "/my/service", form: form}, function (error, response, body) {
