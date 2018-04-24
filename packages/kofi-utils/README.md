@@ -92,25 +92,6 @@ Counts the number of digits of `num`.
 kofi.digits(12345);  // -> 5
 ```
 
-#### kofi.dispatch()
-
-The `dispatch` function allows you to bind and trigger custom named events. Calling `dispatch` without arguments returns a new object with the following functions:
-- `on(event, listener)`: register a new `listener` function to `event`. The `listener` function will be called when the `event` is fired.
-- `emit(event[, args])`: trigger all listeners of `event`. All listeners will be called with the arguments passed to this method.
-
-```javascript
-let dispatcher = kofi.dispatch();
-
-//Register an event listener 
-dispatcher.on("warning", function (value) {
-    console.log("WARNING MESSAGE: " + value);
-});
-
-//Trigger an event
-dispatcher.emit("warning", "A warning message generated");
-// -> "WARNING MESSAGE: A warning message generated"
-```
-
 #### kofi.each(array, fn)
 
 Iterates over an `array` or an `object`.
