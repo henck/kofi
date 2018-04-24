@@ -1,7 +1,8 @@
 {
     "name": "kofi-dispatch",
     "version": "0.0.0",
-    "description": "A tasty micro utilities library",
+    "description": "A delightful library to register and trigger custom named events.",
+    "private": false,
     "main": "index.js",
     "repository": {
         "type": "git",
