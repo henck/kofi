@@ -122,8 +122,6 @@ kofi.each({"key1": "value1", "key2": "value2"}, function (key, value) {
 
 #### kofi.extract(obj, keys)
 
-> Added in v0.1.1
-
 Creates a new object with only the provided keys of `obj`.
 
 ```javascript
@@ -205,8 +203,6 @@ kofi.min([1, 2, 3, 4, 5]); // -> 1
 ```
 
 #### kofi.omit(obj, keys)
-
-> Added in v0.1.1
 
 Creates an object with all the keys of `obj` that are not in `keys`.
 
@@ -331,8 +327,6 @@ kofi.timestamp("Current year: YYYY")
 ```
 
 #### kofi.truncate(str, opt)
-
-> Added in v0.1.3 
 
 Truncates the provided `str` text if is longer than a provided `length`. The `opt` argument is an `object` with the following entries:
 - `length`: (**mandatory**) a `number` with the maximum length of `str`.
