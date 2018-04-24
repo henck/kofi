@@ -51,8 +51,33 @@ kofi.request({method: "get", url: "./data.json", json: true}, function (error, r
 
 ## API
 
-### kofi.request(opt, cb)
+### kofi.request(options, callback)
 
-Performs a request
+Performs a request to the specified url in the `options` object, and executes the provided `callback` function when the request is done or an error is produced generating the request.
+
+#### `options`
+
+The first argument of `kofi.request` is an object with all the options to perform the request. The following entries are allowed: 
+
+- `url` **mandatory**: a string with the url. This is the only mandatory field of the options object.
+- `method`: a string with the http method. Default is `"get"`.
+
+#### `callback` 
+
+The callback function. This function will get three arguments: 
+
+- `error`: an `Error` object if something went wrong.
+- `response` an object with the basic information about the generated response. This object will contain the following entries: 
+  - `statusCode`: a number with the HTTP response status code. For example, `404`.
+  - `statusMessage`: a string with the HTTP response status message. For example, `Not found`.
+  - `method`: a string with the request method. 
+  - `url`: a string with the request url.
+  - `headers`: a parsed object with the response headers.
+  - `rawHeaders`: an array with the raw response headers.
+- `body`: the response body string or object (if the `json:true` option is provided).
+
+## License
+
+Under the **MIT License**.
 
 
