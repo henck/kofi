@@ -5,11 +5,11 @@ describe("dispatch", function () {
     it("calls all listeners associated with the same event name", function (done) {
         let e = kofi.dispatch();
         let call1 = false, call2 = false;
-        e.on("my-event", function (value) {
+        e.addListener("my-event", function (value) {
             call1 = true;
             assert.equal(value, true);
         });
-        e.on("my-event", function (value) {
+        e.addListener("my-event", function (value) {
             call2 = true;
             assert.equal(value, true);
         });
