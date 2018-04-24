@@ -1,22 +1,4 @@
-/**
- * @function dispatch()
- * @description The `dispatch` allows you to bind and trigger custom named events. Calling `dispatch` without arguments returns a new object with the following functions:
- * - `on(event, listener)`: register a new `listener` function to `event`. The `listener` function will be called when the `event` is fired.
- * - `emit(event[, args])`: trigger all listeners of `event`. All listeners will be called with the arguments passed to this method.
- * @example
- * let dispatcher = dispatch();
- *
- * //Register an event listener 
- * dispatcher.on("warning", function (value) {
- *     console.log("WARNING MESSAGE: " + value);
- * });
- *
- * //Trigger an event
- * dispatcher.emit("warning", "A warning message generated");
- * // -> "WARNING MESSAGE: A warning message generated"
- *
- */
-
+//Dispatch handler
 export default function dispatch () {
     let dispatcher = {};
     //Event listeners
