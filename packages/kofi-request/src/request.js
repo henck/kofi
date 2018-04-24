@@ -38,10 +38,11 @@ export default function request(opt, callback) {
             "statusCode": this.status,
             "statusMessage": this.statusText,
             "url": opt.url,
-            "headers": {}
+            "headers": {},
+            "rawHeaders": this.getAllResponseHeaders().split("\n")
         };
         //Parse all the headers and save to the headers object
-        this.getAllResponseHeaders().split("\n").forEach(function (line) {
+        response.rawHeaders.forEach(function (line) {
             if (line.trim().length === 0) {
                 return;
             }
