@@ -27,6 +27,18 @@ Use it in your ES6 modules:
 import {dispatch} from "kofi-dispatch";
 ```
 
+## Usage
+
+```javascript
+let dispatcher = kofi.dispatch();
+
+dispatcher.addListener("foo", function (text) {
+    console.log("New text: " + text);
+});
+
+dispatcher.emit("foo", "Hello world!");
+```
+
 ## API 
 
 ### var dispatcher = kofi.dispatch();
