@@ -63,7 +63,7 @@ The first argument of `kofi.request` is an object with all the options to perfor
 - `method`: a string with the http method. Default is `"get"`.
 - `headers`: an object with the HTTP headers. Default is `{}`.
 - `body`: a string data to be sent with the request (not working with GET requests). If the `json` option is set to `true`, `body` must be a valid JSON object that will be converted to string using `JSON.stringify`.
-- ``
+- `json`: if set to `true`, the request body is serialized as a JSON and adds the `Content-type: application/json` header to the request. It also evaluates the response body as a JSON and returns a JSON object instead of a string. Default is `false`.
 
 #### `callback` 
 
