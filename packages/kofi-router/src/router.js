@@ -114,3 +114,4 @@ export default function () {
     //Return the new router object 
     return router;
 }
+
