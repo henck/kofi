@@ -1,10 +1,8 @@
-import router from "./router.js";
-
-//Get the current hash 
-let getHash = function () {
+//Get the current hashbang 
+export function hashbangCurrent () {
     //Decode the current hash
     let hash window.decodeURIComponent(window.location.hash.substring(1));
-    //check for empty hash
+    //Check for empty hash
     if (hash.trim() === "") {
         hash = "!/";
     }
@@ -12,39 +10,35 @@ let getHash = function () {
     if (hash.charAt(0) !== "!") {
         return null;
     }
+    //Remove the last hash
+    hash = hash.replace(/\/$/, "");
     //Return the hash
     return hash;
 };
 
-//Hash router
-export default function hashRouter () {
-    //Generates the new router
-    let hashRouter = router();
-    //Delete the load method 
-    //delete hashRouter.load;
+//Hashbang change listener
+export function hashbangChange (listener) {
     //Add hash listener
     window.addEventListener("hashchange", function () {
         //Get the current hash
-        let hash = getHash();
-        //Check for valid hashbasn
+        let hash = hashbangCurrent();
+        //Check for valid hashbang
         if (hash !== null) {
-            //Open this url 
-            hashRouter._open(hash.substring(1));
+            //Call the listener with this url
+            return listener.call(null, hash);
         }
     });
-    //Get the current hash 
-    let currentHash = getHash();
-    if (currentHash !== null) {
-        //Save the current hash as the current url
-        hashRouter._currentUrl = currentHash.substring(1);
-    }
-    //Return the hash router
-    return hashRouter();
 }
 
-//Redirect to a hash
-export default function hashRedirect (url) {
+//Change the hashbang url
+export function hashbangRedirect (url) {
+    //Replace the starting hash and the excalamtion
+    let parsedUrl = url.replace("#", "").replace("!", "");
+    //Check for emptu url 
+    if (parsedUrl === "") {
+        parsedUrl = "/";
+    }
     //Change the current hash location
-    window.location.hash = "#!" + url;
+    window.location.hash = "#!" + parsedUrl;
 }
 
