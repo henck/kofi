@@ -21,7 +21,7 @@ export default function hashRouter () {
     //Generates the new router
     let hashRouter = router();
     //Delete the load method 
-    delete hashRouter.load;
+    //delete hashRouter.load;
     //Add hash listener
     window.addEventListener("hashchange", function () {
         //Get the current hash
