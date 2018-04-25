@@ -1,10 +1,11 @@
 import router from "./src/router.js";
-import {hashRouter, hashRedirect} from "./src/hash-router.js";
+import {getHashbang, setHashbang, hashbangChange} from "./src/hashbang.js";
 
 //Export router components 
 export {
     router,
-    hashRouter,
-    hashRedirect
+    hashbangChange,
+    setHashbang,
+    getHashbang
 };
 
