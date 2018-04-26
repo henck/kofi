@@ -82,7 +82,7 @@ export default function () {
                         let key = routePattern[i].substring(1);
                         params[key] = urlPattern[i];
                     }
-                    else if (routePattern[i] !== urlPattern(i)) {
+                    else if (routePattern[i] !== urlPattern[i]) {
                         //Pattern not valid, continue with the next route 
                         return findRoute(index + 1);
                     }
