@@ -141,7 +141,15 @@ Call again the handler for the last url used with `router.load`.
 
 #### kofi.getHashbang()
 
-Returns the current hasbang navigation url.
+Returns the current hasbang navigation url. If the `hash` segment of the url does not starts with an exclamation mark, this method will return a `null` value.
+
+```javascript
+// Current url: localhost#!/foo/bar
+kofi.getHashbang(); // --> "/foo/bar"
+
+//Current url: localhost#foo
+kofi.getHashbang() // --> null
+```
 
 #### kofi.setHashbang(url)
 
