@@ -1,6 +1,6 @@
 # kofi-router
 
-> 
+> A tasty and minimal client-side router utility
 
 
 ## Installation
