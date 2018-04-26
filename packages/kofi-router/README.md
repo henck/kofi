@@ -74,7 +74,38 @@ Generates a new instance of `kofi.router`.
 
 #### router.route(path, listener)
 
-Registers a new route.
+Registers a new listener for the route `path`. The listener receives an object with the request information: 
+
+- `path`: a string with the full matched url.
+- `pathname`: a string with the matched url without the query segment (the part after que question mark).
+- `query`: an object with all the parsed querystring parametes extracted from the matched path. Default is an empty object `{}`.
+- `params`: an object with all the dynamic parts of the matched path. Default is an empty object `{}`.
+
+```javascript
+router.route("/", function (req) {
+    console.log("Path: " + req.path);
+    console.log("Pathname: " + req.pathname);
+    console.log("Querystring values: ");
+    Object.keys(req.query).forEach(function (key) {
+        console.log("  " + key + " -> " + req.query[key]);
+    });
+    console.log("Params: ");
+    Object.keys(req.params).forEach(function (key) {
+        console.log("  " + key + " -> " + req.params[key]);
+    });
+});
+```
+
+If the provided `path` string is a catch-all path (`"*"`), the `listener` function will also receive a function to continue with the search of the route that matches the path.
+
+```javascript
+router.route("*", function (req, next) {
+    console.log("New request --> " + req.pathname);
+    return next();
+});
+```
+
+Note that the order of how the routes are defined is important, so you should define the catch-all routes first.
 
 #### router.load(url)
 
