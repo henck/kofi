@@ -50,6 +50,11 @@ router.route("/foo/:bar", function (req) {
 router.route("/bar", function (req) {
     console.log("Name: " + req.query.name);
 });
+
+//Not found listener
+router.notFound(function (req) {
+    console.log("NOT FOUND!");
+});
 ```
 
 #### Simple usage 
@@ -66,6 +71,10 @@ router.load("/foo/blue");
 //Pass query-string params
 router.load("/bar?name=Bob");
 // --> Name: Bob
+
+//Not found route
+router.load("/bar/foo");
+// --> NOT FOUND!
 ```
 
 #### Listen to hashbang urls
@@ -136,6 +145,10 @@ Call a handler for the provided `url` string.
 #### router.reload()
 
 Call again the handler for the last url used with `router.load`.
+
+#### router.notFound(listener)
+
+Registers the listener that will be triggered in case no route matches.
 
 ### Hashbang navigation methods 
 
