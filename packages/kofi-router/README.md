@@ -52,9 +52,9 @@ router.route("/bar", function (req) {
 });
 ```
 
-Simple usage: 
+#### Simple usage 
 
-```
+``` javascript
 //Load a single route
 router.load("/foo");
 // --> Enter to foo
@@ -68,7 +68,7 @@ router.load("/bar?name=Bob");
 // --> Name: Bob
 ```
 
-Listen to hashbang urls
+#### Listen to hashbang urls
 
 ```javascript
 //Listen to hashbang changes
