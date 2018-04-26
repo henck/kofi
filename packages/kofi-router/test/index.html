@@ -1,0 +1,43 @@
+<script type="text/javascript" src="../dist/kofi-router.js"></script>
+<!-- Links -->
+<div>Click on a route link: </div>
+<ul>
+    <li onclick="router.load('/');" style="cursor:pointer;">Home</li>
+    <li onclick="router.load('/foo');" style="cursor:pointer;">Foo route</li>
+    <li onclick="router.load('/bar/john');" style="cursor:pointer;">John route</li>
+    <li onclick="router.load('/404');" style="cursor:pointer;">Not found route</li>
+</ul>
+<!-- Messages container -->
+<div>
+    <strong>Current route: </strong><br>
+    <span id="parent"></span><br>
+    Number of loads: <span id="counter"></span>
+</div>
+<script type="text/javascript">
+    var parent = document.getElementById("parent");
+    var counter = 0;
+    var router = kofi.router();
+    //Router listeners
+    router.route("*", function (req, next) {
+        console.log(req);
+        counter = counter + 1;
+        document.getElementById("counter").innerHTML = counter;
+        return next();
+    });
+    router.route("/", function (req) {
+        parent.innerHTML = "HOME ROUTE";
+    });
+    router.route("/foo", function (req) {
+        parent.innerHTML = "FOO ROUTE";
+    });
+    router.route("/bar/:name", function (req) {
+        parent.innerHTML = "BAR ROUTE --> Hello " + req.params.name;
+    });
+    //Not found route
+    router.notFound(function (req) {
+        parent.innerHTML = "Error 404 - Route not found";
+    });
+    //First load
+    router.load("/");
+</script>
+
