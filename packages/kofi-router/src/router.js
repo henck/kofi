@@ -34,7 +34,7 @@ export default function () {
             return router.route("*", pattern);
         }
         //Register this route
-        router._routes.push({"patter": pattern.trim(), "listener": listener});
+        router._routes.push({"pattern": pattern.trim(), "listener": listener});
     };
     //Open a route
     router._open = function (url) {
