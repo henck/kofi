@@ -95,6 +95,8 @@ export default function () {
                 return findRoute(index + 1);
             });
         };
+        //Find the route
+        return findRoute(0);
     };
     //Load a route 
     router.load = function (url) {
