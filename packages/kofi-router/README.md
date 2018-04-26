@@ -33,8 +33,6 @@ import {router} from "kofi-router";
 
 ## Usage
 
-Simple usage: 
-
 ```javascript 
 let router = kofi.router();
 
@@ -52,7 +50,11 @@ router.route("/foo/:bar", function (req) {
 router.route("/bar", function (req) {
     console.log("Name: " + req.query.name);
 });
+```
 
+Simple usage: 
+
+```
 //Load a single route
 router.load("/foo");
 // --> Enter to foo
@@ -64,6 +66,26 @@ router.load("/foo/blue");
 //Pass query-string params
 router.load("/bar?name=Bob");
 // --> Name: Bob
+```
+
+Listen to hashbang urls
+
+```javascript
+//Listen to hashbang changes
+kofi.hashbangChange(function (url) {
+    router.load(url);
+});
+
+//First load
+router.load(kofi.getHashbang());
+
+//Redirect to a url
+kofi.setHashbang("/foo");
+// --> Enter to foo
+
+//Redirect to a url with query-string params
+kofi.setHashbang("/bar?name=Susan");
+// --> Name: Susan
 ```
 
 ## API
