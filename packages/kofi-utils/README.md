@@ -220,43 +220,6 @@ kofi.pad(1234, 3);  // -> "1234"
 kofi.pad(1234, 6, "-");  // -> "--1234"
 ```
 
-#### kofi.queue()
-
-Queue management.
-
-```javascript
-let q = koki.queue();
-
-//Register tasks to run
-q.then(function (next) {
-    console.log("Task 1 completed");
-    return next();
-});
-q.then(function (next) {
-    console.log("Task 2 completed");
-    return next();
-});
-q.then(function (next) {
-    console.log("Running an async task");
-    return asyncMethod(args, function (error) {
-        // If error is not null, passing the error to the next method will stop the queue 
-        // and the catch method will be triggered.
-        return next(error);
-    });
-});
-
-//Finish the queue
-q.finish(function () {
-    console.log("Tasks finished");
-});
-
-//Error listener 
-q.catch(function (error) {
-    console.log("Something went wrong running your tasks...");
-    console.log(error.message);
-});
-```
-
 #### kofi.random(min, max)
 
 Returns a random number between `min` and `max` (not included). If this functions is called only with one argumet, it returns a random number between `0` and that number.
