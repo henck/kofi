@@ -81,7 +81,7 @@ Generates a new instance of the queue manager.
 
 Registers a new function to the functions queue. This function will be called with a `next` argument, that is a function that will pass to the next function defined with `queue.then`.
 
-Note that calling the `next` argument with an error, any functions that were added after this function will not run, and immediately invokes the `queue.catch` function with the error passed to the `next` function.
+Note that calling the `next` argument with an error will make that all functions that were added after this function won't run. Also, this will immediately invoke the `queue.catch` function with the error passed to the `next` function.
 
 ```javascript
 queue.then(function (next) {
@@ -108,3 +108,4 @@ Registers the function that will be called when the functions queue was aborted 
 ## License
 
 Under the **MIT LICENSE**.
+
