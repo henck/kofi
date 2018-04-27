@@ -18,7 +18,7 @@ export default function dispatch () {
             let list = dispatcher._listeners[name].filter(function (value) {
                 return value !== listener;
             });
-            dispatcher._listener[name] = list;
+            dispatcher._listeners[name] = list;
             //Check the number of dispatchers
             //if (dispatcher._listeners[name].length === 0) {
             //    delete dispatcher._listeners[name];
