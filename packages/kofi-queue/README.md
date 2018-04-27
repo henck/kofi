@@ -1,6 +1,6 @@
 # kofi-queue
 
-> 
+> Asynchronous functions orchestration  
 
 [![npm](https://img.shields.io/npm/v/kofi-queue.svg?style=flat-square)](https://www.npmjs.com/package/kofi-queue)
 [![npm](https://img.shields.io/npm/dt/kofi-queue.svg?style=flat-square)](https://www.npmjs.com/package/kofi-queue)
