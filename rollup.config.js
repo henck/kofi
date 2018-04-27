@@ -1,10 +1,14 @@
 let uglify = require("rollup-plugin-uglify");
-let pkg = require("./package.json");
+let path = require("path");
+
+//Module to build
+let kofiPkg = process.env.PKG;
+let kofiVersion = process.env.VERSION;
 
 //Generate the banner
 let banner = [];
 banner.push("/**");
-banner.push(" * @license kofi v" + pkg.version);
+banner.push(" * @license " + kofiPkg + " " + kofiVersion);
 banner.push(" *");
 banner.push(" * This source code is licensed under the MIT license found in the");
 banner.push(" * LICENSE file in the root directory of this source tree.");
@@ -13,7 +17,7 @@ banner.push("");
 
 //Initialize the configuration object
 let config = {
-    "input": "./index.js",
+    "input": path.join("packages", kofiPkg, "index.js"),
     "output": {
         "format": "umd",
         "name": "kofi",
@@ -31,9 +35,9 @@ if(isMin === true) {
             "preamble": banner.join("\n")
         }
     })];
-    config.output.file = "./dist/kofi.min.js";
+    config.output.file = path.join("packages", kofiPkg, "dist", kofiPkg + ".min.js");
 } else {
-    config.output.file = "./dist/kofi.js";
+    config.output.file = path.join("packages", kofiPkg, "dist", kofiPkg + ".js");
 }
 
 export default config;
