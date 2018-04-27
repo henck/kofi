@@ -59,7 +59,7 @@ queue.finish(function () {
 
 //Catch errors
 queue.catch(function (error) {
-    console.log("Error generated executing the functions...);
+    console.log("Error generated executing the functions...");
     console.log(error.mesage);
 });
 ```
