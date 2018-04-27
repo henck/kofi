@@ -329,4 +329,4 @@ let values = kofi.values(obj); // -> values = [1, 2, "hello"]
 
 ## License 
 
-Under the [MIT LICENSE](./LICENSE).
+Under the **MIT LICENSE**.
