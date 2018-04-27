@@ -4,12 +4,9 @@
     "description": "Micro utility library for building modern SPA",
     "private": true,
     "scripts": {
-        "build": "npm run build:compile && npm run build:minify",
-        "build:compile": "./node_modules/.bin/rollup --config rollup.config.js",
-        "build:minify": "./node_modules/.bin/rollup --config rollup.config.js --environment MINIFY",
-        "deploy": "npm run build && npm run copy && cd ./dist && npm publish",
-        "copy": "cp README.md ./dist/ && cp package.json ./dist/ && cp LICENSE ./dist/",
-        "test": "./node_modules/.bin/mocha --reporter spec"
+        "build": "bash scripts/build.sh",
+        "deploy": "bash scripts/deploy.sh",
+        "test": "bash scripts/test.sh"
     },
     "repository": {
         "type": "git",
@@ -29,6 +26,7 @@
     },
     "homepage": "https://github.com/jmjuanes/kofi#readme",
     "devDependencies": {
+        "get-args": "^2.0.0",
         "mocha": "^5.0.4",
         "rollup": "^0.57.1",
         "rollup-plugin-uglify": "^3.0.0"
