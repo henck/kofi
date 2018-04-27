@@ -21,7 +21,7 @@ Import in your HTML files:
 <script type="text/javascript" src="./node_modules/kofi-queue/kofi-queue.min.js"></script>
 ```
 
-Import in your ES& modules:
+Import in your ES6 modules:
 
 ```javascript
 import {queue} from "kofi-queue";
