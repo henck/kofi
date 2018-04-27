@@ -10,6 +10,7 @@ The **kofi** repository is managed as a monorepo that is composed of a set of [n
 |---------| ---------------|
 | [kofi](/packages/kofi) | ![npm](https://img.shields.io/npm/v/kofi.svg?style=flat-square) |
 | [kofi-dispatch](/packages/kofi-dispatch) | ![npm](https://img.shields.io/npm/v/kofi-dispatch.svg?style=flat-square) |
+| [kofi-queue](/packages/kofi-queue) | ![npm](https://img.shields.io/npm/v/kofi-queue.svg?style=flat-square) |
 | [kofi-utils](/packages/kofi-utils) | ![npm](https://img.shields.io/npm/v/kofi-utils.svg?style=flat-square) |
 
 
