@@ -15,9 +15,10 @@ export default function dispatch () {
     dispatcher.removeListener = function (name, listener) {
         if (typeof dispatcher._listeners[name] !== "undefined") {
             //Find the listener 
-            dispatcher._listeners[name].filter(function (value) {
+            let list = dispatcher._listeners[name].filter(function (value) {
                 return value !== listener;
             });
+            dispatcher._listener[name] = list;
             //Check the number of dispatchers
             //if (dispatcher._listeners[name].length === 0) {
             //    delete dispatcher._listeners[name];
