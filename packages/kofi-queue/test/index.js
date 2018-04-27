@@ -14,10 +14,10 @@ describe("queue", function () {
             return next();
         });
         q.then(function (next) {
-            return kofi.delay(100, function () {
+            return setTimeout(function () {
                 e3 = true;
                 return next();
-            });
+            }, 100);
         });
         q.catch(function (error) {
             return done(new Error("ERROR RUNNING QUEUE"));
