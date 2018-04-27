@@ -3,7 +3,7 @@ let path = require("path");
 let opt = require("get-args")().options;
 
 //Check the package name and the wanted version
-if (typeof opt.version === "string" && opt.package === "string") {
+if (typeof opt.version === "string" && typeof opt.package === "string") {
     try {
         //Read the bundle file
         let bundlePath = path.join(process.cwd(), "packages", opt.package, "dist", opt.package + ".js");
