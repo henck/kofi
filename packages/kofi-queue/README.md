@@ -13,6 +13,13 @@ $ npm install --save kofi-queue
 
 Import in your HTML files:
 
+```html
+<!-- Develop version (not minified) -->
+<script type="text/javascript" src="./node_modules/kofi-queue/kofi-queue.js"></script>
+
+<!-- Minified version -->
+<script type="text/javascript" src="./node_modules/kofi-queue/kofi-queue.min.js"></script>
+```
 
 Import in your ES& modules:
 
