@@ -28,7 +28,6 @@ let config = {
 
 //Check for production build
 let isMin = typeof process.env.MINIFY === "string" && process.env.MINIFY === "true";
-
 if(isMin === true) {
     config.plugins = [uglify({
         "output": {
@@ -40,5 +39,6 @@ if(isMin === true) {
     config.output.file = path.join("packages", kofiPkg, "dist", kofiPkg + ".js");
 }
 
+//Export the configuration object
 export default config;
 
