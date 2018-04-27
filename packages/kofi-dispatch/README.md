@@ -75,7 +75,7 @@ Removes all listeners of the event called `name`.
 
 #### dispatcher.emit(name[, args...])
 
-Trigger all listeners of the event called `name`. All the extra arguments passed to this function will be passed to all listeners.
+Trigger all listeners of the event called `name`. All the extra arguments passed to this function will be passed to all registered listeners.
 
 ```javascript
 dispatcher.emit("error", "Error importing file xxxx.json");
