@@ -2,6 +2,10 @@
 
 > 
 
+[![npm](https://img.shields.io/npm/v/kofi-queue.svg?style=flat-square)](https://www.npmjs.com/package/kofi-queue)
+[![npm](https://img.shields.io/npm/dt/kofi-queue.svg?style=flat-square)](https://www.npmjs.com/package/kofi-queue)
+[![npm](https://img.shields.io/npm/l/kofi-queue.svg?style=flat-square)](https://github.com/jmjuanes/kofi)
+[![pr](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)]()
 
 ## Installation
 
