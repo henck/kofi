@@ -17,6 +17,8 @@ describe("router", function () {
         });
         router.load("/");
         router.load("/foo");
+        assert.equal(route1, true);
+        assert.equal(route2, true);
         return done();
     });
 
