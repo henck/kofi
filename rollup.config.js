@@ -4,7 +4,7 @@ let path = require("path");
 //Module to build
 let kofiPkg = process.env.PKG;
 //Import package information 
-let pkg = require(path.join("./packages", kofiPkg, "package.json"));
+let pkg = require("./" + path.join("packages", kofiPkg, "package.json"));
 
 //Generate the banner
 let banner = [];
