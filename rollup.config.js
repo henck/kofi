@@ -3,12 +3,13 @@ let path = require("path");
 
 //Module to build
 let kofiPkg = process.env.PKG;
-let kofiVersion = process.env.VERSION;
+//Import package information 
+let pkg = require(path.join("./packages", kofiPkg, "package.json"));
 
 //Generate the banner
 let banner = [];
 banner.push("/**");
-banner.push(" * @license " + kofiPkg + " " + kofiVersion);
+banner.push(" * @license " + kofiPkg + " " + pkg.version);
 banner.push(" *");
 banner.push(" * This source code is licensed under the MIT license found in the");
 banner.push(" * LICENSE file in the root directory of this source tree.");
