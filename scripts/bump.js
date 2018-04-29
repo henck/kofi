@@ -34,6 +34,10 @@ try {
     let pkgVersion = pkgContent.version.split(".");
     //Update the package version
     pkgVersion[bumpType] = (parseInt(pkgVersion[bumpType]) + 1).toString();
+    //Reset the number of the other parts of the version
+    for (let i = bumpType + 1; i < 3; i++) {
+        pkgVersion[i] = "0";
+    }
     //Save the  new version
     pkgContent.version = pkgVersion.join(".");
     fs.writeFileSync(pkgPath, JSON.stringify(pkgContent, null, 4), "utf8");
