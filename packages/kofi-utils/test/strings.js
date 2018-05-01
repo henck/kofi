@@ -1,5 +1,5 @@
 let assert = require("assert");
-let kofi = require("../dist/index.js");
+let kofi = require("../.bundle/kofi-utils.js");
 
 describe("camelCase", function () {
     it("converts a string to camel-case format", function (done) {
