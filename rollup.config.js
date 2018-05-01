@@ -35,9 +35,9 @@ if(isMin === true) {
             "preamble": banner.join("\n")
         }
     })];
-    config.output.file = path.join("packages", kofiPkg, "dist", kofiPkg + ".min.js");
+    config.output.file = path.join("packages", kofiPkg, ".bundle", kofiPkg + ".min.js");
 } else {
-    config.output.file = path.join("packages", kofiPkg, "dist", kofiPkg + ".js");
+    config.output.file = path.join("packages", kofiPkg, ".bundle", kofiPkg + ".js");
 }
 
 //Export the configuration object
