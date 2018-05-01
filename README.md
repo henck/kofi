@@ -22,7 +22,7 @@ You can install the base package of **kofi**, that is a wrapper that includes al
 $ npm install --save kofi
 ```
 
-You can install individual **kofi** modules by installign them with npm: 
+You can install individual **kofi** modules by installing them with npm: 
 
 ```
 $ npm install --save kofi-dispatch
