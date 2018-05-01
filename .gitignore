@@ -61,3 +61,6 @@ typings/
 packages/*/.bundle/
 packages/*/.dist/
 
+# VIM cache files
+.*.swp
+
