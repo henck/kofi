@@ -1,4 +1,5 @@
 let uglify = require("rollup-plugin-uglify");
+let cleanup = require("rollup-plugin-cleanup");
 let path = require("path");
 
 //Module to build
@@ -37,6 +38,7 @@ if(isMin === true) {
     })];
     config.output.file = path.join("packages", kofiPkg, ".bundle", kofiPkg + ".min.js");
 } else {
+    config.plugins = [cleanup()];
     config.output.file = path.join("packages", kofiPkg, ".bundle", kofiPkg + ".js");
 }
 
