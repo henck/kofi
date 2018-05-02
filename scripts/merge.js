@@ -9,7 +9,7 @@ let splitFile = function (filePath) {
 };
 
 //Import packages list 
-let pkgs = splitFile("./pkgs.txt");
+let pkgs = splitFile("./releasable-packages.txt");
 //Output merge
 let merge = [];
 //Add a warning message
