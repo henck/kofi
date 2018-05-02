@@ -32,7 +32,7 @@ Use it in your ES6 modules:
 import {dispatch} from "kofi-dispatch";
 ```
 
-## Usage
+## Example
 
 ```javascript
 //Initialize the new dispatcher
