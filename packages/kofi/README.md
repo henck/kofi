@@ -10,6 +10,27 @@
 
 ## Installation
 
+Use [npm](https://npmjs.com) to install this module: 
+
+```
+$ npm install --save kofi
+```
+
+You can import it in your HTML files using a `script` tag: 
+
+```html
+<script type="text/javascript" src="./node_modules/kofi/kofi.js"></script>
+```
+
+Or you can import it in your ES6 modules: 
+
+```javascript
+//Import the full library
+import * as kofi from "kofi";
+
+//Import individual modules
+import {delay, dispatch, request} from "kofi";
+```
 
 
 ## License 
