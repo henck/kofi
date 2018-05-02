@@ -35,12 +35,15 @@ import {dispatch} from "kofi-dispatch";
 ## Usage
 
 ```javascript
+//Initialize the new dispatcher
 let dispatcher = kofi.dispatch();
 
+//Register a listener for the event called 'foo'
 dispatcher.addListener("foo", function (text) {
     console.log("New text: " + text);
 });
 
+//Emit the event called 'foo' with a string as a argument
 dispatcher.emit("foo", "Hello world!");
 ```
 
