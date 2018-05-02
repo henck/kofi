@@ -58,7 +58,7 @@ var dispatcher = kofi.dispatch();
 ```
 
 
-#### dispatcher.addListener(name, listener)
+### dispatcher.addListener(name, listener)
 
 Registers a new `listener` function to the event called `name`.
 
@@ -68,15 +68,15 @@ dispatcher.addListener("error", function (message) {
 });
 ```
 
-#### dispatcher.removeListener(name, listener)
+### dispatcher.removeListener(name, listener)
 
 Removes the specific `listener` function from the event called `name`.
 
-#### dispatcher.removeAllListeners(name)
+### dispatcher.removeAllListeners(name)
 
 Removes all listeners of the event called `name`.
 
-#### dispatcher.emit(name[, args...])
+### dispatcher.emit(name[, args...])
 
 Trigger all listeners of the event called `name`. All the extra arguments passed to this function will be passed to all registered listeners.
 
