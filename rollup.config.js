@@ -41,5 +41,5 @@ if(isMin === true) {
 }
 
 //Export the configuration object
-export default config;
+module.exports = config;
 
