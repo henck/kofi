@@ -9,7 +9,7 @@ let splitFile = function (filePath) {
 };
 
 //Import packages list 
-let pkgs = splitFile("./scripts/packages.txt");
+let pkgs = splitFile("./pkgs.txt");
 //Output merge
 let merge = [];
 //Add a warning message
