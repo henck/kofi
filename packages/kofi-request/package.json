@@ -4,7 +4,7 @@
     "description": "A delicious HTTP request client library",
     "private": false,
     "main": "index.js",
-    "repository": "https://github.com/jmjuanes/kofi.git",
+    "repository": "https://github.com/jmjuanes/kofi",
     "keywords": [
         "http",
         "url",
