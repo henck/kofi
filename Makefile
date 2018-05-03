@@ -21,6 +21,8 @@ help:
 	@echo "  make bump-minor <package>     Bump to a new minor version of <package>"
 	@echo "  make bump-patch <package>     Bump to a new patch version of <package>"
 	@echo "  make bundle <package>         Build bundles for package <package>" 
+	@echo "  make clean <package>          Clean the package <package>"
+	@echo "  make clean-all                Clean all releasable packages"
 	@echo "  make dist <package>           Build dist for package <package>"
 	@echo "  make release <package>        Release a new version of <package>"
 	@echo "  make setup                    Install all dependencies"
@@ -82,6 +84,21 @@ bundle:
 		${NODE_BIN}/rollup -c rollup.config.js --environment MINIFY,PKG:${PKG} ;\
 		echo "Bundle generated" ;\
 	fi
+
+# Clean the provided package
+clean: 
+	@set -e ;\
+	if ["${PKG}" = "" ]; then \
+		echo "ERROR: please call 'make clean' with the package to clean." ;\
+		exit 1 ;\
+	else \
+		rm -rf ./packages/${PKG}/.dist ;\
+		rm -rf ./packages/${PKG}/.bundle ;\
+	fi
+
+# Clean all releasable packages
+clean-all: 
+	@bash ./scripts/clean-all.sh
 
 # Build dist for a given package
 dist: 
