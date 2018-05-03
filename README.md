@@ -7,6 +7,7 @@
 <div align="center">
 <img src=https://img.shields.io/badge/stability-experimental-orange.svg?style=flat-square">
 <img src=https://img.shields.io/badge/license-MIT-green.svg?style=flat-square">
+<img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square">
 </div>
 
 ## Packages
