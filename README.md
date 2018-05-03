@@ -1,12 +1,12 @@
 <h1 align="center">kofi</h1>
 
 <div align="center">
-**kofi** is a micro utility library for building modern **Single Page Applications**. **kofi** is structured as a collection of packages that can be imported individually or imported all together.
+<b>kofi</b> is a micro utility library for building modern <b>Single Page Applications</b>. <b>kofi</b> is structured as a collection of packages that can be imported individually or imported all together.
 </div>
 
 <div align="center">
-![npm](https://img.shields.io/badge/stability-experimental-orange.svg?style=flat-square)
-![npm](https://img.shields.io/badge/license-MIT-green.svg?style=flat-square)
+<img src=https://img.shields.io/badge/stability-experimental-orange.svg?style=flat-square">
+<img src=https://img.shields.io/badge/license-MIT-green.svg?style=flat-square">
 </div>
 
 ## Packages
