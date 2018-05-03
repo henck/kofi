@@ -1,6 +1,6 @@
 # kofi
 
-> A  
+> Tasty takeaway browser utilities.  
 
 [![npm](https://img.shields.io/npm/v/kofi.svg?style=flat-square)](https://www.npmjs.com/package/kofi)
 [![npm](https://img.shields.io/npm/dt/kofi.svg?style=flat-square)](https://www.npmjs.com/package/kofi)
