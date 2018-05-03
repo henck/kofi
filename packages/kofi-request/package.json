@@ -4,16 +4,15 @@
     "description": "A delicious HTTP request client library",
     "private": false,
     "main": "index.js",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/jmjuanes/kofi.git"
-    },
+    "repository": "https://github.com/jmjuanes/kofi.git",
     "keywords": [
+        "http",
+        "url",
+        "utility",
+        "util",
         "request"
     ],
     "author": "Josemi Juanes <josemijuanes@gmail.com>",
     "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/jmjuanes/kofi/issues"
-    }
+    "bugs": "https://github.com/jmjuanes/kofi/issues"
 }
