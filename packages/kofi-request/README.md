@@ -113,7 +113,7 @@ let form = {
     "age": "30",
     "city": "New York"
 };
-kofi.request({url: "/my/service", method: "post", form: form}, function (error, response, body) {
+kofi.request({url: "/my/service", method: "post", form: form}, function (error, res, body) {
     /* ... */
 });
 ```
@@ -132,7 +132,7 @@ formData.append("username", "Bob");
 formData.append("userpic", fileInput.files[0], "avatar.jpg");
 
 //Send to the server
-kofi.request({url: "/process/uploads", method: "post", formData: formData}, function (error, response, body) {
+kofi.request({url: "/process/uploads", method: "post", formData: formData}, function (error, res, body) {
     /* do your magic with the response */
 });
 ```
