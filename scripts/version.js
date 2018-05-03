@@ -10,16 +10,16 @@ if (typeof args.options.package === "string") {
         //Read the package content
         let pkgContent = JSON.parse(fs.readFileSync(pkgPath, "utf8"));
         //Print the package version
-        process.stdout.write("Current version of '" + pkg + "': v" + pkgContent.version);
+        process.stdout.write("Current version of '" + pkg + "': v" + pkgContent.version + "\n");
     } catch (e) {
         //Error reading the package.json file
-        process.stdout.write("Invalid package");
+        process.stdout.write("Invalid package \n");
         process.exit(1);
     }
 }
 else {
     //No package provided, display error
-    process.stdout.write("No package name provided");
+    process.stdout.write("No package name provided \n");
     process.exit(1);
 }
 
