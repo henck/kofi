@@ -1,6 +1,6 @@
 # kofi
 
-**kofi** is a micro utility library for building modern **Single Page Applications** with elegance.
+**kofi** is a micro utility library for building modern **Single Page Applications**. **kofi** is structured as a collection of packages that can be imported individually or imported all together.
 
 ## Packages
 
@@ -11,6 +11,7 @@ The **kofi** repository is managed as a monorepo that is composed of a set of [n
 | [kofi](/packages/kofi) | ![npm](https://img.shields.io/npm/v/kofi.svg?style=flat-square) |
 | [kofi-dispatch](/packages/kofi-dispatch) | ![npm](https://img.shields.io/npm/v/kofi-dispatch.svg?style=flat-square) |
 | [kofi-queue](/packages/kofi-queue) | ![npm](https://img.shields.io/npm/v/kofi-queue.svg?style=flat-square) |
+| [kofi-request](/packages/kofi-request) | ![npm](https://img.shields.io/npm/kofi-request.svg?style=flat-square) |
 | [kofi-utils](/packages/kofi-utils) | ![npm](https://img.shields.io/npm/v/kofi-utils.svg?style=flat-square) |
 
 
