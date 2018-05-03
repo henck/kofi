@@ -154,6 +154,7 @@ publish:
 		make dist ${PKG} ;\
 		git add ./packages/${PKG}/package.json ;\
 		git commit -m "Publish v$(shell make version ${PKG}) of ${PKG}" ;\
+		git push ;\
 		cd ./packages/${PKG}/.dist ;\
 		npm publish ;\
 		cd ../../../ ;\
