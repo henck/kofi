@@ -1,4 +1,4 @@
-<h1 align="center">kofi</h1>
+<h1 align="center">kofi.js</h1>
 
 <div align="center">
 <b>kofi</b> is a micro utility library for building modern <b>Single Page Applications</b>. <b>kofi</b> is structured as a collection of packages that can be imported individually.
