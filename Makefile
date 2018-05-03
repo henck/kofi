@@ -1,4 +1,4 @@
-.PHONY: setup build dist test version clean-all
+.PHONY: setup build dist test version clean clean-all publish
 
 # Extract the package name
 # https://stackoverflow.com/a/6273809
@@ -18,6 +18,7 @@ help:
 	@echo ""
 	@echo "  make build                    Build"
 	@echo "  make bundle <package>         Build bundles for package <package>" 
+	@echo "  make clean <package>          Clean the package <package>"
 	@echo "  make clean-all                Clean all releasable packages"
 	@echo "  make dist <package>           Build dist for package <package>"
 	@echo "  make release-major <package>  Release a new major version of <package>"
@@ -48,6 +49,17 @@ bundle:
 		echo "Generating minified bundle for package ${PKG}" ;\
 		${NODE_BIN}/rollup -c rollup.config.js --environment MINIFY,PKG:${PKG} ;\
 		echo "Bundle generated" ;\
+	fi
+
+# Clean a package
+clean: 
+	@set -e ;\
+	if [ "${PKG}" = "" ]; then \
+		echo "ERROR: please call 'make clean' with the package to clean." ;\
+	else \
+		echo "Cleaning package ${ARG}" ;\
+		rm -rf ./packages/${ARG}/.dist ;\
+		rm -rf ./packages/${ARG}/.bundle ;\
 	fi
 
 # Clean all releasable packages
@@ -158,6 +170,18 @@ version:
 	fi
 
 # Catch any target and do nothing
+kofi:
+	@:
+kofi-dispatch:
+	@:
+kofi-queue:
+	@:
+kofi-request:
+	@:
+kofi-router:
+	@:
+kofi-utils:
+	@:
 .DEFAULT :
 	@:
 
