@@ -1,7 +1,7 @@
 <h1 align="center">kofi</h1>
 
 <div align="center">
-<b>kofi</b> is a micro utility library for building modern <b>Single Page Applications</b>. <b>kofi</b> is structured as a collection of packages that can be imported individually or imported all together.
+<b>kofi</b> is a micro utility library for building modern <b>Single Page Applications</b>. <b>kofi</b> is structured as a collection of packages that can be imported individually.
 </div>
 <br>
 <div align="center">
@@ -16,11 +16,10 @@ The **kofi** repository is managed as a monorepo that is composed of a set of [n
 
 | Package | Latest version | 
 |---------| ---------------|
-| [kofi](/packages/kofi) | ![npm](https://img.shields.io/npm/v/kofi.svg?style=flat-square) |
-| [kofi-dispatch](/packages/kofi-dispatch) | ![npm](https://img.shields.io/npm/v/kofi-dispatch.svg?style=flat-square) |
-| [kofi-queue](/packages/kofi-queue) | ![npm](https://img.shields.io/npm/v/kofi-queue.svg?style=flat-square) |
-| [kofi-request](/packages/kofi-request) | ![npm](https://img.shields.io/npm/kofi-request.svg?style=flat-square) |
-| [kofi-utils](/packages/kofi-utils) | ![npm](https://img.shields.io/npm/v/kofi-utils.svg?style=flat-square) |
+| [@kofijs/dispatch](/packages/kofi-dispatch) | ![npm](https://img.shields.io/npm/v/@kofijs/dispatch.svg?style=flat-square) |
+| [@kofijs/queue](/packages/kofi-queue) | ![npm](https://img.shields.io/npm/v/@kofijs/queue.svg?style=flat-square) |
+| [@kofijs/request](/packages/kofi-request) | ![npm](https://img.shields.io/npm/v/@kofijs/request.svg?style=flat-square) |
+| [@kofijs/utils](/packages/kofi-utils) | ![npm](https://img.shields.io/npm/v/@kofijs/utils.svg?style=flat-square) |
 
 
 ## Installation
