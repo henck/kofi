@@ -5,19 +5,21 @@ let args = require("get-args")();
 //Check if the package argument is provided
 if (typeof args.options.package === "string") {
     try {
-        //Package path
-        let pkgPath = path.join(process.cwd(), "packages", args.options.package, "package.json");
+        let pkg = args.options.package;
+        let pkgPath = path.join(process.cwd(), "packages", pkg, "package.json");
         //Read the package content
         let pkgContent = JSON.parse(fs.readFileSync(pkgPath, "utf8"));
         //Print the package version
-        process.stdout.write("v" + pkgContent.version);
+        process.stdout.write("Current version of '" + pkg + "': v" + pkgContent.version);
     } catch (e) {
         //Error reading the package.json file
         process.stdout.write("Invalid package");
+        process.exit(1);
     }
 }
 else {
     //No package provided, display error
     process.stdout.write("No package name provided");
+    process.exit(1);
 }
 
