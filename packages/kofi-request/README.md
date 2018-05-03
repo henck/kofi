@@ -96,7 +96,7 @@ let obj = {
     "registered": false,
     "password": null
 };
-kofi.request({url: "/register", method: "put", json: true}, function (error, response, body) {
+kofi.request({url: "/register", method: "put", json: true, body: obj}, function (error, res, body) {
     /* ... */
 }); 
 ```
