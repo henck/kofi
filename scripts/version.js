@@ -10,7 +10,7 @@ if (typeof args.options.package === "string") {
         //Read the package content
         let pkgContent = JSON.parse(fs.readFileSync(pkgPath, "utf8"));
         //Print the package version
-        process.stdout.write("Current version of '" + pkg + "': v" + pkgContent.version + "\n");
+        process.stdout.write(pkgContent.version);
     } catch (e) {
         //Error reading the package.json file
         process.stdout.write("Invalid package \n");
