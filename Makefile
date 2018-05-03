@@ -57,9 +57,9 @@ clean:
 	if [ "${PKG}" = "" ]; then \
 		echo "ERROR: please call 'make clean' with the package to clean." ;\
 	else \
-		echo "Cleaning package ${ARG}" ;\
-		rm -rf ./packages/${ARG}/.dist ;\
-		rm -rf ./packages/${ARG}/.bundle ;\
+		echo "Cleaning package ${PKG}" ;\
+		rm -rf ./packages/${PKG}/.dist ;\
+		rm -rf ./packages/${PKG}/.bundle ;\
 	fi
 
 # Clean all releasable packages
