@@ -1,4 +1,4 @@
-.PHONY: setup build dist test version
+.PHONY: setup build dist test version clean clean-all
 
 # Extract the package name
 # https://stackoverflow.com/a/6273809
