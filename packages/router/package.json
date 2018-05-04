@@ -1,12 +1,9 @@
 {
-    "name": "kofi-router",
+    "name": "@kofijs/router",
     "version": "0.0.0",
     "description": "A tasty and minimal client-side router utility",
     "main": "index.js",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/jmjuanes/kofi.git"
-    },
+    "repository": "https://github.com/jmjuanes/kofi",
     "keywords": [
         "router",
         "route",
@@ -17,7 +14,5 @@
     ],
     "author": "Josemi Juanes <josemijuanes@gmail.com>",
     "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/jmjuanes/kofi/issues"
-    }
+    "bugs": "https://github.com/jmjuanes/kofi/issues"
 }
