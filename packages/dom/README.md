@@ -1,23 +1,11 @@
-# kofi
+# @kofijs/dom
 
-> Tasty takeaway browser utilities.  
+> Under development 
 
-[![npm](https://img.shields.io/npm/v/kofi.svg?style=flat-square)](https://www.npmjs.com/package/kofi)
-[![npm](https://img.shields.io/npm/dt/kofi.svg?style=flat-square)](https://www.npmjs.com/package/kofi)
-[![npm](https://img.shields.io/npm/l/kofi.svg?style=flat-square)](https://github.com/jmjuanes/kofi)
+[![npm](https://img.shields.io/npm/v/@kofijs/dom.svg?style=flat-square)](https://www.npmjs.com/package/@kofijs/dom)
+[![npm](https://img.shields.io/npm/dt/@kofijs/dom.svg?style=flat-square)](https://www.npmjs.com/package/@kofijs/dom)
+[![npm](https://img.shields.io/npm/l/@kofijs/dom.svg?style=flat-square)](https://github.com/jmjuanes/kofi)
 [![pr](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)]()
-
-
-**kofi** is a micro utility library for easily creating modern web applications. 
-
-- **kofi works with ES6 modules**: you can import the whole library or only some parts of **kofi** in your ES6 modules.
-- **kofi is semi-isomorphic**: some utilities can be used both in Node and browsers. For example, all utilities included in `kofi-utils` can be used in Node and in the browser.
-
-
-## What is included in kofi?
-
-The **kofi** library is composed by several packages 
-
 
 
 ## Installation
@@ -25,25 +13,28 @@ The **kofi** library is composed by several packages
 Use [npm](https://npmjs.com) to install this module: 
 
 ```
-$ npm install --save kofi
+$ npm install --save @kofijs/dom
 ```
 
 You can import it in your HTML files using a `script` tag: 
 
 ```html
-<script type="text/javascript" src="./node_modules/kofi/kofi.js"></script>
+<script type="text/javascript" src="./node_modules/@kofijs/dom/kofi-dom.js"></script>
 ```
 
 Or you can import it in your ES6 modules: 
 
 ```javascript
 //Import the full library
-import * as kofi from "kofi";
+import * as kofi from "@kofijs/dom";
 
 //Import individual modules
-import {delay, dispatch, request} from "kofi";
+import {ready} from "@kofijs/dom";
 ```
 
+## API
+
+> Under development
 
 ## License 
 
