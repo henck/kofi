@@ -15,12 +15,12 @@
 
 The **kofi** repository is managed as a monorepo that is composed of a set of [npm](https://npmjs.com) pacakges. 
 
-| Package | Latest version | 
-|---------| ---------------|
-| [@kofijs/dispatch](/packages/kofi-dispatch) | ![npm](https://img.shields.io/npm/v/@kofijs/dispatch.svg?style=flat-square) |
-| [@kofijs/queue](/packages/kofi-queue) | ![npm](https://img.shields.io/npm/v/@kofijs/queue.svg?style=flat-square) |
-| [@kofijs/request](/packages/kofi-request) | ![npm](https://img.shields.io/npm/v/@kofijs/request.svg?style=flat-square) |
-| [@kofijs/utils](/packages/kofi-utils) | ![npm](https://img.shields.io/npm/v/@kofijs/utils.svg?style=flat-square) |
+| Package | Description | Latest version | 
+|---------| ----------- | ---------------|
+| [@kofijs/dispatch](/packages/kofi-dispatch) | A delightful library to register and trigger custom named events | ![npm](https://img.shields.io/npm/v/@kofijs/dispatch.svg?style=flat-square) |
+| [@kofijs/queue](/packages/kofi-queue) | Asynchronous functions orchestration | ![npm](https://img.shields.io/npm/v/@kofijs/queue.svg?style=flat-square) |
+| [@kofijs/request](/packages/kofi-request) | A delicious HTTP request client library for browsers | ![npm](https://img.shields.io/npm/v/@kofijs/request.svg?style=flat-square) |
+| [@kofijs/utils](/packages/kofi-utils) | A tasty micro utilities library | ![npm](https://img.shields.io/npm/v/@kofijs/utils.svg?style=flat-square) |
 
 
 ## Installation
