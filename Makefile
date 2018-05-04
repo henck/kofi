@@ -36,30 +36,23 @@ setup:
 # Build bundles for a given package
 bundle:
 	@set -e ;\
-	if [ "${PKG}" = "" ]; then \
-		echo "ERROR: please call 'make bundle' with the package to build." ;\
-		exit 1 ;\
-	else \
-		echo "Creating folder 'bundle' for package ${PKG}" ;\
-		rm -rf ./packages/${PKG}/.bundle ;\
-		mkdir -p ./packages/${PKG}/.bundle ;\
-		echo "Generating bundle for package ${PKG}" ;\
-		${NODE_BIN}/rollup -c rollup.config.js --environment PKG:${PKG} ;\
-		echo "Generating minified bundle for package ${PKG}" ;\
-		${NODE_BIN}/rollup -c rollup.config.js --environment MINIFY,PKG:${PKG} ;\
-		echo "Bundle generated" ;\
-	fi
-
+	make exists ${PKG} ;\
+	echo "Creating folder 'bundle' for package ${PKG}" ;\
+	rm -rf ./packages/${PKG}/.bundle ;\
+	mkdir -p ./packages/${PKG}/.bundle ;\
+	echo "Generating bundle for package ${PKG}" ;\
+	${NODE_BIN}/rollup -c rollup.config.js --environment PKG:${PKG} ;\
+	echo "Generating minified bundle for package ${PKG}" ;\
+	${NODE_BIN}/rollup -c rollup.config.js --environment MINIFY,PKG:${PKG} ;\
+	echo "Bundle generated" ;\
+	
 # Clean a package
 clean: 
 	@set -e ;\
-	if [ "${PKG}" = "" ]; then \
-		echo "ERROR: please call 'make clean' with the package to clean." ;\
-	else \
-		echo "Cleaning package ${PKG}" ;\
-		rm -rf ./packages/${PKG}/.dist ;\
-		rm -rf ./packages/${PKG}/.bundle ;\
-	fi
+	make exists ${PKG} ;\ 
+	echo "Cleaning package ${PKG}" ;\
+	rm -rf ./packages/${PKG}/.dist ;\
+	rm -rf ./packages/${PKG}/.bundle ;\
 
 # Clean all releasable packages
 clean-all: 
@@ -68,113 +61,88 @@ clean-all:
 # Build dist for a given package
 dist: 
 	@set -e ;\
-	if [ "${PKG}" = "" ]; then \
-		echo "ERROR: please call 'make dist' with the package to build." ;\
-		exit 1 ;\
-	else \
-		make bundle ${PKG} ;\
-		echo "Creating folder 'dist' for package ${PKG}" ;\
-		rm -rf ./packages/${PKG}/.dist ;\
-		mkdir -p ./packages/${PKG}/.dist ;\
-		echo "Copying package files" ;\
-		cp ./LICENSE ./packages/${PKG}/.dist/ ;\
-		cp ./packages/${PKG}/package.json ./packages/${PKG}/.dist/ ;\
-		cp ./packages/${PKG}/README.md ./packages/${PKG}/.dist/ ;\
-		echo "Copying bundle files" ;\
-		cp ./packages/${PKG}/.bundle/*.js ./packages/${PKG}/.dist/ ;\
-		echo "Generating entry file" ;\
-		cat ./generators/npm.js | sed 's/{{package}}/${PKG}/g' > ./packages/${PKG}/.dist/index.js ;\
-		echo "Dist folder generated" ;\
-	fi
+	make exists ${PKG} ;\
+	make bundle ${PKG} ;\
+	echo "Creating folder 'dist' for package ${PKG}" ;\
+	rm -rf ./packages/${PKG}/.dist ;\
+	mkdir -p ./packages/${PKG}/.dist ;\
+	echo "Copying package files" ;\
+	cp ./LICENSE ./packages/${PKG}/.dist/ ;\
+	cp ./packages/${PKG}/package.json ./packages/${PKG}/.dist/ ;\
+	cp ./packages/${PKG}/README.md ./packages/${PKG}/.dist/ ;\
+	echo "Copying bundle files" ;\
+	cp ./packages/${PKG}/.bundle/*.js ./packages/${PKG}/.dist/ ;\
+	echo "Generating entry file" ;\
+	cat ./generators/npm.js | sed 's/{{package}}/${PKG}/g' > ./packages/${PKG}/.dist/index.js ;\
+	echo "Dist folder generated" ;\
 
 # Run tests
 test: 
 	@set -e ;\
-	if ["${PKG}" = "" ]; then \
-		echo "ERROR: please call 'make test' with the package to test." ;\
-		exit 1 ;\
-	else \
-		make bundle ${PKG} ;\
-		echo "Running tests for package ${PKG}" ;\
-		cd ./packages/${PKG}/ ;\
-		../../node_modules/.bin/mocha --reporter spec ;\
-		cd ../../ ;\
-		echo "Tests completed" ;\
-	fi
+	make exists ${PKG} ;\
+	make bundle ${PKG} ;\
+	echo "Running tests for package ${PKG}" ;\
+	cd ./packages/${PKG}/ ;\
+	../../node_modules/.bin/mocha --reporter spec ;\
+	cd ../../ ;\
+	echo "Tests completed" ;\
 
 # Release a major version
 release-major: 
 	@set -e ;\
-	if ["${PKG}" = "" ]; then \
-		echo "ERROR: please call 'make release-major' with the package to publish" ;\
-		exit 1 ;\
-	else \
-		node -/scripts/bump --package ${PKG} --major ;\
-		make publish ${PKG} ;\
-	fi
+	make exists ${PKG} ;\
+	node -/scripts/bump --package ${PKG} --major ;\
+	make publish ${PKG} ;\
 
 # Release a minor version
 release-minor: 
 	@set -e ;\
-	if ["${PKG}" = "" ]; then \
-		echo "ERROR: please call 'make release-minor' with the package to publish" ;\
-		exit 1 ;\
-	else \
-		node -/scripts/bump --package ${PKG} --minor ;\
-		make publish ${PKG} ;\
-	fi
-
+	make exists ${PKG} ;\
+	node -/scripts/bump --package ${PKG} --minor ;\
+	make publish ${PKG} ;\
+	
 # Release a patch version
 release-patch: 
 	@set -e ;\
-	if ["${PKG}" = "" ]; then \
-		echo "ERROR: please call 'make release-patch' with the package to publish" ;\
-		exit 1 ;\
-	else \
-		node -/scripts/bump --package ${PKG} --patch ;\
-		make publish ${PKG} ;\
-	fi
+	make exists ${PKG} ;\
+	node -/scripts/bump --package ${PKG} --patch ;\
+	make publish ${PKG} ;\
 
 # Publish the package 
 publish: 
 	@set -e ;\
-	if [ "${PKG}" = "" ]; then \
-		echo "ERROR: please call 'make publish' with the package to publish" ;\
-		exit 1; \
-	else \
-		echo "Publishing version v$(shell make version ${PKG}) of kofi-${PKG}" ;\
-		sleep 5 ;\
-		make dist ${PKG} ;\
-		git add ./packages/${PKG}/package.json ;\
-		git commit -m "Publish v$(shell make version ${PKG}) of kofi-${PKG}" ;\
-		git push ;\
-		cd ./packages/${PKG}/.dist ;\
-		npm publish ;\
-		cd ../../../ ;\
-	fi
+	make exists ${PKG} ; \
+	echo "Publishing version v$(shell make version ${PKG}) of kofi-${PKG}" ;\
+	sleep 5 ;\
+	make dist ${PKG} ;\
+	git add ./packages/${PKG}/package.json ;\
+	git commit -m "Publish v$(shell make version ${PKG}) of kofi-${PKG}" ;\
+	git push ;\
+	cd ./packages/${PKG}/.dist ;\
+	npm publish ;\
+	cd ../../../ ;\
 
 # Display the version of a package
 version: 
 	@set -e ;\
+	make exists ${PKG} ;\
+	node ./scripts/version.js --package ${PKG} ;\
+
+# Check if a package exists
+exists:
+	@set -e ;\
 	if [ "${PKG}" = "" ]; then \
-		echo "ERROR: please call 'make version' with the package to display the version" ;\
+		echo "ERROR: missing package name" ;\
 		exit 1 ;\
 	else \
-		node ./scripts/version.js --package ${PKG} ;\
+		if [ ! -d "./packages/${PKG}" ]; then \
+			echo "ERROR: package '${PKG}' not found" ;\
+			exit 1 ;\
+		fi \
 	fi
 
 # Catch any target and do nothing
-dom: 
-	@:
-dispatch:
-	@:
-queue:
-	@:
-request:
-	@:
-router:
-	@:
-utils:
+%: 
 	@:
 .DEFAULT :
 	@:
