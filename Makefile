@@ -171,17 +171,15 @@ version:
 	fi
 
 # Catch any target and do nothing
-kofi:
+dispatch:
 	@:
-kofi-dispatch:
+queue:
 	@:
-kofi-queue:
+request:
 	@:
-kofi-request:
+router:
 	@:
-kofi-router:
-	@:
-kofi-utils:
+utils:
 	@:
 .DEFAULT :
 	@:
