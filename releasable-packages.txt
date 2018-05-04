@@ -1,4 +1,4 @@
-kofi-dispatch
-kofi-queue
-kofi-request
-kofi-utils
+dispatch
+queue
+request
+utils
