@@ -10,7 +10,7 @@ let pkg = require("./" + path.join("packages", kofiPkg, "package.json"));
 //Generate the banner
 let banner = [];
 banner.push("/**");
-banner.push(" * @license " + kofiPkg + " " + pkg.version);
+banner.push(" * @license @kofijs/" + kofiPkg + " " + pkg.version);
 banner.push(" *");
 banner.push(" * This source code is licensed under the MIT license found in the");
 banner.push(" * LICENSE file in the root directory of this source tree.");
@@ -37,10 +37,10 @@ if(isMin === true) {
             "preamble": banner.join("\n")
         }
     })];
-    config.output.file = path.join("packages", kofiPkg, ".bundle", kofiPkg + ".min.js");
+    config.output.file = path.join("packages", kofiPkg, ".bundle", "kofi-" + kofiPkg + ".min.js");
 } else {
     config.plugins = [cleanup()];
-    config.output.file = path.join("packages", kofiPkg, ".bundle", kofiPkg + ".js");
+    config.output.file = path.join("packages", kofiPkg, ".bundle", "kofi-" + kofiPkg + ".js");
 }
 
 //Export the configuration object
