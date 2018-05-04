@@ -1,5 +1,5 @@
 let assert = require("assert");
-let kofi = require("../dist/index.js");
+let kofi = require("../.bundle/kofi-dispatch.js");
 
 describe("dispatch", function () {
     it("calls all listeners associated with the same event name", function (done) {
