@@ -1,10 +1,10 @@
-# kofi-request 
+# @kofijs/request 
 
 > A delicious HTTP request client library
 
-[![npm](https://img.shields.io/npm/v/kofi-request.svg?style=flat-square)](https://www.npmjs.com/package/kofi-request)
-[![npm](https://img.shields.io/npm/dt/kofi-request.svg?style=flat-square)](https://www.npmjs.com/package/kofi-request)
-[![npm](https://img.shields.io/npm/l/kofi-request.svg?style=flat-square)](https://github.com/jmjuanes/kofi)
+[![npm](https://img.shields.io/npm/v/@kofijs/request.svg?style=flat-square)](https://www.npmjs.com/package/@kofijs/request)
+[![npm](https://img.shields.io/npm/dt/@kofijs/request.svg?style=flat-square)](https://www.npmjs.com/package/@kofijs/request)
+[![npm](https://img.shields.io/npm/l/@kofijs/request.svg?style=flat-square)](https://github.com/jmjuanes/kofi)
 [![pr](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)]()
 
 
@@ -13,23 +13,23 @@
 Use `npm` to install this module: 
 
 ```
-$ npm install --save kofi-request
+$ npm install --save @kofijs/request
 ```
 
 Use it with your HTML page: 
 
 ```html
 <!-- Develop version (not minified) -->
-<script type="text/javascript" src="./node_modules/kofi-request/kofi-request.js"></script>
+<script type="text/javascript" src="./node_modules/@kofijs/request/kofi-request.js"></script>
 
 <!-- Minified version -->
-<script type="text/javascript" src="./node_modules/kofi-request/kofi-request.min.js"></script>
+<script type="text/javascript" src="./node_modules/@kofijs/request/kofi-request.min.js"></script>
 ```
 
 Use it with your ES6 modules: 
 
 ```javascript
-import {request} from "kofi-request";
+import {request} from "@kofijs/request";
 ```
 
 ## Usage
