@@ -119,7 +119,7 @@ publish:
 	git commit -m "Publish v$(shell make version ${PKG}) of kofi-${PKG}" ;\
 	git push ;\
 	cd ./packages/${PKG}/.dist ;\
-	npm publish ;\
+	npm publish --access public ;\
 	cd ../../../ ;\
 
 # Display the version of a package
