@@ -1,5 +1,5 @@
 {
-    "name": "kofi-request",
+    "name": "@kofijs/request",
     "version": "0.0.0",
     "description": "A delicious HTTP request client library",
     "private": false,
