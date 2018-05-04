@@ -1,10 +1,10 @@
-# kofi-dispatch
+# @kofijs/dispatch
 
 > A delightful library to register and trigger custom named events. 
 
-[![npm](https://img.shields.io/npm/v/kofi-dispatch.svg?style=flat-square)](https://www.npmjs.com/package/kofi-dispatch)
-[![npm](https://img.shields.io/npm/dt/kofi-dispatch.svg?style=flat-square)](https://www.npmjs.com/package/kofi-dispatch)
-[![npm](https://img.shields.io/npm/l/kofi-dispatch.svg?style=flat-square)](https://github.com/jmjuanes/kofi)
+[![npm](https://img.shields.io/npm/v/@kofijs/dispatch.svg?style=flat-square)](https://www.npmjs.com/package/@kofijs/dispatch)
+[![npm](https://img.shields.io/npm/dt/@kofijs/dispatch.svg?style=flat-square)](https://www.npmjs.com/package/@kofijs/dispatch)
+[![npm](https://img.shields.io/npm/l/@kofijs/dispatch.svg?style=flat-square)](https://github.com/jmjuanes/kofi)
 [![pr](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)]()
 
 
@@ -13,23 +13,23 @@
 Use [nmp](https://npmjs.com) to install this package: 
 
 ```
-$ npm install --save kofi-dispatch
+$ npm install --save @kofijs/dispatch
 ```
 
 Use it in your HTML files:
 
 ```html
 <!-- Develop version -->
-<script type="text/javascript" src="./node_modules/kofi-dispatch/kofi-dispatch.js"></script>
+<script type="text/javascript" src="./node_modules/@kofijs/dispatch/kofi-dispatch.js"></script>
 
 <!-- Minified version -->
-<script type="text/javascript" src="./node_modules/kofi-dispatch/kofi-dispatch.min.js"></script>
+<script type="text/javascript" src="./node_modules/@kofijs/dispatch/kofi-dispatch.min.js"></script>
 ```
 
 Use it in your ES6 modules: 
 
 ```javascript
-import {dispatch} from "kofi-dispatch";
+import {dispatch} from "@kofijs/dispatch";
 ```
 
 ## Example
