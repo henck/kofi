@@ -1,6 +1,6 @@
 {
     "name": "@kofijs/dispatch",
-    "version": "0.0.0",
+    "version": "0.0.1",
     "description": "A delightful library to register and trigger custom named events.",
     "private": false,
     "main": "index.js",
