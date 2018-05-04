@@ -1,5 +1,5 @@
 let assert = require("assert");
-let kofi = require("../dist/index.js");
+let kofi = require("../.bundle/kofi-queue.js");
 
 describe("queue", function () {
     it("executes all functions provided", function (done) {
