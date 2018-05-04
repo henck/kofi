@@ -23,6 +23,7 @@ let config = {
     "output": {
         "format": "umd",
         "name": "kofi",
+        "extend": true,
         "banner": banner.join("\n")
     },
     "plugins": []
