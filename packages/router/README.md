@@ -1,4 +1,4 @@
-# kofi-router
+# @kofijs/router
 
 > A tasty and minimal client-side router utility
 
@@ -8,27 +8,27 @@
 Use [npm](https://npmjs.com) to install this module: 
 
 ```
-$ npm install --save kofi-router
+$ npm install --save @kofijs/router
 ```
 
 Import this module in your HTML files: 
 
 ```html
 <!-- Development version -->
-<script type="text/javascript" src="./node_modules/kofi-router/kofi-router.js"></script>
+<script type="text/javascript" src="./node_modules/@kofijs/router/kofi-router.js"></script>
 
 <!-- Minified version -->
-<script type="text/javascript" src="./node_modules/kofi-router/kofi-router.min.js"></script>
+<script type="text/javascript" src="./node_modules/@kofijs/router/kofi-router.min.js"></script>
 ```
 
 Import in your ES6 module: 
 
 ```javascript 
 //Load the full library
-import * as kofi from "kofi-router";
+import * as kofi from "@kofijs/router";
 
 //Import single methods
-import {router} from "kofi-router";
+import {router} from "@kofijs/router";
 ```
 
 ## Usage
