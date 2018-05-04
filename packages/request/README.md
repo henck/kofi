@@ -1,6 +1,6 @@
 # @kofijs/request 
 
-> A delicious HTTP request client library
+> A delicious HTTP request client library for browsers
 
 [![npm](https://img.shields.io/npm/v/@kofijs/request.svg?style=flat-square)](https://www.npmjs.com/package/@kofijs/request)
 [![npm](https://img.shields.io/npm/dt/@kofijs/request.svg?style=flat-square)](https://www.npmjs.com/package/@kofijs/request)
