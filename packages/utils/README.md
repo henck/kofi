@@ -1,10 +1,10 @@
-# kofi-utils
+# @kofijs/utils
 
 > A tasty micro utilities library
 
-[![npm](https://img.shields.io/npm/v/kofi-utils.svg?style=flat-square)](https://www.npmjs.com/package/kofi-utils)
-[![npm](https://img.shields.io/npm/dt/kofi-utils.svg?style=flat-square)](https://www.npmjs.com/package/kofi-utils)
-[![npm](https://img.shields.io/npm/l/kofi-utils.svg?style=flat-square)](https://github.com/jmjuanes/kofi)
+[![npm](https://img.shields.io/npm/v/@kofijs/utils.svg?style=flat-square)](https://www.npmjs.com/package/@kofijs/utils)
+[![npm](https://img.shields.io/npm/dt/@kofijs/utils.svg?style=flat-square)](https://www.npmjs.com/package/@kofijs/utils)
+[![npm](https://img.shields.io/npm/l/@kofijs/utils.svg?style=flat-square)](https://github.com/jmjuanes/kofi)
 [![pr](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)]()
 
 
@@ -13,27 +13,27 @@
 Use [npm](https://npmjs.com) to install this module:
 
 ```
-npm install --save kofi-utils
+npm install --save @kofijs/utils
 ```
 
 Use it in your browser: 
 
 ```html
 <!-- Develop version (not minified) -->
-<script type="text/javascript" src="./node_modules/kofi-utils/kofi-utils.js"></script>
+<script type="text/javascript" src="./node_modules/@kofijs/utils/kofi-utils.js"></script>
 
 <!-- Minified version -->
-<script type="text/javascript" src="./node_modules/kofi-utils/kofi-utils.min.js"></script>
+<script type="text/javascript" src="./node_modules/@kofijs/utils/kofi-utils.min.js"></script>
 ```
 
 Use it with your ES6 modules: 
 
 ```javascript
 //Load the full library
-import * as kofi from "kofi-utils";
+import * as kofi from "@kofijs/utils";
 
 //Load single methods 
-import {max, min} from "kofi-utils";
+import {max, min} from "@kofijs/utils";
 ```
 
 
