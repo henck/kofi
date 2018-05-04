@@ -5,8 +5,8 @@
 </div>
 <br>
 <div align="center">
-<img src=https://img.shields.io/badge/stability-experimental-orange.svg?style=flat-square">
-<img src=https://img.shields.io/badge/license-MIT-green.svg?style=flat-square">
+<img src="https://img.shields.io/badge/stability-experimental-orange.svg?style=flat-square">
+<img src="https://img.shields.io/badge/license-MIT-green.svg?style=flat-square">
 <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square">
 </div>
 
@@ -24,16 +24,10 @@ The **kofi** repository is managed as a monorepo that is composed of a set of [n
 
 ## Installation
 
-You can install the base package of **kofi**, that is a wrapper that includes all packages on this repository: 
+You can install individual **kofi** modules using npm: 
 
 ```
-$ npm install --save kofi
-```
-
-You can install individual **kofi** modules by installing them with npm: 
-
-```
-$ npm install --save kofi-dispatch
+$ npm install --save kofijs@dispatch
 ```
 
 ## Documentation
