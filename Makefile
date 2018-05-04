@@ -149,11 +149,11 @@ publish:
 		echo "ERROR: please call 'make publish' with the package to publish" ;\
 		exit 1; \
 	else \
-		echo "Publishing version v$(shell make version ${PKG}) of ${PKG}" ;\
+		echo "Publishing version v$(shell make version ${PKG}) of kofi-${PKG}" ;\
 		sleep 5 ;\
 		make dist ${PKG} ;\
 		git add ./packages/${PKG}/package.json ;\
-		git commit -m "Publish v$(shell make version ${PKG}) of ${PKG}" ;\
+		git commit -m "Publish v$(shell make version ${PKG}) of kofi-${PKG}" ;\
 		git push ;\
 		cd ./packages/${PKG}/.dist ;\
 		npm publish ;\
