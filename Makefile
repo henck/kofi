@@ -164,6 +164,8 @@ version:
 	fi
 
 # Catch any target and do nothing
+dom: 
+	@:
 dispatch:
 	@:
 queue:
