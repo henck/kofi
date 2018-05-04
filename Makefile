@@ -116,7 +116,7 @@ publish:
 	sleep 5 ;\
 	make dist ${PKG} ;\
 	git add ./packages/${PKG}/package.json ;\
-	git commit -m "Publish v$(shell make version ${PKG}) of kofi-${PKG}" ;\
+	git commit -m "Publish version $(shell make version ${PKG}) of kofi-${PKG}" ;\
 	git push ;\
 	cd ./packages/${PKG}/.dist ;\
 	npm publish --access public ;\
