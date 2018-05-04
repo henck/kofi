@@ -1,6 +1,6 @@
 {
     "name": "@kofijs/request",
-    "version": "0.0.0",
+    "version": "0.0.1",
     "description": "A delicious HTTP request client library for browsers",
     "private": false,
     "main": "index.js",
