@@ -91,21 +91,21 @@ test:
 release-major: 
 	@set -e ;\
 	make exists ${PKG} ;\
-	node -/scripts/bump --package ${PKG} --major ;\
+	node ./scripts/bump.js --package ${PKG} --major ;\
 	make publish ${PKG} ;\
 
 # Release a minor version
 release-minor: 
 	@set -e ;\
 	make exists ${PKG} ;\
-	node -/scripts/bump --package ${PKG} --minor ;\
+	node ./scripts/bump.js --package ${PKG} --minor ;\
 	make publish ${PKG} ;\
 	
 # Release a patch version
 release-patch: 
 	@set -e ;\
 	make exists ${PKG} ;\
-	node -/scripts/bump --package ${PKG} --patch ;\
+	node ./scripts/bump.js --package ${PKG} --patch ;\
 	make publish ${PKG} ;\
 
 # Publish the package 
