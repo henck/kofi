@@ -1,13 +1,10 @@
 {
-    "name": "kofi-dispatch",
+    "name": "@kofijs/dispatch",
     "version": "0.0.0",
     "description": "A delightful library to register and trigger custom named events.",
     "private": false,
     "main": "index.js",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/jmjuanes/kofi.git"
-    },
+    "repository": "https://github.com/jmjuanes/kofi.git",
     "keywords": [
         "dispatch",
         "event",
@@ -16,7 +13,5 @@
     ],
     "author": "Josemi Juanes <josemijuanes@gmail.com>",
     "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/jmjuanes/kofi/issues"
-    }
+    "bugs": "https://github.com/jmjuanes/kofi/issues"
 }
