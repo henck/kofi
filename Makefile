@@ -16,7 +16,6 @@ NODE_BIN=./node_modules/.bin
 help: 
 	@echo "Available commands"
 	@echo ""
-	@echo "  make build                    Build"
 	@echo "  make bundle <package>         Build bundles for package <package>" 
 	@echo "  make clean <package>          Clean the package <package>"
 	@echo "  make clean-all                Clean all releasable packages"
@@ -102,12 +101,6 @@ test:
 		cd ../../ ;\
 		echo "Tests completed" ;\
 	fi
-
-# Build the package
-build: 
-	@set -e ;\
-	node ./scripts/merge.js ;\
-	echo "Entry file for package 'kofi' generated"
 
 # Release a major version
 release-major: 
