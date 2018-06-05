@@ -36,6 +36,18 @@ import {ready} from "@kofijs/dom";
 
 > Under development
 
+
+### kofi.ready(fn)
+
+Executes the provided function `fn` when the DOM becomes ready. This utility is similar to [jQuery's ready method](https://api.jquery.com/ready/).
+
+```javascript 
+//Execute this function when the DOM is ready
+kofi.ready(function () {
+    console.log("DOM is ready");
+});
+```
+
 ## License 
 
 Under the **MIT LICENSE**.
