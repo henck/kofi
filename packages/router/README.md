@@ -170,7 +170,7 @@ Sets the current hashbang navigation value to the url provided.
 
 #### kofi.hashbangChange(listener)
 
-Adds a new listener that will be triggered when the hashbang navigation value vhanges.
+Adds a new listener that will be triggered when the hashbang navigation value changes.
 
 ```javascript 
 kofi.hashbangChange(function (url) {
