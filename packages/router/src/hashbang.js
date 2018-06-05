@@ -1,7 +1,8 @@
 //Get the current hashbang 
 export function getHashbang () {
     //Decode the current hash
-    let hash = window.decodeURIComponent(window.location.hash.substring(1));
+    //let hash = window.decodeURIComponent(window.location.hash.substring(1));
+    let hash = window.location.hash.substring(1);
     //Check for empty hash
     if (hash.trim() === "") {
         hash = "!/";
