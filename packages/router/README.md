@@ -81,19 +81,19 @@ router.load("/bar/foo");
 
 ```javascript
 //Listen to hashbang changes
-kofi.hashbangChange(function (url) {
+kofi.hashbang.onChange(function (url) {
     router.load(url);
 });
 
 //First load
-router.load(kofi.getHashbang());
+router.load(kofi.hashbang.get());
 
 //Redirect to a url
-kofi.setHashbang("/foo");
+kofi.hashbang.set("/foo");
 // --> Enter to foo
 
 //Redirect to a url with query-string params
-kofi.setHashbang("/bar?name=Susan");
+kofi.hashbang.set("/bar?name=Susan");
 // --> Name: Susan
 ```
 
@@ -152,28 +152,28 @@ Registers the listener that will be triggered in case no route matches.
 
 ### Hashbang navigation methods 
 
-#### kofi.getHashbang()
+#### kofi.hashbang.get()
 
 Returns the current hasbang navigation url. If the `hash` segment of the url does not starts with an exclamation mark, this method will return a `null` value.
 
 ```javascript
 // Current url: localhost#!/foo/bar
-kofi.getHashbang(); // --> "/foo/bar"
+kofi.hashbang.get(); // --> "/foo/bar"
 
 //Current url: localhost#foo
-kofi.getHashbang() // --> null
+kofi.hashbang.get() // --> null
 ```
 
-#### kofi.setHashbang(url)
+#### kofi.hashbang.set(url)
 
 Sets the current hashbang navigation value to the url provided.
 
-#### kofi.hashbangChange(listener)
+#### kofi.hashbang.onChange(listener)
 
 Adds a new listener that will be triggered when the hashbang navigation value changes.
 
 ```javascript 
-kofi.hashbangChange(function (url) {
+kofi.hashbang.onChange(function (url) {
     console.log("New hashbang --> " + url);
 });
 ```
