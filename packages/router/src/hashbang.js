@@ -14,7 +14,7 @@ export function getHashbang () {
     hash = hash.replace(/\/$/, "");
     //Return the hash
     return hash;
-};
+}
 
 //Hashbang change listener
 export function hashbangChange (listener) {
