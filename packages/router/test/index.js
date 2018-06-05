@@ -1,5 +1,5 @@
 let assert = require("assert");
-let kofi = require("../dist/kofi-router.js");
+let kofi = require("../.bundle/kofi-router.js");
 
 describe("router", function () {
     it("should call matched routes", function (done) {
