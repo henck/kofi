@@ -1,6 +1,6 @@
 {
     "name": "@kofijs/router",
-    "version": "0.0.0",
+    "version": "0.0.1",
     "description": "A tasty and minimal client-side router utility",
     "main": "index.js",
     "repository": "https://github.com/jmjuanes/kofi",
