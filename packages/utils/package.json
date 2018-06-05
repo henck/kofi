@@ -1,6 +1,6 @@
 {
     "name": "@kofijs/utils",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "description": "A tasty micro utilities library",
     "main": "index.js",
     "repository": "https://github.com/jmjuanes/kofi",
