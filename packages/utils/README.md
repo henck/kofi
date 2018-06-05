@@ -74,7 +74,7 @@ kofi.concat([1, 2, 3, 4], [5, 6], [7]); // -> [1, 2, 3, 4, 5, 6, 7]
 kofi.concat([1], 2, [3, 4], null); // -> [1, 2, 3, 4, null]
 ```
 
-### kofi.deepClone(obj)
+#### kofi.deepClone(obj)
 
 > Added in **v0.1.0**
 
