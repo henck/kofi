@@ -74,6 +74,19 @@ kofi.concat([1, 2, 3, 4], [5, 6], [7]); // -> [1, 2, 3, 4, 5, 6, 7]
 kofi.concat([1], 2, [3, 4], null); // -> [1, 2, 3, 4, null]
 ```
 
+### kofi.deepClone(obj)
+
+> Added in **v0.1.0**
+
+Returns a deep clone of `obj`. Supports cloning arrays, objects, strings, booleans and numbers.
+
+```javascript
+let obj = [{"foo": true}, {"bar": false}];
+let clonedObj = kofi.deepClone(obj);
+console.log(clonedObj[0] === obj[0]); // -> false
+console.log(clonedObj[1] === obj[1]); // -> false
+```
+
 #### kofi.delay(time, fn)
 
 This is just [`setTimeout`](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout) but with the arguments reverted (first the delay `time` in ms, then the callback `fn` function).
