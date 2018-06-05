@@ -30,7 +30,7 @@ help:
 
 # Install all dependencies of the repository
 setup:
-	@set -e ;\
+	@set -e 
 	npm install
 
 # Build bundles for a given package
