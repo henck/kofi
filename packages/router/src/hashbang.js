@@ -1,5 +1,5 @@
 //Get the current hashbang 
-export function getHashbang () {
+export function get () {
     //Decode the current hash
     //let hash = window.decodeURIComponent(window.location.hash.substring(1));
     let hash = window.location.hash.substring(1);
@@ -18,11 +18,11 @@ export function getHashbang () {
 }
 
 //Hashbang change listener
-export function hashbangChange (listener) {
+export function onChange (listener) {
     //Add hash listener
     window.addEventListener("hashchange", function () {
         //Get the current hash
-        let hash = getHashbang();
+        let hash = get();
         //Check for valid hashbang
         if (hash !== null) {
             //Call the listener with this url
@@ -32,7 +32,7 @@ export function hashbangChange (listener) {
 }
 
 //Change the hashbang url
-export function setHashbang (url) {
+export function set (url) {
     //Replace the starting hash and the excalamtion
     let parsedUrl = url.replace("#", "").replace("!", "");
     //Check for emptu url 
