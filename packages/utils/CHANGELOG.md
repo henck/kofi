@@ -1,3 +1,7 @@
+## 0.2.0 (June 7, 2018)
+
+- Added `kofi.equal` utility to determine if two values are equal.
+
 ## 0.1.1 (June 7, 2018)
 
 - Fixed bug with `kofi.deepClone` export.
