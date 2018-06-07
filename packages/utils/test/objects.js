@@ -63,6 +63,51 @@ describe("each", function () {
     });
 });
 
+describe("equal", function () {
+    it("returns true if two objects are equal", function (done) {
+        let obj1 = {"key":"value"};
+        let obj2 = {"key":"value"};
+        let arr1 = [1, 2, 3, 4, 5];
+        let arr2 = [1, 2, 3, 4, 5];
+        assert.equal(kofi.equal(obj1, obj2), true);
+        assert.equal(kofi.equal(arr1, arr2), true);
+        assert.equal(kofi.equal(true, true), true);
+        assert.equal(kofi.equal(null, null), true);
+        assert.equal(kofi.equal("hello", "hello"), true);
+        return done();
+    });
+
+    it("returns false if two values are not equal", function (done) {
+        let obj1 = {"key": "value"};
+        let obj2 = {"key": []};
+        let arr1 = [1, 2, 3, 4, 5];
+        let arr2 = [5, 4, 3, 2, 1];
+        assert.equal(kofi.equal(obj1, obj2), false);
+        assert.equal(kofi.equal(arr1, arr2), false);
+        assert.equal(kofi.equal(null, obj2), false);
+        assert.equal(kofi.equal(true, false), false);
+        assert.equal(kofi.equal(0, 1.2), false);
+        assert.equal(kofi.equal("hello", "world"), false);
+        return done();
+    });
+
+    it("Performs a deep comparison of an object or array", function (done) {
+        let obj1 = {"key": {"a": true, "b": false}, "arr": [1, 2, 3]};
+        let obj2 = {"key": {"a": true, "b": false}, "arr": [1, 2, 3]};
+        let obj3 = {"key": {"a": true, "b": null}, "arr": [1, 2, null]};
+        let obj4 = {"key": {"a": true, "b": false}};
+        let arr1 = [1, 2, {"a": true}, {"b": [1, 2, 3]}, null, 0, true];
+        let arr2 = [1, 2, {"a": true}, {"b": [1, 2, 3]}, null, 0, true];
+        let arr3 = [1, 2, {"a": true}, {"b": [1, 2, {"c": false}]}, null, 0, true];
+        assert.equal(kofi.equal(obj1, obj2), true);
+        assert.equal(kofi.equal(obj1, obj3), false);
+        assert.equal(kofi.equal(obj1, obj4), false);
+        assert.equal(kofi.equal(arr1, arr2), true);
+        assert.equal(kofi.equal(arr1, arr3), false);
+        return done();
+    });
+});
+
 describe("extract", function () {
     it("generated a new object with only the provided keys", function (done) {
         let obj = {a: 1, b: 2, c: 3};
