@@ -6,6 +6,7 @@ export {default as deepClone} from "./src/deep-clone.js";
 export {default as delay} from "./src/delay.js";
 export {default as digits} from "./src/digits.js";
 export {default as each} from "./src/each.js";
+export {default as equal} from "./src/equal.js";
 export {default as extract} from "./src/extract.js";
 export {default as fill} from "./src/fill.js";
 export {default as format} from "./src/format.js";
