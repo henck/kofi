@@ -133,6 +133,21 @@ kofi.each({"key1": "value1", "key2": "value2"}, function (key, value) {
 // key2 -> value2
 ```
 
+#### kofi.equal(value1, value2)
+
+> Added in **v0.2.0**
+
+Determines if two values are equal. Works with strings, numbers, booleans, objects and arrays.
+
+```javascript
+let obj1 = {"key": "value"};
+let obj2 = {"key": "value"};
+let obj3 = {"key": null};
+
+kofi.equal(obj1, obj2); // --> true
+kofi.equal(obj1, obj3); // --> false
+```
+ 
 #### kofi.extract(obj, keys)
 
 Creates a new object with only the provided keys of `obj`.
