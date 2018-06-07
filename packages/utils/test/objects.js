@@ -8,6 +8,34 @@ let obj = {
     city: "Tokio"
 };
 
+describe("deepClone", function () {
+    it("clones an object", function (done) {
+        let cloned = kofi.deepClone(obj);
+        cloned.age = 25;
+        assert.equal(cloned.name, obj.name);
+        assert.notEqual(cloned.age, obj.age);
+        return done();
+    });
+
+    it("clones recursiverly an object", function (done) {
+        let obj1 = {
+            "key1": "value1",
+            "key2": {
+                "key21": true,
+                "key22": null
+            },
+            "key3": {
+                "key31": "hello",
+                "key32": [1,2,3]
+            }
+        };
+        let obj2 = kofi.deepClone(obj1);
+        assert.notEqual(obj1, obj2);
+        assert.equal(obj1.key3.key32.length, obj2.key3.key32.length);
+        return done();
+    });
+});
+
 describe("each", function () {
     it("executes a function for ach pair key-value", function (done) {
         let keys = ["name", "age", "city"];
