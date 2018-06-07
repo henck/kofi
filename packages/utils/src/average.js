@@ -7,6 +7,6 @@
  */
 
 export default function average (array) {
-  return array.reduce((total, x) => total + x) / array.length;
+    return array.reduce((total, x) => total + x) / array.length;
 }
 
