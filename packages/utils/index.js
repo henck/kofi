@@ -2,6 +2,7 @@ export {default as average} from "./src/average.js";
 export {default as camelCase} from "./src/camel-case.js";
 export {default as capitalize} from "./src/capitalize.js";
 export {default as concat} from "./src/concat.js";
+export {default as deepClone} from "./src/deep-clone.js";
 export {default as delay} from "./src/delay.js";
 export {default as digits} from "./src/digits.js";
 export {default as each} from "./src/each.js";
