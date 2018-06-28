@@ -19,13 +19,14 @@ export function createComponent(obj) {
     };
     //Assign the functions defined in the provided object
     Object.keys(obj).forEach(function (key) {
-        if (typeof obj[key] !== "function") {
-            //console.warn("Invalid type '" + key + "'. Only functions are allowed");
+        if (typeof obj[key] === "function") {
+            //Assign this function to the new component object
+            component[key] = obj[key];
         }
         if (key === "state" || key === "props") {
             throw new Error("Invalid function name '" + key + "'. This name is already reserved");
         }
-        component[key] = obj[key].bind(component);
+        //console.warn("Invalid type '" + key + "'. Only functions are allowed");
     });
     //Undefined component render
     if (typeof component.render !== "function") {
@@ -39,6 +40,11 @@ export function createComponent(obj) {
 export function mountComponent(originalComponent, props, parent) {
     //Clone the component
     let component = Object.assign({}, originalComponent);
+    Object.keys(component).forEach(function (key) {
+        if (typeof component[key] === "function") {
+            component[key] = component[key].bind(component);
+        }
+    });
     let currentContent = null;
     //Get the initial state and props
     component.props = Object.assign(component.getDefaultProps(), props);
