@@ -24,24 +24,28 @@ export function createElement (type, props) {
 
 //Mount an element
 export function mountElement (element, parent) {
+    let domNode = null;
     //Check the element type
     if (typeof element === "string") {
-        //Create and append a text node
-        parent.appendChild(document.createTextNode(element));
+        //Create a text node
+        domNode = document.createTextNode(element);
     }
     else {
         //Create the new DOM element and assign the element properties
-        let domNode = document.createElement(element.type);
+        domNode = document.createElement(element.type);
         Object.keys(element.props).forEach(function(name) {
             return setProperty(domNode, name, element.props[name]);
         });
-        //Mount the new dom node
-        parent.appendChild(domNode);
         //Mount each children in the new node
         element.children.forEach(function(child) {
             return mountElement(child, domNode);
         });
     }
+    //Mount the new node
+    if (typeof parent !== "undefined") {
+        parent.appendChild(domNode);
+    }
+    return domNode;
 }
 
 //Update an element
@@ -119,7 +123,9 @@ function setProperty (parent, name, value) {
     //Check for event listener property
     else if (isEventProperty(name) === true) {
         //Register the event listener
-        parent.addEventListener(name.slice(2).toLowerCase(), value);
+        parent.addEventListener(name.slice(2).toLowerCase(), function (event) {
+            return value(event);
+        });
     }
     else if (typeof value === "boolean") {
         //Check the boolean value
@@ -145,7 +151,9 @@ function removeProperty (parent, name, value) {
     }
     else if (isEventProperty(name) === true) {
         //Remove the event listener
-        parent.removeEventListener(name.slice(2).toLowerCase(), value);
+        parent.removeEventListener(name.slice(2).toLowerCase(), function (event) {
+            return value(event);
+        });
     }
     else if (typeof value === "boolean") {
         //Remove the boolean property
