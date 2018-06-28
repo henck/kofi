@@ -9,7 +9,9 @@ export function createElement (type, props) {
     if (arguments.length >= 3) {
         //Insert all children elements
         for (let i = 2; i < arguments.length; i++) {
-            children.push(arguments[i]);
+            if (typeof arguments[i] !== "undefined" && arguments[i] !== null) {
+                children.push(arguments[i]);
+            }
         }
     }
     //Parse the element type
