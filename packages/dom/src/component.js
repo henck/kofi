@@ -7,8 +7,8 @@ export function createComponent(obj) {
     }
     //Component default configuration
     let component = {
-        "state": null,
-        "props": null,
+        //"state": null,
+        //"props": null,
         //"refs": null,
         "getDefaultState": function () {
             return {};
@@ -19,12 +19,12 @@ export function createComponent(obj) {
     };
     //Assign the functions defined in the provided object
     Object.keys(obj).forEach(function (key) {
-        if (typeof obj[key] === "function") {
-            //Assign this function to the new component object
-            component[key] = obj[key];
-        }
+        //Check for invalid component key
         if (key === "state" || key === "props") {
             throw new Error("Invalid function name '" + key + "'. This name is already reserved");
+        }
+        if (typeof obj[key] === "function") {
+            component[key] = obj[key];
         }
         //console.warn("Invalid type '" + key + "'. Only functions are allowed");
     });
@@ -46,9 +46,10 @@ export function mountComponent(originalComponent, props, parent) {
         }
     });
     let currentContent = null;
-    //Get the initial state and props
+    //Get the initial state, refs and props
     component.props = Object.assign(component.getDefaultProps(), props);
     component.state = component.getDefaultState();
+    component.refs = {};
     //Render the component content
     let renderComponent = function () {
         let content = component.render.call(component, component.props, component.state);
@@ -64,7 +65,7 @@ export function mountComponent(originalComponent, props, parent) {
         }
         component.state = Object.assign(component.state, newState);
         let content = renderComponent();
-        updateElement(content, currentContent, parent);
+        updateElement(content, currentContent, parent, component.refs);
         currentContent = content;
         if (typeof component.onUpdate === "function") {
             component.onUpdate.call(component);
@@ -76,7 +77,7 @@ export function mountComponent(originalComponent, props, parent) {
     component.setState = component.setState.bind(this);
     //Mount the component
     currentContent = renderComponent();
-    mountElement(currentContent, parent);
+    mountElement(currentContent, parent, component.refs);
     if (typeof component.onReady === "function") {
         component.onReady.call(component);
     }
