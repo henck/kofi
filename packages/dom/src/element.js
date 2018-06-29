@@ -136,6 +136,16 @@ function setProperty (parent, name, value, refs) {
     else if (name === "className") {
         parent.setAttribute("class", value);
     }
+    //Check for style property
+    else if (name === "style") {
+        if (typeof value !== "object") {
+            throw new Error("Styles must be an object");
+        }
+        //Assign all styles to the element
+        Object.keys(value).forEach(function (key) {
+            parent.style[key] = value[key];
+        });
+    }
     //Check for event listener property
     else if (isEventProperty(name) === true) {
         //Register the event listener
@@ -155,6 +165,9 @@ function setProperty (parent, name, value, refs) {
 function removeProperty (parent, name, value, refs) {
     if (name === "className") {
         parent.removeAttribute("class");
+    }
+    else if (name === "style") {
+        parent.style = null;
     }
     else if (name === "ref") {
         delete refs[value];
