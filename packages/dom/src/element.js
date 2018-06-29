@@ -25,29 +25,29 @@ export function createElement (type, props) {
 }
 
 //Mount an element
-export function mountElement (element, parent) {
-    let domNode = null;
+export function mountElement (el, parent) {
+    let node = null;
     //Check the element type
-    if (typeof element === "string") {
+    if (typeof el === "string") {
         //Create a text node
-        domNode = document.createTextNode(element);
+        node = document.createTextNode(el);
     }
     else {
         //Create the new DOM element and assign the element properties
-        domNode = document.createElement(element.type);
-        Object.keys(element.props).forEach(function(name) {
-            return setProperty(domNode, name, element.props[name]);
+        node = document.createElement(el.type);
+        Object.keys(el.props).forEach(function(name) {
+            return setProperty(node, name, el.props[name]);
         });
         //Mount each children in the new node
-        element.children.forEach(function(child) {
-            return mountElement(child, domNode);
+        el.children.forEach(function(child) {
+            return mountElement(child, node);
         });
     }
     //Mount the new node
     if (typeof parent !== "undefined") {
-        parent.appendChild(domNode);
+        parent.appendChild(node);
     }
-    return domNode;
+    return node;
 }
 
 //Update an element
