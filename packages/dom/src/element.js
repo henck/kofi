@@ -10,6 +10,10 @@ export function createElement (type, props) {
         //Insert all children elements
         for (let i = 2; i < arguments.length; i++) {
             if (typeof arguments[i] !== "undefined" && arguments[i] !== null) {
+                //Check for array of childrens
+                if (Array.isArray(arguments[i]) === true) {
+                    throw new Error("Array of childrens are not allowed");
+                }
                 children.push(arguments[i]);
             }
         }
@@ -121,7 +125,7 @@ function nodesDiffs (node1, node2) {
 //Set a property
 function setProperty (parent, name, value, refs) {
     //Check for null value --> Remove the property
-    if (value === null) { 
+    if (value === null || value === false) { 
         return removeProperty(parent, name, value, refs); 
     }
     //Check for reference 
@@ -139,16 +143,9 @@ function setProperty (parent, name, value, refs) {
             return value(event);
         });
     }
-    else if (typeof value === "boolean") {
-        //Check the boolean value
-        if (value === true) {
-            parent[name] = true;
-            parent.setAttribute(name, "true");
-        }
-        else {
-            parent[name] = false;
-            parent.removeAttribute(name);
-        }
+    else if (value === true) {
+        parent[name] = true;
+        parent.setAttribute(name, "true");
     }
     else {
         //Default, set the attribute value
@@ -170,7 +167,7 @@ function removeProperty (parent, name, value, refs) {
             return value(event);
         });
     }
-    else if (typeof value === "boolean") {
+    else if (value === false) {
         //Remove the boolean property
         parent[name] = false;
         parent.removeAttribute(name);
