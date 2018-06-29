@@ -25,39 +25,45 @@ export function createElement (type, props) {
 }
 
 //Mount an element
-export function mountElement (el, parent) {
+export function mountElement (el, parent, refs) {
+    if (typeof refs !== "object" || refs === null) {
+        refs = {};
+    }
+    //Initialize the node
     let node = null;
-    //Check the element type
+    //Check for text node
     if (typeof el === "string") {
-        //Create a text node
         node = document.createTextNode(el);
     }
     else {
         //Create the new DOM element and assign the element properties
         node = document.createElement(el.type);
         Object.keys(el.props).forEach(function(name) {
-            return setProperty(node, name, el.props[name]);
+            return setProperty(node, name, el.props[name], refs);
         });
         //Mount each children in the new node
         el.children.forEach(function(child) {
-            return mountElement(child, node);
+            return mountElement(child, node, refs);
         });
     }
     //Mount the new node
-    if (typeof parent !== "undefined") {
+    if (typeof parent !== "undefined" && parent !== null) {
         parent.appendChild(node);
     }
     return node;
 }
 
 //Update an element
-export function updateElement (newNode, oldNode, parent, index) {
+export function updateElement (newNode, oldNode, parent, refs, index) {
+    if (typeof refs !== "object" || refs === null) {
+        refs = {};
+    }
     if (typeof index !== "number"){ 
         index = 0; 
     }
     //Check for no old node --> mount this new element
     if (!oldNode) { 
-        return mountElement(newNode, parent); 
+        return mountElement(newNode, parent, refs); 
     }
     //If there is not new element --> remove the old element
     else if (!newNode) { 
@@ -65,7 +71,7 @@ export function updateElement (newNode, oldNode, parent, index) {
     }
     //If nodes has changed
     else if (nodesDiffs(newNode, oldNode)) {
-        return parent.replaceChild(mountElement(newNode), parent.childNodes[index]);
+        return parent.replaceChild(mountElement(newNode, null, refs), parent.childNodes[index]);
     }
     //Change the properties only if element is not an string
     else if (typeof newNode !== "string") {
@@ -76,11 +82,11 @@ export function updateElement (newNode, oldNode, parent, index) {
             let oldValue = oldNode.props[name];
             //Check if this property does not exists in the new element
             if (!newValue) {
-                removeProperty(parent.childNodes[index], name, oldValue);
+                removeProperty(parent.childNodes[index], name, oldValue, refs);
             }
             //Check if this property exists in the old element or values are not the same
             else if (!oldValue || newValue !== oldValue) {
-                setProperty(parent.childNodes[index], name, newValue);
+                setProperty(parent.childNodes[index], name, newValue, refs);
             }
         });
         //Update the children for all element
@@ -89,7 +95,7 @@ export function updateElement (newNode, oldNode, parent, index) {
             //Get the nodes to update
             let newChildren = (i < newNode.children.length) ? newNode.children[i] : null;
             let oldChildren = (i < oldNode.children.length) ? oldNode.children[i] : null;
-            updateElement(newChildren, oldChildren, parent.childNodes[index], i);
+            updateElement(newChildren, oldChildren, parent.childNodes[index], refs, i);
         }
     }
 }
@@ -113,10 +119,14 @@ function nodesDiffs (node1, node2) {
 }
 
 //Set a property
-function setProperty (parent, name, value) {
+function setProperty (parent, name, value, refs) {
     //Check for null value --> Remove the property
     if (value === null) { 
-        return removeProperty(parent, name, value); 
+        return removeProperty(parent, name, value, refs); 
+    }
+    //Check for reference 
+    else if (name === "ref") {
+        refs[value] = parent;
     }
     //Check for class property
     else if (name === "className") {
@@ -147,9 +157,12 @@ function setProperty (parent, name, value) {
 }
 
 //Remove a property
-function removeProperty (parent, name, value) {
+function removeProperty (parent, name, value, refs) {
     if (name === "className") {
         parent.removeAttribute("class");
+    }
+    else if (name === "ref") {
+        delete refs[value];
     }
     else if (isEventProperty(name) === true) {
         //Remove the event listener
