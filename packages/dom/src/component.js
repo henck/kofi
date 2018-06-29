@@ -9,7 +9,7 @@ export function createComponent(obj) {
     let component = {
         "state": null,
         "props": null,
-        "refs": null,
+        //"refs": null,
         "getDefaultState": function () {
             return {};
         },
