@@ -139,9 +139,7 @@ function setProperty (parent, name, value, refs) {
     //Check for event listener property
     else if (isEventProperty(name) === true) {
         //Register the event listener
-        parent.addEventListener(name.slice(2).toLowerCase(), function (event) {
-            return value(event);
-        });
+        parent.addEventListener(name.slice(2).toLowerCase(), value);
     }
     else if (value === true) {
         parent[name] = true;
@@ -163,9 +161,7 @@ function removeProperty (parent, name, value, refs) {
     }
     else if (isEventProperty(name) === true) {
         //Remove the event listener
-        parent.removeEventListener(name.slice(2).toLowerCase(), function (event) {
-            return value(event);
-        });
+        parent.removeEventListener(name.slice(2).toLowerCase(), value);
     }
     else if (value === false) {
         //Remove the boolean property
