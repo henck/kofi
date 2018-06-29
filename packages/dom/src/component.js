@@ -58,6 +58,10 @@ export function mountComponent(originalComponent, props, parent) {
         }
         return content;
     };
+    //Call the component created
+    if (typeof component.onCreated === "function") {
+        component.onCreated.call(component);
+    }
     //Define component set state method
     component.setState = function (newState, cb) {
         if (typeof newState !== "object" || newState === null) {
@@ -67,8 +71,8 @@ export function mountComponent(originalComponent, props, parent) {
         let content = renderComponent();
         updateElement(content, currentContent, parent, component.refs);
         currentContent = content;
-        if (typeof component.onUpdate === "function") {
-            component.onUpdate.call(component);
+        if (typeof component.onUpdated === "function") {
+            component.onUpdated.call(component);
         }
         if (typeof cb === "function") {
             return cb.call(component);
@@ -78,8 +82,8 @@ export function mountComponent(originalComponent, props, parent) {
     //Mount the component
     currentContent = renderComponent();
     mountElement(currentContent, parent, component.refs);
-    if (typeof component.onReady === "function") {
-        component.onReady.call(component);
+    if (typeof component.onMounted === "function") {
+        component.onMounted.call(component);
     }
     return component;
 }
