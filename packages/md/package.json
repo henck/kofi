@@ -1,0 +1,16 @@
+{
+    "name": "@kofijs/md",
+    "version": "0.0.0",
+    "description": "",
+    "main": "index.js",
+    "repository": "https://github.com/jmjuanes/kofi.git",
+    "keywords": [
+        "markdown",
+        "down",
+        "mark",
+        "parser"
+    ],
+    "author": "Josemi Juanes <josemijuanes@gmail.com>",
+    "license": "MIT",
+    "bugs": "https://github.com/jmjuanes/kofi/issues"
+}
