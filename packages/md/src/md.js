@@ -1,0 +1,79 @@
+//Unicode characters 
+let unicodeChars = {
+    "<": "&lt;",
+    ">": "&gt;",
+    "'": "&#39;",
+    "\"": "&quot;",
+    "&": "&amp;",
+    "(": "&#40;",
+    ")": "&#41;",
+    "[": "&#91;",
+    "]": "&#93;"
+};
+
+//Replace all unicode characters
+let replaceUnicode = function (str) {
+    return str.replace(/[<>&\(\)\[\]"']/g, function (match) {
+        return unicodeChars[match];
+    });    
+};
+
+//Export the markdown parser
+export default function md (str) {
+    //Replace all <script> tags
+    str = str.replace(/<script[^\0]*?>([^\0]*?)<\/script>/gmi, function (match, content) {
+        return "&lt;script&gt;" + content + "&lt;/script&gt;";
+    });
+    //Convert all headings expressions
+    str = str.replace(/^(#+)\s+(.*)/gm, function (match, count, content) {
+        let type = count.length.toString();
+        return "<h" + type + ">" + content + "</" + type + ">";
+    });
+    //Convert all blockquotes expressions
+    str = str.replace(/^[\s]*>\s(.*)/gm, function (match, content) {
+        return "<blockquote>" + content + "</blockquote>";
+    });
+    //Convert all inline codes expressions
+    str = str.replace(/`([^`]*?)`/g, function (match, content) {
+        return "<code>" + replaceUnicode(content) + "</code>";
+    });
+    //Convert all images expressions
+    str = str.replace(/!\[(.*)\]\((.*)\)/g, function (match, alt, src) {
+        return "<img src=\"" + src + "\" alt=\"" + alt + "\">";
+    });
+    //Convert all tables expressions
+    str = str.replace(/^\|((?:\s+[^\n\|]+\s+\|?)+)\|\s*\n\|((?:\s*[\:]?[\-]+[\:]?\s*\|?)+)\|\s*\n((?:^\|(?:\s+[^\n\|]+\s+\|?)+\|\s*\n)+)/gm, function (match) {});
+    //Convert all links expressions
+    str = str.replace(/[^!]\[(.*?)\]\(([^\t\n\s]*?)\)/gm, function (match, content, url) {
+        return "<a href=\"" + url + "\">" + content + "</a>";
+    });
+    //Convert all horizontal rules expressions
+    str = str.replace(/^.*?(?:---|\*\*\*|-\s-\s-|\*\s\*\s\*)/gm, function () {
+        return "<hr>";
+    });
+    //Convert all list expressions
+    str = str.replace(/^[\t\s]*?(?:-|\+|\*)\s(.*)/gm, function (match, content) {
+        return "<ul><li>" + content + "</li></ul>";
+    });
+    str = str.replace(/(\<\/ul\>\n(?:.*)\<ul\>*)+/g, "");
+    //Convert all ordered lists expressions
+    str = str.replace(/^[\t\s]*?(?:\d(?:\)|\.))\s(.*)/gm, function (match, content) {
+        return "<ol><li>" + content + "</li></ol>";
+    });
+    str = str.replace(/(\<\/ol\>\n(?:.*)\<ol\>*)+/g, "");
+    //Convert all strong expressions
+    str = str.replace(/(?:\*\*|\_\_)([^\n]+)(?:\*\*|\_\_)/g, function (match, content) {
+        return "<strong>" + content + "</strong>";
+    });
+    //Convert all emphasis expressions
+    str = str.replace(/(?:\*|\_)([^\n]+)(?:\*|\_)/g, function (match, content) {
+        return "<em>" + content + "</em>";
+    });
+    //Convert all line breaks expressions
+    str = str.replace(/^\n\n+/gm, function () {
+        return "<br>";
+    });
+    //Return the parsed markdown string
+    return str;
+}
+
