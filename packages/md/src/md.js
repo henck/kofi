@@ -42,7 +42,34 @@ export default function md (str) {
         return "<img src=\"" + src + "\" alt=\"" + alt + "\">";
     });
     //Convert all tables expressions
-    str = str.replace(/^\|((?:\s+[^\n\|]+\s+\|?)+)\|\s*\n\|((?:\s*[\:]?[\-]+[\:]?\s*\|?)+)\|\s*\n((?:^\|(?:\s+[^\n\|]+\s+\|?)+\|\s*\n)+)/gm, function (match) {});
+    let tableRegex = /^\|((?:\s+[^\n\|]+\s+\|?)+)\|\s*\n\|((?:\s*[\:]?[\-]+[\:]?\s*\|?)+)\|\s*\n((?:^\|(?:\s+[^\n\|]+\s+\|?)+\|\s*\n)+)\n/gm;
+    str = str.replace(tableRegex, function (match, header, rule, body) {
+        let table = [];
+        table.push("<table>");
+        //Build the header
+        table.push("<thead>");
+        let headerRow = [];
+        header.trim().split(" | ").forEach(function (headerName) {
+            headerRow.push("<td>" + headerName + "</td>");
+        });
+        table.push("<tr>" + headerRow.join("") + "</tr>");
+        table.push("</thead>");
+        //Add the table body
+        table.push("<tbody>");
+        body.replace(/\r/g, "").split("\n").forEach(function (line) {
+            line = line.trim();
+            if (line.length > 0) {
+                let bodyRow = [];
+                line.split("|").forEach(function (col) {
+                    bodyRow.push("<td>" + col.trim() + "</td>");
+                });
+                table.push("<tr>" + bodyRow.join("") + "</tr>");
+            }
+        });
+        table.push("</tbody>");
+        table.push("</table>");
+        return table.join("");
+    });
     //Convert all links expressions
     str = str.replace(/[^!]\[(.*?)\]\(([^\t\n\s]*?)\)/gm, function (match, content, url) {
         return "<a href=\"" + url + "\">" + content + "</a>";
