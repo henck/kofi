@@ -73,7 +73,8 @@ The first argument of `kofi.request` is an object with all the options to perfor
 
 The callback function. This function will get three arguments: 
 
-- `error`: an `Error` object if something went wrong.
+- `error`: an instance of `Error` if something went wrong doing the request of parsing the response, or an instance of `kofi.HTTPError` if the request returns non-200 status codes (feature added in **v0.2.0**).
+  - On `v0.2.0`, non-200 status codes will be treated as errors. 
 - `response` an object with the basic information about the generated response. This object will contain the following entries: 
   - `statusCode`: a number with the HTTP response status code. For example, `404`.
   - `statusMessage`: a string with the HTTP response status message. For example, `Not found`.
