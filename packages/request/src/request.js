@@ -1,3 +1,4 @@
+import HTTPError from "./http-error.js";
 import * as queryString from "../../shared/query-string.js";
 
 //Request method
@@ -59,11 +60,17 @@ export default function request(opt, callback) {
             //Check for parsing the body string as a JSON
             body = (opt.json === true) ? JSON.parse(this.responseText) : this.responseText;
         }
-        catch (e) {
-            return callback(e, response, this.responseText);
+        catch (error) {
+            return callback(error, response, this.responseText);
         }
-        //Call the callback and exit
-        return callback(null, response, body);
+        //Check for http request error
+        if (response.statusCode >= 300) {
+            //Call the callback with an HTTPError
+            return callback(new HTTPError(response.statusCode, response.statusMessage), response, body);
+        } else {
+            //Call without error
+            return callback(null, response, body);
+        }
     };
     //Check and add the progress listener
     if (typeof opt.onProgress === "function") {
