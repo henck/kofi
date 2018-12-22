@@ -57,8 +57,8 @@ clean-all:
 dist: 
 	make bundle PKG=${PKG} 
 	@echo "Creating folder 'dist' for package ${PKG}" 
-	rm -rf ./packages/${PKG_DIST}
-	mkdir -p ./packages/${PKG_DIST} 
+	rm -rf ./packages/${PKG}/.dist
+	mkdir -p ./packages/${PKG}/.dist 
 	@echo "Copying package files" 
 	cp ./LICENSE ./packages/${PKG}/.dist/ 
 	cp ./packages/${PKG}/package.json ./packages/${PKG}/.dist/ 
