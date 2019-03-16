@@ -27,7 +27,7 @@ export default function md (str) {
     //Convert all headings expressions
     str = str.replace(/^(#+)\s+(.*)/gm, function (match, count, content) {
         let type = count.length.toString();
-        return "<h" + type + ">" + content + "</" + type + ">";
+        return "<h" + type + ">" + content + "</h" + type + ">";
     });
     //Convert all blockquotes expressions
     str = str.replace(/^[\s]*>\s(.*)/gm, function (match, content) {
