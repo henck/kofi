@@ -42,7 +42,7 @@ export default function md (str) {
         return "<code>" + replaceUnicode(content) + "</code>";
     });
     //Convert all images expressions
-    str = str.replace(/!\[(.*)\]\((.*)\)/g, function (match, alt, src) {
+    str = str.replace(/!\[([^\]]*?)\]\(([^)]*?)\)/g, function (match, alt, src) {
         return "<img src=\"" + src + "\" alt=\"" + alt + "\">";
     });
     //Convert all tables expressions
