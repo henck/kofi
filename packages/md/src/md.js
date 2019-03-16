@@ -13,7 +13,7 @@ let unicodeChars = {
 
 //Replace all unicode characters
 let replaceUnicode = function (str) {
-    return str.replace(/[<>&\(\)\[\]"']/g, function (match) {
+    return str.replace(/[<>&()[\]"']/g, function (match) {
         return unicodeChars[match];
     });    
 };
