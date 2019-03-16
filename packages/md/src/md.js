@@ -33,6 +33,10 @@ export default function md (str) {
     str = str.replace(/^[\s]*>\s(.*)/gm, function (match, content) {
         return "<blockquote>" + content + "</blockquote>";
     });
+    //Convert all code blocks expressions
+    str = str.replace(/(?:^``` *(\w*)\n([\s\S]*?)\n```$)/gm, function (match, type, content) {
+        return "<pre>" + replaceUnicode(content) + "</pre>";
+    });
     //Convert all inline codes expressions
     str = str.replace(/`([^`]*?)`/g, function (match, content) {
         return "<code>" + replaceUnicode(content) + "</code>";
