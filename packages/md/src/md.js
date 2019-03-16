@@ -42,7 +42,7 @@ export default function md (str) {
         return "<img src=\"" + src + "\" alt=\"" + alt + "\">";
     });
     //Convert all tables expressions
-    let tableRegex = /^\|((?:\s+[^\n\|]+\s+\|?)+)\|\s*\n\|((?:\s*[\:]?[\-]+[\:]?\s*\|?)+)\|\s*\n((?:^\|(?:\s+[^\n\|]+\s+\|?)+\|\s*\n)+)\n/gm;
+    let tableRegex = /^\|((?:\s+[^\n|]+\s+\|?)+)\|\s*\n\|((?:\s*[:]?[-]+[:]?\s*\|?)+)\|\s*\n((?:^\|(?:\s+[^\n|]+\s+\|?)+\|\s*\n)+)\n/gm;
     str = str.replace(tableRegex, function (match, header, rule, body) {
         let table = [];
         table.push("<table>");
@@ -82,18 +82,18 @@ export default function md (str) {
     str = str.replace(/^[\t\s]*?(?:-|\+|\*)\s(.*)/gm, function (match, content) {
         return "<ul><li>" + content + "</li></ul>";
     });
-    str = str.replace(/(\<\/ul\>\n(?:.*)\<ul\>*)+/g, "");
+    str = str.replace(/(<\/ul>\n(?:.*)<ul>*)+/g, "");
     //Convert all ordered lists expressions
     str = str.replace(/^[\t\s]*?(?:\d(?:\)|\.))\s(.*)/gm, function (match, content) {
         return "<ol><li>" + content + "</li></ol>";
     });
-    str = str.replace(/(\<\/ol\>\n(?:.*)\<ol\>*)+/g, "");
+    str = str.replace(/(<\/ol>\n(?:.*)<ol>*)+/g, "");
     //Convert all strong expressions
-    str = str.replace(/(?:\*\*|\_\_)([^\n]+)(?:\*\*|\_\_)/g, function (match, content) {
+    str = str.replace(/(?:\*\*|__)([^\n]+)(?:\*\*|__)/g, function (match, content) {
         return "<strong>" + content + "</strong>";
     });
     //Convert all emphasis expressions
-    str = str.replace(/(?:\*|\_)([^\n]+)(?:\*|\_)/g, function (match, content) {
+    str = str.replace(/(?:\*|_)([^\n]+)(?:\*|_)/g, function (match, content) {
         return "<em>" + content + "</em>";
     });
     //Convert all line breaks expressions
