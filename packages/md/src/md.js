@@ -75,7 +75,7 @@ export default function md (str) {
         return table.join("");
     });
     //Convert all links expressions
-    str = str.replace(/[^!]\[(.*?)\]\(([^\t\n\s]*?)\)/gm, function (match, content, url) {
+    str = str.replace(/\[(.*?)\]\(([^\t\n\s]*?)\)/gm, function (match, content, url) {
         return "<a href=\"" + url + "\">" + content + "</a>";
     });
     //Convert all horizontal rules expressions
