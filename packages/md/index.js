@@ -1,2 +1,2 @@
-export {default as md} from "./src/md.js";
+export * from "./src/md.js";
 
