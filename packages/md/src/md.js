@@ -12,11 +12,11 @@ let unicodeChars = {
 };
 
 //Replace all unicode characters
-let replaceUnicode = function (str) {
+export function replaceUnicode (str) {
     return str.replace(/[<>&()[\]"']/g, function (match) {
         return unicodeChars[match];
     });    
-};
+}
 
 //List with all expressions
 let expressions = {
@@ -122,7 +122,7 @@ let expressions = {
 };
 
 //Export the markdown parser
-export default function md (str, replacements) {
+export function md (str, replacements) {
     //Check for no custom replacements provided
     if (typeof replacements === "undefined" || replacements === null) {
         replacements = {};
