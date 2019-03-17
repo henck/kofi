@@ -18,89 +18,131 @@ let replaceUnicode = function (str) {
     });    
 };
 
+//List with all expressions
+let expressions = {
+    "heading": {
+        "regex": /^(#+)\s+(.*)/gm,
+        "replacement": function (match, count, content) {
+            let type = count.length.toString();
+            return "<h" + type + ">" + content + "</h" + type + ">";
+        }
+    },
+    "blockquote": {
+        "regex": /^[\s]*>\s(.*)/gm,
+        "replacement": function (match, content) {
+            return "<blockquote>" + content + "</blockquote>";
+        }
+    },
+    "pre": {
+        "regex": /(?:^``` *(\w*)\n([\s\S]*?)\n```$)/gm,
+        "replacement": function (match, type, content) {
+            return "<pre>" + replaceUnicode(content) + "</pre>";
+        }
+    },
+    "code": {
+        "regex": /`([^`]*?)`/g,
+        "replacement": function (match, content) {
+            return "<code>" + replaceUnicode(content) + "</code>";
+        }
+    },
+    "image": {
+        "regex": /!\[([^\]]*?)\]\(([^)]*?)\)/g,
+        "replacement": function (match, alt, src) {
+            return "<img src=\"" + src + "\" alt=\"" + alt + "\">";
+        }
+    },
+    "table": {
+        "regex": /^\|((?:\s+[^\n|]+\s+\|?)+)\|\s*\n\|((?:\s*[:]?[-]+[:]?\s*\|?)+)\|\s*\n((?:^\|(?:\s+[^\n|]+\s+\|?)+\|\s*\n)+)\n/gm,
+        "replacement": function (match, header, rule, body) {
+            let table = [];
+            table.push("<table>");
+            //Build the header
+            table.push("<thead>");
+            let headerRow = [];
+            header.trim().split(" | ").forEach(function (headerName) {
+                headerRow.push("<td>" + headerName + "</td>");
+            });
+            table.push("<tr>" + headerRow.join("") + "</tr>");
+            table.push("</thead>");
+            //Add the table body
+            table.push("<tbody>");
+            body.replace(/\r/g, "").split("\n").forEach(function (line) {
+                line = line.trim();
+                if (line.length > 0) {
+                    let bodyRow = [];
+                    line.split("|").forEach(function (col) {
+                        bodyRow.push("<td>" + col.trim() + "</td>");
+                    });
+                    table.push("<tr>" + bodyRow.join("") + "</tr>");
+                }
+            });
+            table.push("</tbody>");
+            table.push("</table>");
+            return table.join("");
+        }
+    },
+    "link": {
+        "regex": /\[(.*?)\]\(([^\t\n\s]*?)\)/gm,
+        "replacement": function (match, content, url) {
+            return "<a href=\"" + url + "\">" + content + "</a>";
+        }
+    },
+    "rule": {
+        "regex": /^.*?(?:---|\*\*\*|-\s-\s-|\*\s\*\s\*)/gm,
+        "replacement": function () {
+            return "<hr>";
+        }
+    },
+    "list": {
+        "regex": /^[\t\s]*?(?:-|\+|\*)\s(.*)/gm,
+        "replacement": function (match, content) {
+            return "<ul><li>" + content + "</li></ul>";
+        },
+        "afterRegex": /(<\/ul>\n(?:.*)<ul>*)+/g
+    },
+    "orderedList": {
+        "regex": /^[\t\s]*?(?:\d(?:\)|\.))\s(.*)/gm,
+        "replacement": function (match, content) {
+            return "<ol><li>" + content + "</li></ol>";
+        },
+        "afterRegex": /(<\/ol>\n(?:.*)<ol>*)+/g
+    },
+    "strong": {
+        "regex": /(?:\*\*|__)([^\n]+)(?:\*\*|__)/g,
+        "replacement": function (match, content) {
+            return "<strong>" + content + "</strong>";
+        }
+    },
+    "emphasis": {
+        "regex": /(?:\*|_)([^\n]+)(?:\*|_)/g,
+        "replacement": function (match, content) {
+            return "<em>" + content + "</em>";
+        }
+    }
+};
+
 //Export the markdown parser
-export default function md (str) {
+export default function md (str, replacements) {
+    //Check for no custom replacements provided
+    if (typeof replacements === "undefined" || replacements === null) {
+        replacements = {};
+    }
     //Replace all <script> tags
-    str = str.replace(/<script[^\0]*?>([^\0]*?)<\/script>/gmi, function (match, content) {
-        return "&lt;script&gt;" + content + "&lt;/script&gt;";
+    //str = str.replace(/<script[^\0]*?>([^\0]*?)<\/script>/gmi, function (match, content) {
+    //    return "&lt;script&gt;" + content + "&lt;/script&gt;";
+    //});
+    //Replace all expressions
+    Object.keys(expressions).forEach(function (key) {
+        //Get the replacement function
+        let replacement = (typeof replacements[key] === "function") ? replacements[key] : expressions[key].replacement;
+        //Replace this expression
+        str = str.replace(expressions[key].regex, replacement);
+        //Check for regex to apply after the main refex
+        if (typeof expressions[key].afterRegex !== "undefined") {
+            str = str.replace(expressions[key].afterRegex, "");
+        }
     });
-    //Convert all headings expressions
-    str = str.replace(/^(#+)\s+(.*)/gm, function (match, count, content) {
-        let type = count.length.toString();
-        return "<h" + type + ">" + content + "</h" + type + ">";
-    });
-    //Convert all blockquotes expressions
-    str = str.replace(/^[\s]*>\s(.*)/gm, function (match, content) {
-        return "<blockquote>" + content + "</blockquote>";
-    });
-    //Convert all code blocks expressions
-    str = str.replace(/(?:^``` *(\w*)\n([\s\S]*?)\n```$)/gm, function (match, type, content) {
-        return "<pre>" + replaceUnicode(content) + "</pre>";
-    });
-    //Convert all inline codes expressions
-    str = str.replace(/`([^`]*?)`/g, function (match, content) {
-        return "<code>" + replaceUnicode(content) + "</code>";
-    });
-    //Convert all images expressions
-    str = str.replace(/!\[([^\]]*?)\]\(([^)]*?)\)/g, function (match, alt, src) {
-        return "<img src=\"" + src + "\" alt=\"" + alt + "\">";
-    });
-    //Convert all tables expressions
-    let tableRegex = /^\|((?:\s+[^\n|]+\s+\|?)+)\|\s*\n\|((?:\s*[:]?[-]+[:]?\s*\|?)+)\|\s*\n((?:^\|(?:\s+[^\n|]+\s+\|?)+\|\s*\n)+)\n/gm;
-    str = str.replace(tableRegex, function (match, header, rule, body) {
-        let table = [];
-        table.push("<table>");
-        //Build the header
-        table.push("<thead>");
-        let headerRow = [];
-        header.trim().split(" | ").forEach(function (headerName) {
-            headerRow.push("<td>" + headerName + "</td>");
-        });
-        table.push("<tr>" + headerRow.join("") + "</tr>");
-        table.push("</thead>");
-        //Add the table body
-        table.push("<tbody>");
-        body.replace(/\r/g, "").split("\n").forEach(function (line) {
-            line = line.trim();
-            if (line.length > 0) {
-                let bodyRow = [];
-                line.split("|").forEach(function (col) {
-                    bodyRow.push("<td>" + col.trim() + "</td>");
-                });
-                table.push("<tr>" + bodyRow.join("") + "</tr>");
-            }
-        });
-        table.push("</tbody>");
-        table.push("</table>");
-        return table.join("");
-    });
-    //Convert all links expressions
-    str = str.replace(/\[(.*?)\]\(([^\t\n\s]*?)\)/gm, function (match, content, url) {
-        return "<a href=\"" + url + "\">" + content + "</a>";
-    });
-    //Convert all horizontal rules expressions
-    str = str.replace(/^.*?(?:---|\*\*\*|-\s-\s-|\*\s\*\s\*)/gm, function () {
-        return "<hr>";
-    });
-    //Convert all list expressions
-    str = str.replace(/^[\t\s]*?(?:-|\+|\*)\s(.*)/gm, function (match, content) {
-        return "<ul><li>" + content + "</li></ul>";
-    });
-    str = str.replace(/(<\/ul>\n(?:.*)<ul>*)+/g, "");
-    //Convert all ordered lists expressions
-    str = str.replace(/^[\t\s]*?(?:\d(?:\)|\.))\s(.*)/gm, function (match, content) {
-        return "<ol><li>" + content + "</li></ol>";
-    });
-    str = str.replace(/(<\/ol>\n(?:.*)<ol>*)+/g, "");
-    //Convert all strong expressions
-    str = str.replace(/(?:\*\*|__)([^\n]+)(?:\*\*|__)/g, function (match, content) {
-        return "<strong>" + content + "</strong>";
-    });
-    //Convert all emphasis expressions
-    str = str.replace(/(?:\*|_)([^\n]+)(?:\*|_)/g, function (match, content) {
-        return "<em>" + content + "</em>";
-    });
-    //Convert all line breaks expressions
+    //Replace all line breaks expressions
     str = str.replace(/^\n\n+/gm, function () {
         return "<br>";
     });
