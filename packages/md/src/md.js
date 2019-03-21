@@ -1,22 +1,4 @@
-//Unicode characters 
-let unicodeChars = {
-    "<": "&lt;",
-    ">": "&gt;",
-    "'": "&#39;",
-    "\"": "&quot;",
-    "&": "&amp;",
-    "(": "&#40;",
-    ")": "&#41;",
-    "[": "&#91;",
-    "]": "&#93;"
-};
-
-//Replace all unicode characters
-export function replaceUnicode (str) {
-    return str.replace(/[<>&()[\]"']/g, function (match) {
-        return unicodeChars[match];
-    });    
-}
+import {escapeHTML} from "./escape-html.js";
 
 //List with all expressions
 let expressions = {
@@ -36,13 +18,13 @@ let expressions = {
     "pre": {
         "regex": /(?:^``` *(\w*)\n([\s\S]*?)\n```$)/gm,
         "replacement": function (match, type, content) {
-            return "<pre>" + replaceUnicode(content) + "</pre>";
+            return "<pre>" + escapeHTML(content) + "</pre>";
         }
     },
     "code": {
         "regex": /`([^`]*?)`/g,
         "replacement": function (match, content) {
-            return "<code>" + replaceUnicode(content) + "</code>";
+            return "<code>" + escapeHTML(content) + "</code>";
         }
     },
     "image": {
