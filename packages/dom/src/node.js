@@ -1,5 +1,5 @@
 import {isRef} from "./ref.js";
-import {classNames, isDomNode} from "./util.js";
+import {addNodeChildren} from "./children.js";
 
 //Create a node element
 export function createNode (tag, attr) {
@@ -21,7 +21,7 @@ export function createNode (tag, attr) {
         setNodeAttributes(node, attr);
         //Add children
         if (children.length > 0) {
-            setNodeChildren(node, children);
+            addNodeChildren(node, children);
         }
     }
     //Check for function tag
@@ -56,7 +56,7 @@ export function setNodeAttributes (node, attr) {
         }
         //Check the key type
         if (key === "className") {
-            node.className = classNames(value).join(" ");
+            node.className = value;
         }
         else if (key === "htmlFor") {
             node.setAttribute("for", value);
@@ -85,36 +85,9 @@ export function setNodeAttributes (node, attr) {
     });
 };
 
-//Add children to a node
-export function setNodeChildren (node, children) {
-    children.forEach(function (child) {
-        if (child !== null) {
-            //Check for text or number child
-            if (typeof child === "string" || typeof child === "number") {
-                node.appendChild(document.createTextNode(child));
-            }
-            //Check for array
-            else if (typeof child === "object" && Array.isArray(child) === true) {
-                setNodeChildren(node, child);
-            }
-            //Check for node element
-            else if (isDomNode(child) === true) {
-                node.appendChild(child);
-            }
-            //Otherwise, ignore this child element
-        }
-    });
-};
-
 //Remove a node from the dom
 export function removeNode (node) {
     node.parentNode.removeChild(node);
 }
 
-//Remove all children nodes of an element
-export function emptyNode (node) {
-    while(node.lastElementChild) {
-        node.removeChild(node.lastElementChild);
-    }
-}
 
