@@ -92,11 +92,17 @@ import {createNode, createRef} from "@kofijs/dom";
 //Referenced node
 let inputRef = createRef();
 
+//Submit function
+let onSubmit = function () {
+    console.log("Your name: " + inputRef.current.value);
+};
+
 //Form element
 let formNode = (
     <div>
         <label>Type your name: </label>
         <input ref={inputRef} type="text" placeholder="Your name..." />
+        <button onClick={onSubmit}>Send</button>
     </div>
 );
 
