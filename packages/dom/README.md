@@ -39,7 +39,17 @@ import {createNode, ready} from "@kofijs/dom";
 
 ## API
 
-### kofi.createNode(tag, attr, ...children)
+### kofi.createNode(type, attr, ...children)
+
+Based on `React.createElement`, this method creates a new DOM Node element of the specified type. 
+
+#### Node type
+
+The `type` argument can be either a tag name string (such as `"div"` or `"a"`) or a function.
+
+#### Node attributes
+
+The `attr` argument can be an object with the attributes of the node or `null` if no attributes will be specified. 
 
 
 #### Use it with JSX
