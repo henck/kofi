@@ -1,4 +1,4 @@
-export default function ready (fn) {
+export function ready (fn) {
     if (document.readyState !== "loading") {
         return fn(null);
     }
