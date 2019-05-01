@@ -49,14 +49,13 @@ The `type` argument can be either a tag name string (such as `"div"` or `"a"`) o
 
 #### Node attributes
 
-The `attr` argument can be an object with the attributes of the node or `null` if no attributes will be specified. 
-
+The `attr` argument can be an object with the attributes of the node or `null` if no attributes will be specified. The attributes object follows the same syntax of React attributes.
 
 #### Use it with JSX
 
 You can use the babel's plugin [@babel/plugin-transform-react-jsx](https://babeljs.io/docs/en/babel-plugin-transform-react-jsx) for creating DOM elements using JSX. 
 
-For example, this example using JSX: 
+This example using JSX: 
 
 ```jsx
 /** @jsx createNode */
@@ -82,9 +81,26 @@ let user = createNode("div", null,
 );
 ```
 
-
-
 ### kofi.createRef()
+
+Creates a new reference that can be attached to a DOM node to save the reference of this node.
+
+```jsx
+/** @jsx createNode */
+import {createNode, createRef} from "@kofijs/dom";
+
+//Referenced node
+let inputRef = createRef();
+
+//Form element
+let formNode = (
+    <div>
+        <label>Type your name: </label>
+        <input ref={inputRef} type="text" placeholder="Your name..." />
+    </div>
+);
+
+```
 
 ### kofi.ready(fn)
 
