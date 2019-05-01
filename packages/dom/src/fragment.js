@@ -1,4 +1,4 @@
-import {setNodeChildren} from "./node.js";
+import {addNodeChildren} from "./children.js";
 
 //Export fragment component
 export function Fragment (attr) {
