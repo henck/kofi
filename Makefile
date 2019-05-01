@@ -95,7 +95,7 @@ release-patch:
 
 # Publish the package 
 publish: 
-	^echo "Publishing version v$(shell make version PKG=${PKG}) of kofi-${PKG}" 
+	echo "Publishing version v$(shell make version PKG=${PKG}) of kofi-${PKG}" 
 	sleep 5 
 	make dist PKG=${PKG}
 	git add ./packages/${PKG}/package.json 
