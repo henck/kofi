@@ -4,6 +4,10 @@ import {classNames, isDomNode} from "./util.js";
 //Create a node element
 export function createNode (tag, attr) {
     let node = null;
+    //Check for null attributes
+    if (attr === null) {
+        attr = {};
+    }
     //Build children elements
     let children = [];
     for (let i = 2; i < arguments.length; i++) {
