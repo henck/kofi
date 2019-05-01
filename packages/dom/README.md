@@ -29,7 +29,7 @@ Or you can import it in your ES6 modules:
 import * as kofi from "@kofijs/dom";
 
 //Import individual modules
-import {ready} from "@kofijs/dom";
+import {createNode, ready} from "@kofijs/dom";
 ```
 
 ## Getting started
@@ -38,6 +38,43 @@ import {ready} from "@kofijs/dom";
 
 
 ## API
+
+### kofi.createNode(tag, attr, ...children)
+
+
+#### Use it with JSX
+
+You can use the babel's plugin [@babel/plugin-transform-react-jsx](https://babeljs.io/docs/en/babel-plugin-transform-react-jsx) for creating DOM elements using JSX. 
+
+For example, this example using JSX: 
+
+```jsx
+/** @jsx createNode */
+import {createNode} from "@kofijs/dom";
+
+let user = (
+    <div>
+        <img className="avatar" src="/path/to/user.png" />
+        <span>Hello user</span>
+    </div>
+);
+```
+
+Compiles to:
+
+```javascript
+/** @jsx createNode */
+let createNode = require("#kofijs/dom").createNode;
+
+let user = createNode("div", null, 
+    createNode("img", {"className": "avatar", "src": "/path/to/user.png"}),
+    createNode("span", null, "Hello user")
+);
+```
+
+
+
+### kofi.createRef()
 
 ### kofi.ready(fn)
 
