@@ -34,8 +34,26 @@ import {createNode, ready} from "@kofijs/dom";
 
 ## Getting started
 
+You can use this package to create DOM nodes using the React syntax.
 
+```jsx
+/** @jsx createNode */
+import {createNode} from "@kofijs/dom";
 
+//Creating DOM nodes
+document.getElementById("example1").appendChild(
+    <div className="toast">Hello world!</div>
+);
+
+//Funcion components
+let Hello = function (props) {
+    return <div align="center">Hello {props.name}!</div>;
+};
+
+document.getElementById("example2").appendChild(
+    <Hello name="Bob" />
+);
+```
 
 ## API
 
