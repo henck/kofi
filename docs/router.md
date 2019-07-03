@@ -1,35 +1,6 @@
-# @kofijs/router
+# kofi Router
 
-> A tasty and minimal client-side router utility
-
-
-## Installation
-
-Use [npm](https://npmjs.com) to install this module: 
-
-```
-$ npm install --save @kofijs/router
-```
-
-Import this module in your HTML files: 
-
-```html
-<!-- Development version -->
-<script type="text/javascript" src="./node_modules/@kofijs/router/kofi-router.js"></script>
-
-<!-- Minified version -->
-<script type="text/javascript" src="./node_modules/@kofijs/router/kofi-router.min.js"></script>
-```
-
-Import in your ES6 module: 
-
-```javascript 
-//Load the full library
-import * as kofi from "@kofijs/router";
-
-//Import single methods
-import {router} from "@kofijs/router";
-```
+> A minimal client-side router utility
 
 ## Usage
 
@@ -177,10 +148,5 @@ kofi.hashbang.onChange(function (url) {
     console.log("New hashbang --> " + url);
 });
 ```
-
-## License
-
-Under the **MIT License**.
-
 
 
