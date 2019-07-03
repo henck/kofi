@@ -1,91 +1,9 @@
-# @kofijs/utils
+# kofi Helpers
 
-> A tasty micro utilities library
-
-[![npm](https://img.shields.io/npm/v/@kofijs/utils.svg?style=flat-square)](https://www.npmjs.com/package/@kofijs/utils)
-[![npm](https://img.shields.io/npm/dt/@kofijs/utils.svg?style=flat-square)](https://www.npmjs.com/package/@kofijs/utils)
-[![npm](https://img.shields.io/npm/l/@kofijs/utils.svg?style=flat-square)](https://github.com/jmjuanes/kofi)
-[![pr](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)]()
+> Utility functions for working with arrays, numbers, objects and strings.
 
 
-## Installation 
-
-Use [npm](https://npmjs.com) to install this module:
-
-```
-npm install --save @kofijs/utils
-```
-
-Use it in your browser: 
-
-```html
-<!-- Develop version (not minified) -->
-<script type="text/javascript" src="./node_modules/@kofijs/utils/kofi-utils.js"></script>
-
-<!-- Minified version -->
-<script type="text/javascript" src="./node_modules/@kofijs/utils/kofi-utils.min.js"></script>
-```
-
-Use it with your ES6 modules: 
-
-```javascript
-//Load the full library
-import * as kofi from "@kofijs/utils";
-
-//Load single methods 
-import {max, min} from "@kofijs/utils";
-```
-
-
-## API
-
-
-#### kofi.average(array)
-
-Returns the average of the values in `array`. 
-
-```javascript
-kofi.average([1, 2, 3, 4, 5]); // -> 3
-```
-
-#### kofi.camelCase(str)
-
-Returns the camel-case format of `str`.
-
-```javascript
-kofi.camelCase("hello world");  // -> "helloWorld"
-```
-
-#### kofi.capitalize(str)
-
-Returns the capitalized format of `str`.
-
-```javascript
-kofi.capitalize("hello world");  // -> "Hello world"
-```
-
-#### kofi.concat(array[, *values])
-
-Returns a new array concatenating `array` with other arrays or values passed.
-
-```javascript
-kofi.concat([1, 2, 3, 4], [5, 6], [7]); // -> [1, 2, 3, 4, 5, 6, 7]
-
-kofi.concat([1], 2, [3, 4], null); // -> [1, 2, 3, 4, null]
-```
-
-#### kofi.deepClone(obj)
-
-> Added in **v0.1.0**
-
-Returns a deep clone of `obj`. Supports cloning arrays, objects, strings, booleans and numbers.
-
-```javascript
-let obj = [{"foo": true}, {"bar": false}];
-let clonedObj = kofi.deepClone(obj);
-console.log(clonedObj[0] === obj[0]); // -> false
-console.log(clonedObj[1] === obj[1]); // -> false
-```
+## Global
 
 #### kofi.delay(time, fn)
 
@@ -95,14 +13,6 @@ This is just [`setTimeout`](https://developer.mozilla.org/en-US/docs/Web/API/Win
 kofi.delay(1000, function () {
     console.log("Hello after 1 second!!");
 });
-```
-
-#### kofi.digits(num)
-
-Counts the number of digits of `num`.
-
-```javascript
-kofi.digits(12345);  // -> 5
 ```
 
 #### kofi.each(array, fn)
@@ -135,8 +45,6 @@ kofi.each({"key1": "value1", "key2": "value2"}, function (key, value) {
 
 #### kofi.equal(value1, value2)
 
-> Added in **v0.2.0**
-
 Determines if two values are equal. Works with strings, numbers, booleans, objects and arrays.
 
 ```javascript
@@ -146,148 +54,6 @@ let obj3 = {"key": null};
 
 kofi.equal(obj1, obj2); // --> true
 kofi.equal(obj1, obj3); // --> false
-```
- 
-#### kofi.extract(obj, keys)
-
-Creates a new object with only the provided keys of `obj`.
-
-```javascript
-kofi.extract({a: 1, b: 2, c: 3}, ["a", "c"]) // -> {a: 1, c: 3}
-```
-
-#### kofi.fill(length, value)
-Returns a new array with size `length` filled with `value`. Only `string` or `number` values are allowed. 
-
-```javascript
-//Fill an array with a number
-kofi.fill(5, 0); // -> [0, 0, 0, 0, 0]
-
-//Fill an array with a string
-kofi.fill(3, "abc"); // -> ["abc", "abc", "abc"]
-```
-
-#### kofi.format(str, obj)
-
-Replace all handlebars expressions from `str` with values of `obj`.
-
-```javascript
-kofi.format('My car is {{ color }}!', { color: 'blue' }); // --> "My car is blue!"
-```
-
-#### kofi.isEmpty(value)
-
-Check if `value` is an empty object, array or string.
-
-```javascript
-//Empty array
-kofi.isEmpty([]); // -> true
-kofi.isEmpty([null]); // -> false
-
-//Empty string
-kofi.isEmpty(""); // -> true
-kofi.isEmpty(" "); // -> false
-
-//Empty object
-kofi.isEmpty({}); // -> true
-kofi.isEmpty({"key": null}); // -> false
-```
-
-#### kofi.kebabCase(str)
-
-Returns the kebab-case form of the string `str`.
-
-```javascript
-kofi.kebabCase("hello world");  // -> "hello-world"
-```
-
-#### kofi.keys(obj)
-
-This is just [`Object.keys`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys).
-
-```javascript
-let obj = {
-    a: 1,
-    b: 2,
-    c: "hello"
-};
-let keys = kofi.keys(obj); // --> keys = ["a", "b", "c"]
-```
-
-#### kofi.max(array)
-
-Returns the maximum value in `array`. 
-
-```javascript
-kofi.max([1, 2, 3, 4, 5]); // -> 5
-```
-
-#### kofi.min(array)
-
-Returns the minimum value in `array`.
-
-```javascript
-kofi.min([1, 2, 3, 4, 5]); // -> 1
-```
-
-#### kofi.omit(obj, keys)
-
-Creates an object with all the keys of `obj` that are not in `keys`.
-
-```javascript
-kofi.omit({a: 1, b: 2, c: 3}, ["b"]); // -> {a: 1, c: 3}
-```
-
-#### kofi.pad(num, length[, chars])
-
-Pad a number `num` adding zeros on the left side if it has less digits than `length`. You can also specify the characters used for padding.
-
-```javascript
-kofi.pad(1234, 5);  // -> "01234"
-kofi.pad(1234, 3);  // -> "1234"
-kofi.pad(1234, 6, "-");  // -> "--1234"
-```
-
-#### kofi.random(min, max)
-
-Returns a random number between `min` and `max` (not included). If this functions is called only with one argumet, it returns a random number between `0` and that number.
-
-```javascript
-kofi.random(0, 5);  // -> 3.7561160836655425
-```
-
-#### kofi.range(start, end\[, step\])
-
-Returns a new array with values starting in `start` to `end` (included). You can specify the distance between each number in the sequence by providing a `step` value. Default `step` value is `1`.
-
-```javascript
-kofi.range(0, 5); // -> [0, 1, 2, 3, 4, 5]
-kofi.range(0, 4, 2); // -> [0, 2, 4] 
-```
-
-#### kofi.repeat(str, n)
-
-Repeats a string `n` times.
-
-```javascript
-kofi.repeat("x", 5);  // -> "xxxxx"
-```
-
-#### kofi.sign(num)
-
-Returns the sign of `num`.
-
-```javascript
-kofi.sign(-45);  // -> -1
-kofi.sign(62);  // -> 1
-```
-
-#### kofi.snakeCase(str)
-
-Returns the snake-case form of the string `str`.
-
-```javascript
-kofi.snakeCase("hello world");  // -> "hello_world"
 ```
 
 #### kofi.timer(time, fn)
@@ -316,6 +82,189 @@ Returns a formatted timestamp. The `pattern` argument is a string where the foll
 kofi.timestamp("Current year: YYYY")
 // -> "Current year: 2018"
 ```
+ 
+
+## Arrays
+
+#### kofi.average(array)
+
+Returns the average of the values in `array`. 
+
+```javascript
+kofi.average([1, 2, 3, 4, 5]); // -> 3
+```
+
+#### kofi.concat(array[, *values])
+
+Returns a new array concatenating `array` with other arrays or values passed.
+
+```javascript
+kofi.concat([1, 2, 3, 4], [5, 6], [7]); // -> [1, 2, 3, 4, 5, 6, 7]
+
+kofi.concat([1], 2, [3, 4], null); // -> [1, 2, 3, 4, null]
+```
+
+#### kofi.fill(length, value)
+Returns a new array with size `length` filled with `value`. Only `string` or `number` values are allowed. 
+
+```javascript
+//Fill an array with a number
+kofi.fill(5, 0); // -> [0, 0, 0, 0, 0]
+
+//Fill an array with a string
+kofi.fill(3, "abc"); // -> ["abc", "abc", "abc"]
+```
+
+#### kofi.max(array)
+
+Returns the maximum value in `array`. 
+
+```javascript
+kofi.max([1, 2, 3, 4, 5]); // -> 5
+```
+
+#### kofi.min(array)
+
+Returns the minimum value in `array`.
+
+```javascript
+kofi.min([1, 2, 3, 4, 5]); // -> 1
+```
+
+#### kofi.range(start, end\[, step\])
+
+Returns a new array with values starting in `start` to `end` (included). You can specify the distance between each number in the sequence by providing a `step` value. Default `step` value is `1`.
+
+```javascript
+kofi.range(0, 5); // -> [0, 1, 2, 3, 4, 5]
+kofi.range(0, 4, 2); // -> [0, 2, 4] 
+```
+
+
+## Numbers
+
+#### kofi.digits(num)
+
+Counts the number of digits of `num`.
+
+```javascript
+kofi.digits(12345);  // -> 5
+```
+
+#### kofi.pad(num, length[, chars])
+
+Pad a number `num` adding zeros on the left side if it has less digits than `length`. You can also specify the characters used for padding.
+
+```javascript
+kofi.pad(1234, 5);  // -> "01234"
+kofi.pad(1234, 3);  // -> "1234"
+kofi.pad(1234, 6, "-");  // -> "--1234"
+```
+
+#### kofi.random(min, max)
+
+Returns a random number between `min` and `max` (not included). If this functions is called only with one argumet, it returns a random number between `0` and that number.
+
+```javascript
+kofi.random(0, 5);  // -> 3.7561160836655425
+```
+
+#### kofi.sign(num)
+
+Returns the sign of `num`.
+
+```javascript
+kofi.sign(-45);  // -> -1
+kofi.sign(62);  // -> 1
+```
+
+
+## Objects
+
+#### kofi.deepClone(obj)
+
+> Added in **v0.1.0**
+
+Returns a deep clone of `obj`. Supports cloning arrays, objects, strings, booleans and numbers.
+
+```javascript
+let obj = [{"foo": true}, {"bar": false}];
+let clonedObj = kofi.deepClone(obj);
+console.log(clonedObj[0] === obj[0]); // -> false
+console.log(clonedObj[1] === obj[1]); // -> false
+```
+
+#### kofi.values(obj)
+
+Returns an array of a given object's own enumerable property values. It's a ponyfill of the [ `Object.values`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/values) method.
+
+```javascript
+let obj = {
+    a: 1,
+    b: 2,
+    c: "hello"
+};
+let values = kofi.values(obj); // -> values = [1, 2, "hello"]
+```
+
+
+## Strings
+
+#### kofi.camelCase(str)
+
+Returns the camel-case format of `str`.
+
+```javascript
+kofi.camelCase("hello world");  // -> "helloWorld"
+```
+
+#### kofi.capitalize(str)
+
+Returns the capitalized format of `str`.
+
+```javascript
+kofi.capitalize("hello world");  // -> "Hello world"
+```
+
+#### kofi.format(str, obj)
+
+Replace all handlebars expressions from `str` with values of `obj`.
+
+```javascript
+kofi.format('My car is {{ color }}!', { color: 'blue' }); // --> "My car is blue!"
+```
+
+#### kofi.kebabCase(str)
+
+Returns the kebab-case form of the string `str`.
+
+```javascript
+kofi.kebabCase("hello world");  // -> "hello-world"
+```
+
+#### kofi.randomStr()
+
+Generates a unique random string of 15 characters.
+
+```javascript
+kofi.randomStr();  // -> str = "wv1ufiqj5e6xd3k"
+```
+
+#### kofi.repeat(str, n)
+
+Repeats a string `n` times.
+
+```javascript
+kofi.repeat("x", 5);  // -> "xxxxx"
+```
+
+#### kofi.snakeCase(str)
+
+Returns the snake-case form of the string `str`.
+
+```javascript
+kofi.snakeCase("hello world");  // -> "hello_world"
+```
 
 #### kofi.truncate(str, opt)
 
@@ -333,28 +282,3 @@ truncate("Lorem ipsum dolor sit amet", {length: 15, separator: " "});
 // -> "Lorem ipsum..."
 ```
 
-#### kofi.uniqueId()
-
-Generates a unique random string of 15 characters.
-
-```javascript
-kofi.uniqueId();  // -> str = "wv1ufiqj5e6xd3k"
-```
-
-#### kofi.values(obj)
-
-Returns an array of a given object's own enumerable property values. It's a ponyfill of the [ `Object.values`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/values) method.
-
-```javascript
-let obj = {
-    a: 1,
-    b: 2,
-    c: "hello"
-};
-let values = kofi.values(obj); // -> values = [1, 2, "hello"]
-```
-
-
-## License 
-
-Under the **MIT LICENSE**.
