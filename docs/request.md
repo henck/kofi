@@ -1,53 +1,6 @@
-# @kofijs/request 
+#  kofi Request 
 
-> A delicious HTTP request client library for browsers
-
-[![npm](https://img.shields.io/npm/v/@kofijs/request.svg?style=flat-square)](https://www.npmjs.com/package/@kofijs/request)
-[![npm](https://img.shields.io/npm/dt/@kofijs/request.svg?style=flat-square)](https://www.npmjs.com/package/@kofijs/request)
-[![npm](https://img.shields.io/npm/l/@kofijs/request.svg?style=flat-square)](https://github.com/jmjuanes/kofi)
-[![pr](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)]()
-
-
-## Installation 
-
-Use `npm` to install this module: 
-
-```
-$ npm install --save @kofijs/request
-```
-
-Use it with your HTML page: 
-
-```html
-<!-- Develop version (not minified) -->
-<script type="text/javascript" src="./node_modules/@kofijs/request/kofi-request.js"></script>
-
-<!-- Minified version -->
-<script type="text/javascript" src="./node_modules/@kofijs/request/kofi-request.min.js"></script>
-```
-
-Use it with your ES6 modules: 
-
-```javascript
-import {request} from "@kofijs/request";
-```
-
-## Usage
-
-```javascript
-//Import a JSON file
-kofi.request({method: "get", url: "./data.json", json: true}, function (error, response, body){
-    //Check for error processing the request 
-    if (error) {
-        return console.error(error.message);
-    } 
-    //Print the response status code
-    console.log("Status code: " + response.statusCode);
-    //Print the result
-    console.log(body);
-});
-```
-
+> HTTP request clien for browsers
 
 ## API
 
@@ -86,6 +39,22 @@ The callback function. This function will get three arguments:
 
 
 ## Examples
+
+### Basic example
+
+```javascript
+//Import a JSON file
+kofi.request({method: "get", url: "./data.json", json: true}, function (error, response, body){
+    //Check for error processing the request 
+    if (error) {
+        return console.error(error.message);
+    } 
+    //Print the response status code
+    console.log("Status code: " + response.statusCode);
+    //Print the result
+    console.log(body);
+});
+```
 
 ### Sending data
 
@@ -137,10 +106,5 @@ kofi.request({url: "/process/uploads", method: "post", formData: formData}, func
     /* do your magic with the response */
 });
 ```
-
-
-## License
-
-Under the **MIT License**.
 
 
