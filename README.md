@@ -31,6 +31,12 @@ import * as kofi from "kofi";
 import {request, dispatch} from "kofi";
 ```
 
+Or in Node.js:
+
+```javascript
+let kofi = require("kofi");
+```
+
 **kofi** can be also imported directly in your browser:
 
 ```html
