@@ -1,35 +1,6 @@
-# @kofijs/queue
+# kofi Queue
 
 > Asynchronous functions orchestration  
-
-[![npm](https://img.shields.io/npm/v/@kofijs/queue.svg?style=flat-square)](https://www.npmjs.com/package/@kofijs/queue)
-[![npm](https://img.shields.io/npm/dt/@kofijs/queue.svg?style=flat-square)](https://www.npmjs.com/package/@kofijs/queue)
-[![npm](https://img.shields.io/npm/l/@kofijs/queue.svg?style=flat-square)](https://github.com/jmjuanes/kofi)
-[![pr](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)]()
-
-## Installation
-
-Use [npm](https://npmjs.com) to install this module: 
-
-```
-$ npm install --save @kofijs/queue
-```
-
-Import in your HTML files:
-
-```html
-<!-- Develop version (not minified) -->
-<script type="text/javascript" src="./node_modules/@kofijs/queue/kofi-queue.js"></script>
-
-<!-- Minified version -->
-<script type="text/javascript" src="./node_modules/@kofijs/queue/kofi-queue.min.js"></script>
-```
-
-Import in your ES6 modules:
-
-```javascript
-import {queue} from "@kofijs/queue";
-```
 
 ## Usage
 
@@ -108,8 +79,4 @@ Registers the function that will be called when all functions registered with `q
 ### queue.catch(handler);
 
 Registers the function that will be called when the functions queue was aborted due to an error. 
-
-## License
-
-Under the **MIT LICENSE**.
 
