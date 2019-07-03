@@ -1,6 +1,6 @@
 # kofi DOM
 
-> Delightful DOM manipulation library
+> Delightful DOM manipulation
 
 ## Getting started
 
