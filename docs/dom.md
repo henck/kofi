@@ -1,36 +1,6 @@
-# @kofijs/dom
+# kofi DOM
 
 > Delightful DOM manipulation library
-
-[![npm](https://img.shields.io/npm/v/@kofijs/dom.svg?style=flat-square)](https://www.npmjs.com/package/@kofijs/dom)
-[![npm](https://img.shields.io/npm/dt/@kofijs/dom.svg?style=flat-square)](https://www.npmjs.com/package/@kofijs/dom)
-[![npm](https://img.shields.io/npm/l/@kofijs/dom.svg?style=flat-square)](https://github.com/jmjuanes/kofi)
-[![pr](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)]()
-
-
-## Installation
-
-Use [npm](https://npmjs.com) to install this module: 
-
-```
-$ npm install --save @kofijs/dom
-```
-
-You can import it in your HTML files using a `script` tag: 
-
-```html
-<script type="text/javascript" src="./node_modules/@kofijs/dom/kofi-dom.js"></script>
-```
-
-Or you can import it in your ES6 modules: 
-
-```javascript
-//Import the full library
-import * as kofi from "@kofijs/dom";
-
-//Import individual modules
-import {createNode, ready} from "@kofijs/dom";
-```
 
 ## Getting started
 
@@ -38,7 +8,7 @@ You can use this package to create DOM nodes using the React syntax.
 
 ```jsx
 /** @jsx createNode */
-import {createNode} from "@kofijs/dom";
+import {createNode} from "kofi";
 
 //Creating DOM nodes
 document.getElementById("example1").appendChild(
@@ -77,7 +47,7 @@ This example using JSX:
 
 ```jsx
 /** @jsx createNode */
-import {createNode} from "@kofijs/dom";
+import {createNode} from "kofi";
 
 let user = (
     <div>
@@ -91,7 +61,7 @@ Compiles to:
 
 ```javascript
 /** @jsx createNode */
-let createNode = require("#kofijs/dom").createNode;
+let createNode = require("kofi").createNode;
 
 let user = createNode("div", null, 
     createNode("img", {"className": "avatar", "src": "/path/to/user.png"}),
@@ -105,7 +75,7 @@ Creates a new reference that can be attached to a DOM node to save the reference
 
 ```jsx
 /** @jsx createNode */
-import {createNode, createRef} from "@kofijs/dom";
+import {createNode, createRef} from "kofi";
 
 //Referenced node
 let inputRef = createRef();
@@ -136,8 +106,4 @@ kofi.ready(function () {
     console.log("DOM is ready");
 });
 ```
-
-## License 
-
-Under the **MIT LICENSE**.
 
