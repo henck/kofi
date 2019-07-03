@@ -1,36 +1,6 @@
-# @kofijs/dispatch
+# kofi.dispatch
 
-> A delightful library to register and trigger custom named events. 
-
-[![npm](https://img.shields.io/npm/v/@kofijs/dispatch.svg?style=flat-square)](https://www.npmjs.com/package/@kofijs/dispatch)
-[![npm](https://img.shields.io/npm/dt/@kofijs/dispatch.svg?style=flat-square)](https://www.npmjs.com/package/@kofijs/dispatch)
-[![npm](https://img.shields.io/npm/l/@kofijs/dispatch.svg?style=flat-square)](https://github.com/jmjuanes/kofi)
-[![pr](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)]()
-
-
-## Installation 
-
-Use [nmp](https://npmjs.com) to install this package: 
-
-```
-$ npm install --save @kofijs/dispatch
-```
-
-Use it in your HTML files:
-
-```html
-<!-- Develop version -->
-<script type="text/javascript" src="./node_modules/@kofijs/dispatch/kofi-dispatch.js"></script>
-
-<!-- Minified version -->
-<script type="text/javascript" src="./node_modules/@kofijs/dispatch/kofi-dispatch.min.js"></script>
-```
-
-Use it in your ES6 modules: 
-
-```javascript
-import {dispatch} from "@kofijs/dispatch";
-```
+>  Register and trigger custom named events. 
 
 ## Example
 
@@ -83,8 +53,4 @@ Trigger all listeners of the event called `name`. All the extra arguments passed
 ```javascript
 dispatcher.emit("error", "Error importing file xxxx.json");
 ```
-
-## License
-
-Under the **MIT LICENSE**.
 
