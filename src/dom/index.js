@@ -1,3 +1,7 @@
+//
+//OLD DOM MANAGER: PLEASE DO NOT USE!!
+//
+
 //Dom selector
 export default function dom(selector) {
     //Hack to remove the new operator
