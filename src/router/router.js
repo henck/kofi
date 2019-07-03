@@ -1,4 +1,4 @@
-import * as queryString from "../../shared/query-string.js";
+import * as queryString from "../common/query-string.js";
 
 //Parse a pattern string 
 let parsePattern = function (str) {
@@ -21,7 +21,7 @@ let parsePattern = function (str) {
 };
 
 //Export router function 
-export default function () {
+export function router () {
     let router = {
         "_currentUrl": "/",
         "_routes": [],
