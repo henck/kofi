@@ -1,5 +1,5 @@
 //Import router helpers
-export * as hashbang from "./hashbang.js";
+import * as hashbang from "./hashbang.js";
 
 //Export router methods
 export * from "./router.js";
