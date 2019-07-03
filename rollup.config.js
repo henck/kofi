@@ -1,16 +1,11 @@
-let uglify = require("rollup-plugin-uglify");
-let cleanup = require("rollup-plugin-cleanup");
-let path = require("path");
-
-//Module to build
-let kofiPkg = process.env.PKG;
-//Import package information 
-let pkg = require("./" + path.join("packages", kofiPkg, "package.json"));
+import {terser} from "rollup-plugin-terser";
+import cleanup from "rollup-plugin-cleanup";
+import {version} from "./package.json";
 
 //Generate the banner
 let banner = [];
-banner.push("/**");
-banner.push(" * @license @kofijs/" + kofiPkg + " " + pkg.version);
+banner.push("/*!*");
+banner.push(" * @license kofi " + version);
 banner.push(" *");
 banner.push(" * This source code is licensed under the MIT license found in the");
 banner.push(" * LICENSE file in the root directory of this source tree.");
@@ -19,30 +14,32 @@ banner.push("");
 
 //Initialize the configuration object
 let config = {
-    "input": path.join("packages", kofiPkg, "index.js"),
-    "output": {
-        "format": "umd",
-        "name": "kofi",
-        "extend": true,
-        "banner": banner.join("\n")
-    },
-    "plugins": []
+    "input": "index.js",
+    "output": Object.values({
+        "defaultExport": {
+            "file": "./dist/kofi.js",
+            "format": "umd",
+            "name": "kofi",
+            "banner": banner.join("\n")
+        },
+        "minExport": {
+            "file": "./dist/kofi.min.js",
+            "format": "umd",
+            "name": "kofi",
+            "banner": banner.join("\n")
+        }
+    }),
+    "plugins": [
+        cleanup(),
+        terser({
+            "output": {
+                "comments": "all"
+            },
+            "include": [/^.+\.min\.js$/]
+        })
+    ]
 };
 
-//Check for production build
-let isMin = typeof process.env.MINIFY === "string" && process.env.MINIFY === "true";
-if(isMin === true) {
-    config.plugins = [uglify({
-        "output": {
-            "preamble": banner.join("\n")
-        }
-    })];
-    config.output.file = path.join("packages", kofiPkg, ".bundle", "kofi-" + kofiPkg + ".min.js");
-} else {
-    config.plugins = [cleanup()];
-    config.output.file = path.join("packages", kofiPkg, ".bundle", "kofi-" + kofiPkg + ".js");
-}
-
 //Export the configuration object
-module.exports = config;
+export default config;
 
