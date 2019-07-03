@@ -1,8 +1,8 @@
-import HTTPError from "./http-error.js";
-import * as queryString from "../../shared/query-string.js";
+import {HTTPError} from "./http-error.js";
+import * as queryString from "../common/query-string.js";
 
 //Request method
-export default function request(opt, callback) {
+export function request(opt, callback) {
     //Check the function arguments
     if (typeof opt === "undefined") {
         throw new Error("Undefined ajax options object");
