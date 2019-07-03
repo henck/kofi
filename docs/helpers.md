@@ -242,14 +242,6 @@ Returns the kebab-case form of the string `str`.
 kofi.kebabCase("hello world");  // -> "hello-world"
 ```
 
-#### kofi.randomStr()
-
-Generates a unique random string of 15 characters.
-
-```javascript
-kofi.randomStr();  // -> str = "wv1ufiqj5e6xd3k"
-```
-
 #### kofi.repeat(str, n)
 
 Repeats a string `n` times.
@@ -264,6 +256,14 @@ Returns the snake-case form of the string `str`.
 
 ```javascript
 kofi.snakeCase("hello world");  // -> "hello_world"
+```
+
+#### kofi.tempid()
+
+Generates a unique random string of 15 characters.
+
+```javascript
+kofi.tempid();  // -> str = "wv1ufiqj5e6xd3k"
 ```
 
 #### kofi.truncate(str, opt)
