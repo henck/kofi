@@ -16,16 +16,36 @@ banner.push("");
 let config = {
     "input": "index.js",
     "output": Object.values({
-        "defaultExport": {
-            "file": "./dist/kofi.js",
+        "umdExport": {
+            "file": "./dist/kofi.umd.js",
             "format": "umd",
             "name": "kofi",
             "banner": banner.join("\n")
         },
-        "minExport": {
-            "file": "./dist/kofi.min.js",
+        "umdMinExport": {
+            "file": "./dist/kofi.umd.min.js",
             "format": "umd",
             "name": "kofi",
+            "banner": banner.join("\n")
+        },
+        "cjsExport": {
+            "file": "./dist/kofi.cjs.js",
+            "format": "cjs",
+            "banner": banner.join("\n")
+        },
+        "cjsMinExport": {
+            "file": "./dist/kofi.cjs.min.js",
+            "format": "cjs",
+            "banner": banner.join("\n")
+        },
+        "esmExport": {
+            "file": "./dist/kofi.esm.js",
+            "format": "esm",
+            "banner": banner.join("\n")
+        },
+        "esmMinExport": {
+            "file": "./dist/kofi.esm.min.js",
+            "format": "esm",
             "banner": banner.join("\n")
         }
     }),
