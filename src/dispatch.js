@@ -1,5 +1,5 @@
 //Dispatch handler
-export default function dispatch () {
+export function dispatch () {
     let dispatcher = {};
     //Event listeners
     dispatcher._listeners = {};
