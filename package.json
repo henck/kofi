@@ -1,18 +1,25 @@
 {
     "name": "kofi",
-    "version": "0.0.0",
-    "description": "Micro utility library for building modern SPA",
-    "private": true,
-    "scripts": {
-        "build": "bash scripts/build.sh",
-        "deploy": "bash scripts/deploy.sh",
-        "test": "bash scripts/test.sh"
-    },
+    "version": "0.2.0",
+    "description": "Tasty takeaway browser utilities. Just pour it and go!",
+    "private": false,
+    "main": "dist/kofi.cjs.js",
+    "module": "dist/kofi.esm.js",
+    "browser": "dist/kofi.umd.min.js",
+    "unpkg": "dist/kofi.umd.min.js",
+    "jsdelivr": "dist/kofi.umd.min.js",
+    "files": [
+        "docs/*.md",
+        "src",
+        "dist/*.js"
+    ],
     "repository": {
         "type": "git",
         "url": "https://github.com/jmjuanes/kofi.git"
     },
     "keywords": [
+        "kofi",
+        "helpers",
         "utility",
         "utils",
         "browser",
@@ -26,10 +33,9 @@
     },
     "homepage": "https://github.com/jmjuanes/kofi#readme",
     "devDependencies": {
-        "get-args": "^2.0.0",
         "mocha": "^5.0.4",
-        "rollup": "^0.57.1",
-        "rollup-plugin-uglify": "^3.0.0",
-        "rollup-plugin-cleanup": "^3.0.0-beta.1"
+        "rollup": "^1.16.4",
+        "rollup-plugin-cleanup": "^3.1.1",
+        "rollup-plugin-terser": "^5.1.0"
     }
 }
