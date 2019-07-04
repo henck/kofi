@@ -14,7 +14,7 @@ banner.push("");
 
 //Initialize the configuration object
 let config = {
-    "input": "index.js",
+    "input": "src/index.js",
     "output": Object.values({
         "umdExport": {
             "file": "./dist/kofi.umd.js",
