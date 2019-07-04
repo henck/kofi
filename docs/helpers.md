@@ -7,7 +7,7 @@
 
 #### kofi.delay(time, fn)
 
-This is just [`setTimeout`](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout) but with the arguments reverted (first the delay `time` in ms, then the callback `fn` function).
+This is just [`setTimeout`](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout) but with the arguments reversed (first the delay `time` in ms, then the callback `fn` function).
 
 ```javascript
 kofi.delay(1000, function () {
@@ -43,22 +43,9 @@ kofi.each({"key1": "value1", "key2": "value2"}, function (key, value) {
 // key2 -> value2
 ```
 
-#### kofi.equal(value1, value2)
-
-Determines if two values are equal. Works with strings, numbers, booleans, objects and arrays.
-
-```javascript
-let obj1 = {"key": "value"};
-let obj2 = {"key": "value"};
-let obj3 = {"key": null};
-
-kofi.equal(obj1, obj2); // --> true
-kofi.equal(obj1, obj3); // --> false
-```
-
 #### kofi.timer(time, fn)
 
-This is just [`setInterval`](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setInterval) but with the arguments reverted (first the delay `time` in ms and then the callback `fn` function).
+This is just [`setInterval`](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setInterval) but with the arguments reversed (first the delay `time` in ms and then the callback `fn` function).
 
 ```javascript
 let counter = 0;
@@ -182,8 +169,6 @@ kofi.sign(62);  // -> 1
 ## Objects
 
 #### kofi.deepClone(obj)
-
-> Added in **v0.1.0**
 
 Returns a deep clone of `obj`. Supports cloning arrays, objects, strings, booleans and numbers.
 
