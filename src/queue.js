@@ -35,7 +35,7 @@
  *
  */
 
-export default function queue (fn) {
+export function queue (fn) {
     //Queue management
     let q = {
         _list: [], 

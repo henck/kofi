@@ -1,6 +1,6 @@
 /**
  * @function fill(length, value)
- * @descript Returns a new array with size `length` filled with `value`. Only `string` or `number` values are allowed. 
+ * @description Returns a new array with size `length` filled with `value`. Only `string` or `number` values are allowed.
  * @example 
  * fill(5, 0);
  * // -> [0, 0, 0, 0, 0]

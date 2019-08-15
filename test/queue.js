@@ -1,5 +1,5 @@
 let assert = require("assert");
-let kofi = require("../dist/index.js");
+let kofi = require("../.bundle/kofi-queue.js");
 
 describe("queue", function () {
     it("executes all functions provided", function (done) {
@@ -14,10 +14,10 @@ describe("queue", function () {
             return next();
         });
         q.then(function (next) {
-            return kofi.delay(100, function () {
+            return setTimeout(function () {
                 e3 = true;
                 return next();
-            });
+            }, 100);
         });
         q.catch(function (error) {
             return done(new Error("ERROR RUNNING QUEUE"));

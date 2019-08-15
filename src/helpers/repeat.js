@@ -7,6 +7,6 @@
  */
 
 export default function repeat (str, n) {
-    return new Array(n).join(str);
+    return new Array(n + 1).join(str);
 }
 
